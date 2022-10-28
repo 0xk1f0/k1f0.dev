@@ -1,0 +1,162 @@
+:root {
+    --color-background: #000000;
+    --color-surface: #111111;
+    --color-primary: #1f1f1f;
+    --color-secondary: #fff;
+    --color-tertiary: #aaa;
+    --color-success: #00ff00;
+    --color-error: #ff0000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: var(--color-background);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-tertiary);
+}
+
+p {
+    color: var(--color-secondary);
+}
+
+h1, h2, h3 {
+    color: var(--color-secondary);
+}
+
+.contentWrapper {
+    padding: 15px;
+    flex: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 90em;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: var(--color-primary);
+    width: 100%;
+    text-align: left;
+}
+
+.header .header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.icon-container {
+    font-size: 20px;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+}
+
+.link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-container a {
+    padding-left: 10px;
+}
+
+.link-container i {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    vertical-align: baseline;
+}
+
+.link-container img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-primary);
+    font-size: 18px;
+    font-family: monospace;
+}
+
+.footer i, img {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    vertical-align: baseline;
+}
+
+.footer .footer-container {
+    padding: 20px;
+}
+
+.btn {
+    display: inline-block;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.btn-post-preview {
+    margin: 0px 0px 20px 0px;
+}
+
+.author-mention {
+    font-family: monospace;
+    font-size: 14px;
+    margin: 20px 0px;
+}
+
+.post {
+    padding: 15px;
+    background-image: linear-gradient(120deg, var(--color-surface), 30%, var(--color-background), 70%, var(--color-surface));;
+}
+
+.post h1, h2, h3 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.post h2 {
+    font-size: 24px;
+}
+
+.post h3 {
+    font-size: 16px;
+}
+
+.post p {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.post code {
+    font-size: 16px;
+}
+
+@media only screen and (max-device-width: 480px) {
+    
+}

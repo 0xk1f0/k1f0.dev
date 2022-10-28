@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Post from '../components/Post.astro';
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../posts/*.md');
+  return posts.map(post => ({
+    params: {
+        shortcut: post.frontmatter.shortcut
+    },
+    props: {
+      post
+    }
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.post;
+---
+
+<Layout title={frontmatter.title}>
+    <div class="contentWrapper">
+        <div class="container">
+            <Post>
+                <a class="btn btn-post-preview" href="/">&lt Go Back</a>
+                <h2>{frontmatter.title}</h2>
+                <div class="author-mention">
+                    <p>by <strong>{frontmatter.author} </strong> on {new Date(frontmatter.date).toLocaleDateString("eu")}</p>
+                </div>
+                <Content/>
+            </Post>
+        </div>
+    </div>
+</Layout>
