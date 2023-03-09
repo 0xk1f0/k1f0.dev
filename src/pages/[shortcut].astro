@@ -18,7 +18,7 @@ const { Content, frontmatter } = Astro.props.post;
 
 <Layout title={frontmatter.title}>
     <div class="contentWrapper">
-        <div class="container">
+        <div class="container container-fullscreen">
             <Post>
                 <a class="btn btn-post-preview" href="/">&lt Go Back</a>
                 <h2>{frontmatter.title}</h2>

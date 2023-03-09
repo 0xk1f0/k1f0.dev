@@ -8,7 +8,7 @@ const posts = await Astro.glob('../posts/*.md');
 <Layout title="k1f0.dev">
 	<div class="contentWrapper">
 		<div class="container">
-			{posts.map(post => (
+			{posts.reverse().map(post => (
 				<Post>
 					<h2>{post.frontmatter.title}</h2>
 					<p>{post.frontmatter.excerpt}</p>  

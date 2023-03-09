@@ -1,11 +1,20 @@
 :root {
-    --color-background: #000000;
-    --color-surface: #111111;
-    --color-primary: #1f1f1f;
-    --color-secondary: #fff;
-    --color-tertiary: #aaa;
+    --color-background: #020217;
+    --color-foreground: #8ec9df;
+    --color-surface: #09131d;
+    --color-primary: #012074;
+    --color-secondary: #0094C6;
     --color-success: #00ff00;
     --color-error: #ff0000;
+}
+
+@keyframes fadeIn {
+    0% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 1; 
+    }
 }
 
 * {
@@ -23,21 +32,21 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
     text-decoration: none;
-    color: var(--color-tertiary);
+    color: var(--color-secondary);
 }
 
 p {
-    color: var(--color-secondary);
+    color: var(--color-foreground);
 }
 
 h1, h2, h3 {
-    color: var(--color-secondary);
+    color: var(--color-foreground);
 }
 
 .contentWrapper {
@@ -47,12 +56,18 @@ h1, h2, h3 {
 
 .container {
     width: 100%;
-    max-width: 90em;
+    max-width: 75em;
     margin: 0 auto;
+    animation: fadeIn 250ms;
+}
+
+.container-fullscreen {
+    max-width: unset;
+    animation: fadeIn 500ms;
 }
 
 .header {
-    background-color: var(--color-primary);
+    background-color: var(--color-surface);
     width: 100%;
     text-align: left;
 }
@@ -95,7 +110,7 @@ h1, h2, h3 {
 .footer {
     width: 100%;
     text-align: center;
-    background-color: var(--color-primary);
+    background-color: var(--color-surface);
     font-size: 18px;
     font-family: monospace;
 }
@@ -131,8 +146,9 @@ h1, h2, h3 {
 
 .post {
     padding: 15px;
-    background-image: linear-gradient(120deg, var(--color-surface), 30%, var(--color-background), 70%, var(--color-surface));;
+    background-color: var(--color-surface);
     margin: 10px 0px 10px 0px;
+    border-radius: 15px;
 }
 
 .post h1, h2, h3 {
@@ -154,10 +170,16 @@ h1, h2, h3 {
     font-size: 16px;
 }
 
-.post code {
-    font-size: 16px;
+.astro-code {
+    border: solid #333;
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 15px 5px;
+    margin: 25px 0px !important;
+    background-color: #000 !important;
 }
 
-@media only screen and (max-device-width: 480px) {
-    
+.astro-code code .line {
+    font-size: 16px;
+    margin: 0 10px;
 }
