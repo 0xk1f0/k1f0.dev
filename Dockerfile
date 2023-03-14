@@ -1,11 +1,14 @@
 # from nginx latest
 FROM nginx:latest
 
-# update and install deps
-RUN apt update && apt upgrade -y
+# specify working dir
+WORKDIR /usr/share/nginx/html
 
 # purge content
-RUN rm -rf /usr/share/nginx/html/*
+RUN rm -rf *
 
 # add site
-ADD $PWD/dist /usr/share/nginx/html/
+ADD $PWD/dist ./
+
+# indicate port
+EXPOSE 80
