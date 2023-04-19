@@ -1,14 +1,28 @@
-# from nginx latest
-FROM nginx:latest
+# from deno alpine latest
+FROM denoland/deno:alpine
 
-# specify working dir
-WORKDIR /usr/share/nginx/html
+# Add npm
+RUN apk update && \
+    apk add npm
 
-# purge content
-RUN rm -rf *
+# Set working directory
+WORKDIR /app
 
-# add site
-ADD $PWD/dist ./
+# Copy initial necessary files to container
+COPY package.json .
+COPY package-lock.json .
+COPY astro.config.mjs .
+COPY favicon.svg .
 
-# indicate port
-EXPOSE 80
+# Copy all files from src/
+COPY src ./src
+
+# Install dependencies and build
+RUN npm install
+RUN npm run build
+
+# The port deno listens on
+EXPOSE 8085
+
+# Start deno
+CMD ["npm", "run", "denorun"]
