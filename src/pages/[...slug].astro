@@ -1,19 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Post from '../components/Post.astro';
-export async function getStaticPaths() {
-  const posts = await Astro.glob('../posts/*.md');
-  return posts.map(post => ({
+const pages = await Astro.glob('../posts/*.md')
+pages.map(post => ({
     params: {
         shortcut: post.frontmatter.shortcut
     },
     props: {
-      post
+        post
     }
-  }));
-}
+}));
 
-const { Content, frontmatter } = Astro.props.post;
+const { slug } = Astro.params;
+const page = pages.find((page) => page.frontmatter.shortcut === slug);
+if (!page) return Astro.redirect("/404");
+const { Content, frontmatter } = page;
 ---
 
 <Layout title={frontmatter.title}>

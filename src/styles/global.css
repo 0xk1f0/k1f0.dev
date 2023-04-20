@@ -64,7 +64,6 @@ h1, h2, h3 {
 }
 
 .container-fullscreen {
-    max-width: unset;
     animation: fadeIn 500ms;
 }
 
@@ -177,6 +176,42 @@ h1, h2, h3 {
     margin-bottom: 15px;
     margin-top: 15px;
     font-size: 16px;
+}
+
+#listing-post-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#listing-post-header p,
+#listing-post-header h2 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#listing-author-mention {
+    font-style: italic;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+.four-o-four-container {
+    height: 100%;
+    display: flex;
+}
+
+#four-o-four {
+    text-align: center;
+    font-size: 40px;
+    margin: auto auto;
+}
+
+#four-o-four p {
+    font-size: 30px;
 }
 
 .about-container {
