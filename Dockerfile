@@ -12,7 +12,6 @@ WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 COPY astro.config.mjs .
-COPY favicon.svg .
 
 # Copy all files from src/
 COPY src ./src
