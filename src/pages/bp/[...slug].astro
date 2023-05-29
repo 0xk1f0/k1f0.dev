@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Post from '../components/Post.astro';
-const pages = await Astro.glob('../posts/*.md')
+import Layout from '../../layouts/Layout.astro';
+import Post from '../../components/Post.astro';
+const pages = await Astro.glob('../../posts/*.md')
 pages.map(post => ({
     params: {
         shortcut: post.frontmatter.shortcut

@@ -1,26 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Post from '../components/Post.astro';
-
-const posts = await Astro.glob('../posts/*.md');
 ---
 
 <Layout title="k1f0.dev">
-    <div class="container">
-        {posts.reverse().map(post => (
-            <Post>
-                <div id="listing-post-header">
-                    <h2>{post.frontmatter.title}</h2>
-                    <p id="listing-author-mention">
-                        by <strong> {post.frontmatter.author} </strong> on 
-                        {
-                            new Date(post.frontmatter.date).toLocaleDateString("eu")
-                        }
-                    </p>
-                </div>
-                <p>{post.frontmatter.excerpt}</p>
-                <a class="btn btn-post" href={`/${post.frontmatter.shortcut}`}>Read More &gt</a>
-            </Post>
-        ))}
+    <div class="container general-container">
+        <article class="general-page">
+            <h1>Hello Visitor</h1>
+            <p>
+                Not much to see here yet, but you might want to check out my
+                <a href="/blog">Blogposts</a>.<br><br>
+            </p>
+            <a href="https://xkcd.com/1739">
+                <img id="index-img" src="https://imgs.xkcd.com/comics/fixing_problems.png" alt="xkcd-meme"/>
+            </a>
+        </article>
     </div>
 </Layout>
