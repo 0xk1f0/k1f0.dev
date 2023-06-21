@@ -1,6 +1,5 @@
 ---
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import favicon from '../public/favicon.svg';
 import '../styles/global.css';
 
@@ -26,6 +25,5 @@ const { title = "" } = Astro.props as Props;
         <div class="contentWrapper">
             <slot/>
         </div>
-		<Footer/>
     </body>
 </html>

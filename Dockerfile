@@ -20,8 +20,5 @@ COPY src ./src
 RUN npm install
 RUN npm run build
 
-# The port deno listens on
-EXPOSE 8085
-
 # Start deno
-CMD ["npm", "run", "denorun"]
+CMD ["deno", "run", "--allow-net", "--allow-read", "--allow-env", "./dist/server/entry.mjs"]

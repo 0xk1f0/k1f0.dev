@@ -1,11 +1,8 @@
 :root {
+    --color-primary: #0094C6;
+    --color-surface: #09131d;
     --color-background: #020217;
     --color-foreground: #8ec9df;
-    --color-surface: #09131d;
-    --color-primary: #012074;
-    --color-secondary: #0094C6;
-    --color-success: #00ff00;
-    --color-error: #ff0000;
 }
 
 @keyframes fadeIn {
@@ -40,7 +37,7 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
 p {
@@ -87,7 +84,6 @@ h1, h2, h3 {
 .general-page {
     padding: 15px;
     margin: 10px;
-    border-radius: 15px;
     text-align: center;
     margin: auto;
     width: 75%;
@@ -139,7 +135,7 @@ h1, h2, h3 {
 
 .btn {
     display: inline-block;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     text-transform: uppercase;
     font-family: monospace;
     font-size: 14px;
@@ -159,7 +155,6 @@ h1, h2, h3 {
     padding: 15px;
     background-color: var(--color-surface);
     margin: 10px;
-    border-radius: 15px;
 }
 
 .post h1, .post h2, .post h3 {
@@ -202,32 +197,6 @@ h1, h2, h3 {
     margin: 0;
 }
 
-.footer {
-    width: 100%;
-    background-color: var(--color-background);
-    font-size: 18px;
-    font-family: monospace;
-    padding: 0 10px;
-}
-
-.footer-container {
-    border-top: solid var(--color-surface);
-    border-width: 4px;
-    border-radius: 2px;
-    width: fit-content;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.footer-container p {
-    padding: 20px 40px;
-    max-width: 75em;
-}
-
-.footer a, .footer p {
-    font-style: italic;
-}
-
 .four-o-four-container {
     height: 100%;
     display: flex;
@@ -246,7 +215,6 @@ h1, h2, h3 {
 .astro-code {
     border: solid #333;
     border-width: 2px;
-    border-radius: 15px;
     padding: 15px 5px;
     margin: 25px 0px !important;
     background-color: #000 !important;
@@ -279,8 +247,5 @@ h1, h2, h3 {
     
     .post p {
         font-size: 15px;
-    }
-    .footer {
-        font-size: 14px;
     }
 }
