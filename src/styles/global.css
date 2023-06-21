@@ -176,6 +176,10 @@ h1, h2, h3 {
     font-size: 16px;
 }
 
+.post ul {
+    margin: 15px;
+}
+
 #listing-post-header {
     display: flex;
     flex-wrap: wrap;
