@@ -1,26 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Post from '../components/Post.astro';
+import Layout from "../layouts/Layout.astro";
+import Post from "../components/Post.astro";
 
-const posts = await Astro.glob('../posts/*.md');
+const posts = await Astro.glob("../posts/*.md");
 ---
 
 <Layout title="Blog - k1f0.dev">
     <div class="container">
-        {posts.reverse().map(post => (
-            <Post>
-                <div id="listing-post-header">
-                    <h2>{post.frontmatter.title}</h2>
-                    <p id="listing-author-mention">
-                        by <strong> {post.frontmatter.author} </strong> on 
-                        {
-                            new Date(post.frontmatter.date).toLocaleDateString("eu")
-                        }
-                    </p>
-                </div>
-                <p>{post.frontmatter.excerpt}</p>
-                <a class="btn btn-post" href={`/bp/${post.frontmatter.shortcut}`}>Read More &gt</a>
-            </Post>
-        ))}
+        {
+            posts.reverse().map((post) => (
+                <Post>
+                    <div id="listing-post-header">
+                        <h2>{post.frontmatter.title}</h2>
+                        <p id="listing-author-mention">
+                            by <strong> {post.frontmatter.author} </strong> on
+                            {new Date(post.frontmatter.date).toLocaleDateString(
+                                "eu"
+                            )}
+                        </p>
+                    </div>
+                    <p>{post.frontmatter.excerpt}</p>
+                    <a
+                        class="btn btn-post"
+                        href={`/bp/${post.frontmatter.shortcut}`}
+                    >
+                        Read More &gt
+                    </a>
+                </Post>
+            ))
+        }
     </div>
 </Layout>

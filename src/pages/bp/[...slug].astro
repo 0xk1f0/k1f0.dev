@@ -1,14 +1,14 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Post from '../../components/Post.astro';
-const pages = await Astro.glob('../../posts/*.md')
-pages.map(post => ({
+import Layout from "../../layouts/Layout.astro";
+import Post from "../../components/Post.astro";
+const pages = await Astro.glob("../../posts/*.md");
+pages.map((post) => ({
     params: {
-        shortcut: post.frontmatter.shortcut
+        shortcut: post.frontmatter.shortcut,
     },
     props: {
-        post
-    }
+        post,
+    },
 }));
 
 const { slug } = Astro.params;
@@ -17,16 +17,20 @@ if (!page) return Astro.redirect("/404");
 const { Content, frontmatter } = page;
 ---
 
-<Layout title={frontmatter.title + " - k1f0.dev"}'>
+<Layout title={frontmatter.title + " - k1f0.dev"} '>
     <div class="contentWrapper">
         <div class="container container-fullscreen">
             <Post>
                 <a class="btn btn-post-preview" href="/blog">&lt Go Back</a>
                 <h1>{frontmatter.title}</h1>
                 <div class="author-mention">
-                    <p>by <strong>{frontmatter.author} </strong> on {new Date(frontmatter.date).toLocaleDateString("eu")}</p>
+                    <p>
+                        by <strong>{frontmatter.author}</strong> on {
+                            new Date(frontmatter.date).toLocaleDateString("eu")
+                        }
+                    </p>
                 </div>
-                <Content/>
+                <Content />
             </Post>
         </div>
     </div>
