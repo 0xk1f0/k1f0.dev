@@ -2,20 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import Post from "../components/Post.astro";
 
-const posts = await Astro.glob("../posts/*.md");
+const POSTS = await Astro.glob("../posts/*.md");
 ---
 
 <Layout title="Blog - k1f0.dev">
     <div class="container">
         {
-            posts.reverse().map((post) => (
+            POSTS.reverse().map((post) => (
                 <Post>
                     <div id="listing-post-header">
                         <h2>{post.frontmatter.title}</h2>
                         <p id="listing-author-mention">
                             by <strong> {post.frontmatter.author} </strong> on
                             {new Date(post.frontmatter.date).toLocaleDateString(
-                                "eu"
+                                "en-GB"
                             )}
                         </p>
                     </div>

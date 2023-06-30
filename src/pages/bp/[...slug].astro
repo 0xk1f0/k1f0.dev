@@ -1,8 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Post from "../../components/Post.astro";
-const pages = await Astro.glob("../../posts/*.md");
-pages.map((post) => ({
+
+const PAGES = await Astro.glob("../../posts/*.md");
+PAGES.map((post) => ({
     params: {
         shortcut: post.frontmatter.shortcut,
     },
@@ -12,9 +13,9 @@ pages.map((post) => ({
 }));
 
 const { slug } = Astro.params;
-const page = pages.find((page) => page.frontmatter.shortcut === slug);
-if (!page) return Astro.redirect("/404");
-const { Content, frontmatter } = page;
+const PAGE = PAGES.find((page) => page.frontmatter.shortcut === slug);
+if (!PAGE) return Astro.redirect("/404");
+const { Content, frontmatter } = PAGE;
 ---
 
 <Layout title={frontmatter.title + " - k1f0.dev"} '>
@@ -26,7 +27,9 @@ const { Content, frontmatter } = page;
                 <div class="author-mention">
                     <p>
                         by <strong>{frontmatter.author}</strong> on {
-                            new Date(frontmatter.date).toLocaleDateString("eu")
+                            new Date(frontmatter.date).toLocaleDateString(
+                                "en-GB"
+                            )
                         }
                     </p>
                 </div>

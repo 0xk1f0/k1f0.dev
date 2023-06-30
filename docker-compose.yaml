@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "127.0.0.1:8080:8085"
+      - "127.0.0.1:8085:8085"
     environment:
       - TZ=Europe/Vienna
     restart: unless-stopped
