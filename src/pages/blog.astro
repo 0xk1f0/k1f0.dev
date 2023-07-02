@@ -5,7 +5,7 @@ import Post from "../components/Post.astro";
 const POSTS = await Astro.glob("../posts/*.md");
 ---
 
-<Layout title="Blog - k1f0.dev">
+<Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
     <div class="container">
         {
             POSTS.reverse().map((post) => (

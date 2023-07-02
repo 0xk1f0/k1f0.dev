@@ -18,7 +18,7 @@ if (!PAGE) return Astro.redirect("/404");
 const { Content, frontmatter } = PAGE;
 ---
 
-<Layout title={frontmatter.title + " - k1f0.dev"} '>
+<Layout title={frontmatter.title + " - k1f0.dev"} desc={frontmatter.excerpt}>
     <div class="contentWrapper">
         <div class="container container-fullscreen">
             <Post>
