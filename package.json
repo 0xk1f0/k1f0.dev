@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "@astrojs/deno": "^4.1.1",
-    "astro": "^2.7.0"
+    "astro": "^2.7.2"
   }
 }
