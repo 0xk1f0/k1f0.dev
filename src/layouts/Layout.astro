@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 
 export interface Props {
@@ -26,19 +27,26 @@ const { title = "", desc = "" } = Astro.props as Props;
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en" />
         <meta property="og:description" content={desc} />
-        <meta property="og:image" content="https://k1f0.dev/img/jpg/og-preview.jpg" />
+        <meta
+            property="og:image"
+            content="https://k1f0.dev/og-preview.jpg"
+        />
         <meta property="og:image:alt" content="O.o" />
         <!--Twitter Tags-->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="k1f0.dev" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:image" content="https://k1f0.dev/img/jpg/og-preview.jpg" />
+        <meta
+            name="twitter:image"
+            content="https://k1f0.dev/og-preview.jpg"
+        />
         <meta name="twitter:image:alt" content="O.o" />
+        <ViewTransitions />
     </head>
     <body>
         <Header />
-        <div class="contentWrapper">
+        <div class="contentWrapper" transition:animate="slide">
             <slot />
         </div>
     </body>

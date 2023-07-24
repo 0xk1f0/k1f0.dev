@@ -5,15 +5,6 @@
     --color-foreground: #8ec9df;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -71,11 +62,6 @@ h3 {
     width: 100%;
     max-width: 75em;
     margin: 0 auto;
-    animation: fadeIn 250ms;
-}
-
-.container-fullscreen {
-    animation: fadeIn 500ms;
 }
 
 .general-container {
