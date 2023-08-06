@@ -1,33 +1,25 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from "../../layouts/Layout.astro";
 import Post from "../../components/Post.astro";
 
-const PAGES = await Astro.glob("../../posts/*.md");
-PAGES.map((post) => ({
-    params: {
-        shortcut: post.frontmatter.shortcut,
-    },
-    props: {
-        post,
-    },
-}));
-
 const { slug } = Astro.params;
-const PAGE = PAGES.find((page) => page.frontmatter.shortcut === slug);
+const POSTS = await getCollection('posts');
+const PAGE = POSTS.find((page) => page.data.shortcut === slug);
 if (!PAGE) return Astro.redirect("/404");
-const { Content, frontmatter } = PAGE;
+const { Content } = await PAGE.render();
 ---
 
-<Layout title={frontmatter.title + " - k1f0.dev"} desc={frontmatter.excerpt}>
+<Layout title={PAGE.data.title + " - k1f0.dev"} desc={PAGE.data.excerpt}>
     <div class="contentWrapper">
         <div class="container container-fullscreen">
             <Post>
                 <a class="btn btn-post-preview" href="/blog">&lt Go Back</a>
-                <h1>{frontmatter.title}</h1>
+                <h1>{PAGE.data.title}</h1>
                 <div class="author-mention">
                     <p>
-                        by <strong>{frontmatter.author}</strong> on {
-                            new Date(frontmatter.date).toLocaleDateString(
+                        by <strong>{PAGE.data.author}</strong> on {
+                            new Date(PAGE.data.date).toLocaleDateString(
                                 "en-GB"
                             )
                         }

@@ -1,28 +1,29 @@
 ---
+import { getCollection, getEntry } from 'astro:content';
 import Layout from "../layouts/Layout.astro";
 import Post from "../components/Post.astro";
 
-const POSTS = await Astro.glob("../posts/*.md");
+const POSTS = await getCollection('posts');
 ---
 
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
     <div class="container">
         {
-            POSTS.reverse().map((post) => (
+            POSTS.toReversed().map((post) => (
                 <Post>
                     <div id="listing-post-header">
-                        <h2>{post.frontmatter.title}</h2>
+                        <h2>{post.data.title}</h2>
                         <p id="listing-author-mention">
-                            by <strong> {post.frontmatter.author} </strong> on
-                            {new Date(post.frontmatter.date).toLocaleDateString(
+                            by <strong> {post.data.author} </strong> on
+                            {new Date(post.data.date).toLocaleDateString(
                                 "en-GB"
                             )}
                         </p>
                     </div>
-                    <p>{post.frontmatter.excerpt}</p>
+                    <p>{post.data.excerpt}</p>
                     <a
                         class="btn btn-post"
-                        href={`/bp/${post.frontmatter.shortcut}`}
+                        href={`/bp/${post.data.shortcut}`}
                     >
                         Read More &gt
                     </a>

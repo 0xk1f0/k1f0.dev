@@ -20,7 +20,11 @@ pnpm-debug.log*
 .DS_Store
 
 # posts
-posts/
+*.md
+*.mdx
 
 # vscode
 .vscode/
+
+# astro
+.astro/
