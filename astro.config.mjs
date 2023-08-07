@@ -6,9 +6,6 @@ export default defineConfig({
   output: 'server',
   adapter: deno(),
   publicDir: './src/public',
-  experimental: {
-    viewTransitions: true
-  },
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
