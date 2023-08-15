@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile
     hostname: astro
     ports:
-      - '127.0.0.1:8085:3000'
+      - '127.0.0.1:8085:8085'
     environment:
       TZ: Europe/Vienna
       DB_USER: CHANGEME

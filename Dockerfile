@@ -17,4 +17,4 @@ RUN npm install
 RUN npm run build
 
 # Start deno
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["HOST=0.0.0.0", "PORT=8085", "node", "./dist/server/entry.mjs"]
