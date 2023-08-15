@@ -16,5 +16,9 @@ COPY src ./src
 RUN npm install
 RUN npm run build
 
+# env for node
+ENV HOST=0.0.0.0
+ENV PORT=8085
+
 # Start deno
-CMD ["HOST=0.0.0.0", "PORT=8085", "node", "./dist/server/entry.mjs"]
+CMD ["node", "./dist/server/entry.mjs"]
