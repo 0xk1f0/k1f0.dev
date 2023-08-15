@@ -1,9 +1,5 @@
-# from deno alpine latest
-FROM denoland/deno:alpine
-
-# Add npm
-RUN apk update && \
-    apk add npm
+# from node slim latest
+FROM node:slim
 
 # Set working directory
 WORKDIR /app
@@ -21,4 +17,4 @@ RUN npm install
 RUN npm run build
 
 # Start deno
-CMD ["deno", "run", "--allow-net", "--allow-read", "--allow-env", "./dist/server/entry.mjs"]
+CMD ["node", "./dist/server/entry.mjs"]

@@ -169,6 +169,33 @@ h3 {
     margin: 15px;
 }
 
+.voteWrapper {
+    width: 100%;
+    display: flex;
+}
+
+.voteContainer {
+    margin: 0 auto;
+}
+
+.voteContainer button {
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.voteContainer button:active {
+    background-color: var(--color-background);
+    transform: translateY(1px);
+}
+
 #listing-post-header {
     display: flex;
     flex-wrap: wrap;

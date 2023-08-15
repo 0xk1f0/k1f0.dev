@@ -1,13 +1,55 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Post from "../../components/Post.astro";
+import MongoHandler from "../../components/db";
+import { hashClientAddress } from "../../components/helpers";
 
+let mh = new MongoHandler();
 const { slug } = Astro.params;
-const POSTS = await getCollection('posts');
+const HASH_IP = await hashClientAddress(Astro.clientAddress);
+const POSTS = await getCollection("posts");
 const PAGE = POSTS.find((page) => page.data.shortcut === slug);
 if (!PAGE) return Astro.redirect("/404");
 const { Content } = await PAGE.render();
+
+// get current up and downvotes
+const VOTES = await mh.votesCheck(btoa(slug || ""), HASH_IP);
+
+if (Astro.request.method === "POST") {
+    try {
+        const TYPE = await Astro.request.text();
+        let resp;
+        switch (TYPE) {
+            case "upvote":
+                resp = await mh.registerVote(btoa(slug || ""), HASH_IP, "up");
+                if (resp) {
+                    console.log(
+                        "Upvote registered for: " + HASH_IP.slice(0, 8) + "..."
+                    );
+                }
+                break;
+
+            case "downvote":
+                resp = await mh.registerVote(btoa(slug || ""), HASH_IP, "down");
+                if (resp) {
+                    console.log(
+                        "Downvote registered for: " +
+                            HASH_IP.slice(0, 8) +
+                            "..."
+                    );
+                }
+                break;
+
+            default:
+                break;
+        }
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(error.message);
+        }
+    }
+}
 ---
 
 <Layout title={PAGE.data.title + " - k1f0.dev"} desc={PAGE.data.excerpt}>
@@ -19,14 +61,39 @@ const { Content } = await PAGE.render();
                 <div class="author-mention">
                     <p>
                         by <strong>{PAGE.data.author}</strong> on {
-                            new Date(PAGE.data.date).toLocaleDateString(
-                                "en-GB"
-                            )
+                            new Date(PAGE.data.date).toLocaleDateString("en-GB")
                         }
                     </p>
                 </div>
                 <Content />
+                <div class="voteWrapper">
+                    <div class="voteContainer">
+                        <button id="button-upvote">UpVote ({VOTES["upvotes"]})</button>
+                        <button id="button-downvote">DownVote ({VOTES["downvotes"]})</button>
+                    </div>
+                </div>
             </Post>
         </div>
     </div>
 </Layout>
+
+<script>
+    function upvote() {
+        fetch(window.location.href, { method: "POST", body: "upvote" }).then(
+            () => window.location.reload()
+        );
+    }
+
+    function downvote() {
+        fetch(window.location.href, { method: "POST", body: "downvote" }).then(
+            () => window.location.reload()
+        );
+    }
+
+    document
+        .getElementById("button-upvote")
+        ?.addEventListener("click", () => upvote());
+    document
+        .getElementById("button-downvote")
+        ?.addEventListener("click", () => downvote());
+</script>
