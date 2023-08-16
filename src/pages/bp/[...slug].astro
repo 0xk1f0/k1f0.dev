@@ -12,8 +12,9 @@ const API = new APIHandler();
 const { Content } = await PAGE.render();
 
 // hash client's IP
+const REAL_IP = Astro.request.headers.get("x-forwarded-for") || []
 const IP_ID = await API.hashClientAddress(
-    Astro.request.headers.get("x-forwarded-for") || Astro.clientAddress
+    REAL_IP[0] || Astro.clientAddress
 );
 
 // handle POST reqs
