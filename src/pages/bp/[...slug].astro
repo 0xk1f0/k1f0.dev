@@ -1,48 +1,38 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Post from "../../components/Post.astro";
-import MongoHandler from "../../components/db";
-import { hashClientAddress } from "../../components/helpers";
+import BlogPost from "../../components/BlogPost.svelte";
+import APIHandler from "../../components/api";
 
-let mh = new MongoHandler();
 const { slug } = Astro.params;
-const HASH_IP = await hashClientAddress(Astro.clientAddress);
 const POSTS = await getCollection("posts");
 const PAGE = POSTS.find((page) => page.data.shortcut === slug);
 if (!PAGE) return Astro.redirect("/404");
+const API = new APIHandler();
 const { Content } = await PAGE.render();
 
-// get current up and downvotes
-const VOTES = await mh.votesCheck(btoa(slug || ""), HASH_IP);
+// hash client's IP
+const IP_ID = await API.hashClientAddress(
+    Astro.request.headers.get("x-forwarded-for") || Astro.clientAddress
+);
 
+// handle POST reqs
 if (Astro.request.method === "POST") {
     try {
         const TYPE = await Astro.request.text();
-        let resp;
-        switch (TYPE) {
-            case "upvote":
-                resp = await mh.registerVote(btoa(slug || ""), HASH_IP, "up");
-                if (resp) {
-                    console.log(
-                        "Upvote registered for: " + HASH_IP.slice(0, 8) + "..."
-                    );
+        const RESP = await API.handleRequest(TYPE, slug || "", IP_ID);
+        if (RESP instanceof Object) {
+            return new Response(
+                JSON.stringify({
+                    votes: RESP,
+                }),
+                {
+                    status: 200,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
                 }
-                break;
-
-            case "downvote":
-                resp = await mh.registerVote(btoa(slug || ""), HASH_IP, "down");
-                if (resp) {
-                    console.log(
-                        "Downvote registered for: " +
-                            HASH_IP.slice(0, 8) +
-                            "..."
-                    );
-                }
-                break;
-
-            default:
-                break;
+            );
         }
     } catch (error) {
         if (error instanceof Error) {
@@ -53,47 +43,7 @@ if (Astro.request.method === "POST") {
 ---
 
 <Layout title={PAGE.data.title + " - k1f0.dev"} desc={PAGE.data.excerpt}>
-    <div class="contentWrapper">
-        <div class="container container-fullscreen">
-            <Post>
-                <a class="btn btn-post-preview" href="/blog">&lt Go Back</a>
-                <h1>{PAGE.data.title}</h1>
-                <div class="author-mention">
-                    <p>
-                        by <strong>{PAGE.data.author}</strong> on {
-                            new Date(PAGE.data.date).toLocaleDateString("en-GB")
-                        }
-                    </p>
-                </div>
-                <Content />
-                <div class="voteWrapper">
-                    <div class="voteContainer">
-                        <button id="button-upvote">UpVote ({VOTES["upvotes"]})</button>
-                        <button id="button-downvote">DownVote ({VOTES["downvotes"]})</button>
-                    </div>
-                </div>
-            </Post>
-        </div>
-    </div>
+    <BlogPost dataProps={[PAGE]} client:visible>
+        <Content />
+    </BlogPost>
 </Layout>
-
-<script>
-    function upvote() {
-        fetch(window.location.href, { method: "POST", body: "upvote" }).then(
-            () => window.location.reload()
-        );
-    }
-
-    function downvote() {
-        fetch(window.location.href, { method: "POST", body: "downvote" }).then(
-            () => window.location.reload()
-        );
-    }
-
-    document
-        .getElementById("button-upvote")
-        ?.addEventListener("click", () => upvote());
-    document
-        .getElementById("button-downvote")
-        ?.addEventListener("click", () => downvote());
-</script>

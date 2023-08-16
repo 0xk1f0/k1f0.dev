@@ -8,6 +8,7 @@ WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 COPY astro.config.mjs .
+COPY svelte.config.js .
 
 # Copy all files from src/
 COPY src ./src

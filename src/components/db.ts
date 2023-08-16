@@ -1,9 +1,14 @@
 import * as mongoDB from "mongodb";
 
 // env vars
-const DB_HOST = process.env.DB_HOST || '';
-const DB_USER = process.env.DB_USER || '';
-const DB_PASS = process.env.DB_PASS || '';
+const DB_HOST = process.env.DB_HOST;
+const DB_USER = process.env.DB_USER;
+const DB_PASS = process.env.DB_PASS;
+
+// exit if no set
+if (!DB_HOST || !DB_USER || !DB_PASS) {
+    throw Error('Missing Environment Variables!');
+}
 
 class MongoHandler {
     #client: mongoDB.MongoClient;

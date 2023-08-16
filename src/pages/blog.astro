@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from "../layouts/Layout.astro";
-import Post from "../components/Post.astro";
 
 const POSTS = await getCollection('posts');
 ---
@@ -10,7 +9,7 @@ const POSTS = await getCollection('posts');
     <div class="container">
         {
             POSTS.toReversed().map((post) => (
-                <Post>
+                <article class="post">
                     <div id="listing-post-header">
                         <h2>{post.data.title}</h2>
                         <p id="listing-author-mention">
@@ -27,7 +26,7 @@ const POSTS = await getCollection('posts');
                     >
                         Read More &gt
                     </a>
-                </Post>
+                </article>
             ))
         }
     </div>
