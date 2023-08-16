@@ -28,7 +28,6 @@ class APIHandler {
 
             case "votes":
                 const RESP = await this.#mh.votesCheck(btoa(slug || ""), address);
-                console.log(RESP)
                 if (RESP) {
                     return RESP;
                 }
