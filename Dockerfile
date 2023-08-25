@@ -5,16 +5,18 @@ FROM node:slim
 WORKDIR /app
 
 # Copy initial necessary files to container
-COPY package.json .
-COPY package-lock.json .
-COPY astro.config.mjs .
-COPY svelte.config.js .
+COPY package.json \
+    package-lock.json \
+    astro.config.mjs \
+    svelte.config.js .
+
+# Install dependencies
+RUN npm install
 
 # Copy all files from src/
 COPY src ./src
 
-# Install dependencies and build
-RUN npm install
+# build
 RUN npm run build
 
 # env for node
