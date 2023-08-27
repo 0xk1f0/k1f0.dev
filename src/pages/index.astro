@@ -1,18 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import APIHandler from "../components/api";
+
+// new API handler
+const API = new APIHandler();
+
+// hash client's IP
+const REAL_IP = (Astro.request.headers.get("x-forwarded-for") || "")
+    .split(",")[0]
+    .trim();
+const IP_ID = await API.hashClientAddress(REAL_IP || Astro.clientAddress);
 ---
 
 <Layout title="k1f0.dev" desc="The Starting Void">
     <div class="container general-container">
         <article class="general-page">
-            <h1>Hello Visitor</h1>
-            <p>
-                Not much to see here yet, but you might want to check out my
-                <a href="/blog">Blogposts</a>.<br /><br />
-            </p>
-            <a href="https://xkcd.com/1739">
-                <img id="index-img" src="/webp/xkcd.webp" alt="xkcd-meme" />
-            </a>
+            <h1>
+                Hello Visitor <code style="font-style: italic;"
+                    >"{IP_ID.slice(0, 12)}"</code
+                >
+            </h1>
+            <div class="highlighter-div">
+                <p>
+                    Above are the first 8 characters of the hash that will
+                    identify you as a voter on this page.<br />
+                    It is only used to keep track of the unique total number of votes.<br
+                    />
+                    <span style="font-weight: bolder;"
+                        >This site does not collect any other data (or none if
+                        you don't vote).</span
+                    ><br />
+                    If you would like to read and/or vote, please head over to my
+                    <a href="/blog">Blogposts</a>.<br /><br />
+                    I hope you enjoy your stay here.
+                </p>
+            </div>
         </article>
     </div>
 </Layout>

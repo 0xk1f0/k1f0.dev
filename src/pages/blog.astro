@@ -6,7 +6,7 @@ const POSTS = await getCollection('posts');
 ---
 
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
-    <div class="container">
+    <div class="container post-container">
         {
             POSTS.toReversed().map((post) => (
                 <article class="post">

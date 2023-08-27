@@ -1,8 +1,8 @@
 :root {
-    --color-primary: #0094c6;
-    --color-surface: #09131d;
-    --color-background: #020217;
-    --color-foreground: #8ec9df;
+    --color-primary: rgba(0, 148, 198, 1);
+    --color-surface: rgba(9, 19, 29, 1);
+    --color-background: rgba(2, 2, 23, 1);
+    --color-foreground: rgba(142, 201, 223, 1);
 }
 
 * {
@@ -31,7 +31,8 @@ a {
     color: var(--color-primary);
 }
 
-p, li {
+p,
+li {
     color: var(--color-foreground);
 }
 
@@ -64,6 +65,14 @@ h3 {
     margin: 0 auto;
 }
 
+.post-container {
+    animation: fadeInOp 750ms;
+}
+
+.container-fullscreen {
+    animation: fadeInOp 750ms;
+}
+
 .general-container {
     height: 85%;
     display: flex;
@@ -79,12 +88,36 @@ h3 {
 
 .general-page p {
     font-size: 18px;
-    margin: 15px;
+    margin: 0 auto;
 }
 
 .general-page h1 {
-    margin-top: 15px;
     font-size: 32px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: 
+        typing 1.5s steps(40, end);
+    margin: 30px auto;
+}
+
+.about-page p {
+    margin: 0 auto;
+    text-align: left;
+}
+
+.highlighter-div {
+    margin: 0 auto;
+    padding: 1rem;
+    width: fit-content;
+    background:
+        linear-gradient(to right, var(--color-primary) 3px, transparent 3px) 0 0,
+        linear-gradient(to left, var(--color-primary) 3px, transparent 3px) 100% 100%,
+        linear-gradient(to bottom, var(--color-primary) 3px, transparent 3px) 0 0,
+        linear-gradient(to top, var(--color-primary) 3px, transparent 3px) 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 1.25rem 1.25rem;
+    animation: fadeIn 750ms;
 }
 
 #top-icon {
@@ -111,11 +144,6 @@ h3 {
 }
 
 #top-nav img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-#index-img {
     max-width: 100%;
     max-height: 100%;
 }
@@ -169,38 +197,6 @@ h3 {
     margin: 15px;
 }
 
-.voteWrapper {
-    width: 100%;
-    display: flex;
-}
-
-.voteContainer {
-    margin: 0 auto;
-    display: flex;
-    gap: 10px;
-}
-
-.voteContainer button {
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-    background-color: var(--color-background);
-    color: #ff0000;
-    border: none;
-}
-
-.voteContainer p {
-    font-size: 16px;
-    margin: 0px;
-    padding: 0px;
-}
-
-.voteContainer img {
-    margin: 0px;
-    padding: 0px;
-    width: 12px;
-}
-
 #listing-post-header {
     display: flex;
     flex-wrap: wrap;
@@ -238,10 +234,12 @@ h3 {
 }
 
 #about-link-list li {
-    display: inline;
+    display: inline-flex;
+    flex-direction: column;
     text-decoration: none;
     list-style: none;
     padding: 5px;
+    
 }
 
 #about-link-list img {
@@ -262,10 +260,72 @@ h3 {
     margin: 0 10px;
 }
 
+.voteWrapper {
+    display: flex;
+    float: right;
+    flex-direction: row;
+}
+
+.voteContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface);
+}
+
+.voteContainer button {
+    background-color: var(--color-surface);
+    color: #ff0000;
+    padding: 10px;
+    border: none;
+}
+
+.votes-counter p {
+    color: grey;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+}
+
+.voteContainer img {
+    margin: 0px;
+    padding: 0px;
+    width: 12px;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInOp {
+    0% {
+        transform: translateX(+25%);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
 @media (pointer: none), (pointer: coarse) {
     .general-page p {
         font-size: 16px;
     }
+
     .general-page h1 {
         font-size: 28px;
     }
@@ -288,3 +348,4 @@ h3 {
         font-size: 15px;
     }
 }
+

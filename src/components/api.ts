@@ -44,10 +44,10 @@ class APIHandler {
 
     // hash ip so we can remember the vote per IP without actually storing it
     async hashClientAddress(address: string) {
-        const BYTES = new Uint8Array(
+        const BYTES = Buffer.from(
             await crypto.subtle.digest('SHA-512', this.#encoder.encode(address))
         );
-        return btoa(String.fromCharCode(...BYTES))
+        return BYTES.toString('base64');
     }
 }
 
