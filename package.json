@@ -12,7 +12,7 @@
     "npmrun": "astro build && HOST=0.0.0.0 PORT=8085 node ./dist/server/entry.mjs"
   },
   "dependencies": {
-    "@astrojs/node": "^5.3.5",
+    "@astrojs/node": "^5.3.6",
     "@astrojs/svelte": "^3.1.1",
     "astro": "^2.10.12",
     "mongodb": "^5.7.0",
