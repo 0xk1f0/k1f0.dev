@@ -9,7 +9,7 @@ COPY package.json \
     package-lock.json \
     astro.config.mjs \
     tailwind.config.cjs \
-    svelte.config.js .
+    svelte.config.js ./
 
 # Install dependencies
 RUN npm install
