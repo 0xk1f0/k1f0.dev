@@ -1,6 +1,6 @@
 ---
-import Header from "../components/Header.astro";
-import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+// import "../styles/global.css";
 
 export interface Props {
     title?: string;
@@ -14,13 +14,266 @@ const DB_PASS = process.env.DB_PASS;
 
 // exit if no set
 if (!DB_HOST || !DB_USER || !DB_PASS) {
-    throw Error('Missing Environment Variables!');
+    throw Error("Missing Environment Variables!");
 }
 
 const { title = "", desc = "" } = Astro.props as Props;
 ---
 
-<!DOCTYPE html>
+<style is:global>
+    @keyframes fadeIn {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInY {
+        0% {
+            transform: translateY(+25%);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInX {
+        0% {
+            transform: translateX(+25%);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    * {
+        @apply box-border m-0 p-0;
+    }
+
+    html {
+        @apply h-full;
+    }
+
+    body {
+        @apply m-0 p-0 bg-color-background h-full w-full flex flex-col font-system-ui;
+    }
+
+    a {
+        @apply no-underline text-color-primary;
+    }
+
+    p {
+        @apply text-color-foreground mb-3 text-lg;
+    }
+
+    h1 {
+        @apply text-color-foreground mb-3 font-bold text-3xl;
+    }
+
+    h2 {
+        @apply text-color-foreground mb-2 font-bold text-xl;
+    }
+
+    h3 {
+        @apply text-color-foreground mb-1 font-bold text-base;
+    }
+
+    ul {
+        @apply m-2;
+    }
+
+    li {
+        @apply p-1 text-color-foreground text-base;
+    }
+
+    header {
+        @apply bg-color-surface w-full text-left;
+    }
+
+    header .header-container {
+        @apply flex justify-between my-2 mx-auto w-almost;
+    }
+
+    header .header-container p {
+        @apply text-xl m-0;
+    }
+
+    .contentWrapper {
+        @apply w-full flex h-full;
+    }
+
+    .container {
+        @apply max-w-screen-xl mx-auto mb-auto;
+    }
+
+    .general-container {
+        @apply mt-1/10;
+        animation: fadeInY 500ms;
+    }
+
+    .post-container {
+        @apply mt-1;
+        animation: fadeInY 500ms;
+    }
+
+    .about-container {
+        @apply mt-1/20;
+        animation: fadeInY 500ms;
+    }
+
+    .container-fullscreen {
+        animation: fadeInX 500ms;
+    }
+
+    .general-page {
+        @apply w-3/4 p-4 text-center mx-auto;
+    }
+
+    .about-page {
+        @apply w-3/4 p-4 text-center mx-auto;
+    }
+
+    .highlighter-div {
+        @apply w-fit mx-auto outline -outline-offset-4 p-4 outline-color-primary;
+        -webkit-mask:
+            conic-gradient(at 20px 20px,#0000 75%,#000 0)
+            0 0/calc(100% - 20px) calc(100% - 20px),
+            linear-gradient(#000 0 0) content-box;
+        animation: fadeIn 750ms;
+    }
+
+    #top-icon {
+        @apply text-xl font-mono flex items-center;
+    }
+
+    #top-clock {
+        @apply text-xl font-mono flex items-center;
+    }
+
+    #top-nav {
+        @apply m-0 inline-flex justify-center;
+    }
+
+    #top-nav li {
+        @apply inline-flex justify-center;
+    }
+
+    #top-nav a {
+        @apply w-8 h-8;
+    }
+
+    #top-nav img {
+        @apply max-w-full max-h-full;
+    }
+
+    .btn {
+        @apply inline-block text-color-primary uppercase font-mono text-sm;
+    }
+
+    .btn-post {
+        @apply mb-4;
+    }
+
+    .author-mention {
+        @apply font-mono text-sm my-5;
+    }
+
+    .post {
+        @apply p-4 m-2.5 bg-color-surface;
+    }
+
+    #listing-post-header {
+        @apply flex flex-wrap justify-between items-center;
+    }
+
+    #listing-author-mention {
+        @apply italic text-sm mb-2;
+    }
+
+    .four-o-four-container {
+        @apply h-full flex;
+    }
+
+    #four-o-four {
+        @apply text-center text-6xl m-auto;
+    }
+
+    #four-o-four p {
+        @apply text-4xl;
+    }
+
+    #about-link-list li {
+        @apply inline-flex flex-col text-center text-sm px-2;
+    }
+
+    #about-link-list img {
+        @apply w-10 h-10;
+    }
+
+    .astro-code {
+        @apply border-2 p-4 my-6 !bg-color-background !overflow-scroll !whitespace-pre;
+    }
+
+    .astro-code code .line {
+        @apply text-base mx-2.5;
+    }
+
+    .voteWrapper {
+        @apply flex flex-row float-right;
+    }
+
+    .voteContainer {
+        @apply flex flex-col bg-color-surface;
+    }
+
+    .voteContainer button {
+        @apply bg-color-surface text-color-orange p-2.5 border-none;
+    }
+
+    .votes-counter {
+        @apply flex;
+    }
+
+    .votes-counter p {
+        @apply text-color-grey m-auto p-2.5 font-bold text-2xl border-none;
+    }
+
+    .voteContainer img {
+        @apply m-0 p-0 w-3;
+    }
+
+    @media (pointer: none), (pointer: coarse) {
+        p {
+            @apply text-base;
+        }
+
+        h1 {
+            @apply text-2xl;
+        }
+
+        h2 {
+            @apply text-xl;
+        }
+
+        h3 {
+            @apply text-lg;
+        }
+
+        .votes-counter p {
+            @apply text-xl;
+        }
+    }
+</style>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -36,26 +289,18 @@ const { title = "", desc = "" } = Astro.props as Props;
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en" />
         <meta property="og:description" content={desc} />
-        <meta
-            property="og:image"
-            content="https://k1f0.dev/og-preview.jpg"
-        />
+        <meta property="og:image" content="https://k1f0.dev/og-preview.jpg" />
         <meta property="og:image:alt" content="O.o" />
         <!--Twitter Tags-->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="k1f0.dev" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta
-            name="twitter:image"
-            content="https://k1f0.dev/og-preview.jpg"
-        />
+        <meta name="twitter:image" content="https://k1f0.dev/og-preview.jpg" />
         <meta name="twitter:image:alt" content="O.o" />
+        <ViewTransitions />
     </head>
     <body>
-        <Header />
-        <div class="contentWrapper">
-            <slot />
-        </div>
+        <slot />
     </body>
 </html>

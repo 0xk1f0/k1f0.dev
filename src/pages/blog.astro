@@ -1,33 +1,34 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.svelte";
 
-const POSTS = await getCollection('posts');
+const POSTS = await getCollection("posts");
 ---
 
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
-    <div class="container post-container">
-        {
-            POSTS.toReversed().map((post) => (
-                <article class="post">
-                    <div id="listing-post-header">
-                        <h2>{post.data.title}</h2>
-                        <p id="listing-author-mention">
-                            by <strong> {post.data.author} </strong> on
-                            {new Date(post.data.date).toLocaleDateString(
-                                "en-GB"
-                            )}
-                        </p>
-                    </div>
-                    <p>{post.data.excerpt}</p>
-                    <a
-                        class="btn btn-post"
-                        href={`/bp/${post.data.shortcut}`}
-                    >
-                        Read More &gt
-                    </a>
-                </article>
-            ))
-        }
+    <Header client:load />
+    <div class="contentWrapper" transition:animate="fade">
+        <div class="container post-container">
+            {
+                POSTS.toReversed().map((post) => (
+                    <article class="post">
+                        <div id="listing-post-header">
+                            <h2>{post.data.title}</h2>
+                            <p id="listing-author-mention">
+                                by <strong> {post.data.author} </strong> on
+                                {new Date(post.data.date).toLocaleDateString(
+                                    "en-GB",
+                                )}
+                            </p>
+                        </div>
+                        <p>{post.data.excerpt}</p>
+                        <a class="btn" href={`/bp/${post.data.shortcut}`}>
+                            Read More &gt
+                        </a>
+                    </article>
+                ))
+            }
+        </div>
     </div>
 </Layout>

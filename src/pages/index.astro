@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import APIHandler from "../components/api";
+import Header from "../components/Header.svelte";
+import APIHandler from "../components/helpers/api";
 
 // new API handler
 const API = new APIHandler();
@@ -13,28 +14,32 @@ const IP_ID = await API.hashClientAddress(REAL_IP || Astro.clientAddress);
 ---
 
 <Layout title="k1f0.dev" desc="The Starting Void">
-    <div class="container general-container">
-        <article class="general-page">
-            <h1>
-                Hello Visitor <code style="font-style: italic;"
-                    >"{IP_ID.slice(0, 12)}"</code
-                >
-            </h1>
-            <div class="highlighter-div">
-                <p>
-                    Above are the first 8 characters of the hash that will
-                    identify you as a voter on this page.<br />
-                    It is only used to keep track of the unique total number of votes.<br
-                    />
-                    <span style="font-weight: bolder;"
-                        >This site does not collect any other data (or none if
-                        you don't vote).</span
-                    ><br />
-                    If you would like to read and/or vote, please head over to my
-                    <a href="/blog">Blogposts</a>.<br /><br />
-                    I hope you enjoy your stay here.
-                </p>
-            </div>
-        </article>
+    <Header client:load />
+    <div class="contentWrapper" transition:animate="fade">
+        <div class="container general-container">
+            <article class="general-page">
+                <h1>
+                    Hello Visitor <br /><code class="font-mono italic"
+                        >"{IP_ID.slice(0, 8)}"</code
+                    >
+                </h1>
+                <div class="highlighter-div">
+                    <p>
+                        Above are the first 8 characters of the hash that will
+                        identify you as a voter on this page.<br />
+                         It is only used to keep track of the unique total
+                        number of votes.<br />
+                        <span style="font-weight: bolder;"
+                            >This site does not collect any other data (or none
+                            if you don't vote).</span
+                        ><br />
+                         If you would like to read and/or vote, please head over
+                        to my
+                        <a href="/blog">Blogposts</a>.<br /><br />
+                         I hope you enjoy your stay here.
+                    </p>
+                </div>
+            </article>
+        </div>
     </div>
 </Layout>

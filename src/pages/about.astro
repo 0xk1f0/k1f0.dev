@@ -1,61 +1,70 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.svelte";
 ---
 
 <Layout title="About - k1f0.dev" desc="Where are we?">
-    <div class="container general-container">
-        <article class="general-page about-page">
-            <h1>About me</h1>
-            <div class="highlighter-div">
-                <p>
-                    Hi, I'm k1f0 but my real name is Fabian. I love programming,
-                    hacking and all sorts of tech related stuff.<br />
-                    I'm also a big Linux fan and Open-Source advocate and love to
-                    share my personal projects with the public.<br />
-                    This is my personal website, which mostly serves as a personal
-                    venting place where I share my thoughts, insights and general
-                    knowledge that I deem worth of it. This place might change quite
-                    a bit over time as I also use it to extend my knowledge of using
-                    Astro to build it.
-                </p>
-            </div>
-            <h1>About Voting</h1>
-            <div class="highlighter-div">
-                <p>
-                    Quite recently I added the ability to up and downvote the
-                    post I share on This Website, to give the readers a chance
-                    to submit their opinion about the content I write.<br />
-                    The votes are counted on a per IP-Address basis.<br />
-                    <span style="font-weight: bolder;">I do not</span> store your
-                    IP-Address in plain-text. Instead I only store a SHA512 hash
-                    that identifies you on this page (as seen on the index of this
-                    website).<br />
-                    <span style="font-weight: bolder;">I do not</span> collect any
-                    other data.<br />
-                    So practically I have no clue who you are and neither does the
-                    database that keeps track of the votes.<br />
-                    With that said, please feel free to vote away as I'd really like
-                    to know what you think about the stuff I write here, maybe I'll
-                    add the ability to comment some day, who knows.
-                </p>
-            </div>
-            <h1>Find me here</h1>
-            <div class="highlighter-div">
-                <p>
-                    <ul id="about-link-list">
-                        <li>
-                            <a href="https://github.com/0xk1f0">
-                                <img src="/svg/github.svg" alt="gh_ic" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://codeberg.org/0xk1f0">
-                                <img src="/svg/codeberg.svg" alt="gh_ic" />
-                            </a>
-                        </li>
-                    </ul>
-                </p>
-            </div>
-        </article>
+    <Header client:load />
+    <div class="contentWrapper" transition:animate="fade">
+        <div class="container about-container">
+            <article class="about-page">
+                <h1>About me</h1>
+                <div class="highlighter-div">
+                    <p>
+                        Hi, I'm k1f0 but my real name is Fabian. I love
+                        programming, hacking and all sorts of tech related
+                        stuff.<br />
+                         I'm also a big Linux fan and Open-Source advocate and
+                        love to share my personal projects with the public.<br
+                        />
+                         This is my personal website, which mostly serves as a
+                        personal venting place where I share my thoughts,
+                        insights and general knowledge that I deem worth of it.
+                        This place might change quite a bit over time as I also
+                        use it to extend my knowledge of using Astro to build
+                        it.
+                    </p>
+                </div>
+                <h1>About Voting</h1>
+                <div class="highlighter-div">
+                    <p>
+                        Quite recently I added the ability to up and downvote
+                        the post I share on This Website, to give the readers a
+                        chance to submit their opinion about the content I
+                        write.<br />
+                         The votes are counted on a per IP-Address basis.<br />
+                        <span style="font-weight: bolder;">I do not</span> store
+                        your IP-Address in plain-text. Instead I only store a
+                        SHA512 hash that identifies you on this page (as seen on
+                        the index of this website).<br />
+                        <span style="font-weight: bolder;">I do not</span>
+                         collect any other data.<br />
+                         So practically I have no clue who you are and neither
+                        does the database that keeps track of the votes.<br />
+                         With that said, please feel free to vote away as I'd
+                        really like to know what you think about the stuff I
+                        write here, maybe I'll add the ability to comment some
+                        day, who knows.
+                    </p>
+                </div>
+                <h1>Find me here</h1>
+                <div class="highlighter-div">
+                    <p>
+                        <ul id="about-link-list">
+                            <li>
+                                <a href="https://github.com/0xk1f0">
+                                    <img src="/svg/github.svg" alt="gh_ic" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://codeberg.org/0xk1f0">
+                                    <img src="/svg/codeberg.svg" alt="gh_ic" />
+                                </a>
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </article>
+        </div>
     </div>
 </Layout>

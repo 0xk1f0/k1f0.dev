@@ -89,7 +89,7 @@
                     {/if}
                 </div>
             </div>
-            <a class="btn btn-post-preview" href="/blog">&lt Go Back</a>
+            <a class="btn btn-post" href="/blog">&lt Go Back</a>
             <h1>{PAGE.data.title}</h1>
             <div class="author-mention">
                 <p>

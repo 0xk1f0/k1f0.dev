@@ -1,8 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.svelte";
 import BlogPost from "../../components/BlogPost.svelte";
-import APIHandler from "../../components/api";
+import APIHandler from "../../components/helpers/api";
 
 const { slug } = Astro.params;
 const POSTS = await getCollection("posts");
@@ -12,10 +13,10 @@ const API = new APIHandler();
 const { Content } = await PAGE.render();
 
 // hash client's IP
-const REAL_IP = (Astro.request.headers.get("x-forwarded-for") || '').split(',')[0].trim();
-const IP_ID = await API.hashClientAddress(
-    REAL_IP || Astro.clientAddress
-);
+const REAL_IP = (Astro.request.headers.get("x-forwarded-for") || "")
+    .split(",")[0]
+    .trim();
+const IP_ID = await API.hashClientAddress(REAL_IP || Astro.clientAddress);
 
 // handle POST reqs
 if (Astro.request.method === "POST") {
@@ -32,7 +33,7 @@ if (Astro.request.method === "POST") {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                }
+                },
             );
         }
     } catch (error) {
@@ -44,7 +45,10 @@ if (Astro.request.method === "POST") {
 ---
 
 <Layout title={PAGE.data.title + " - k1f0.dev"} desc={PAGE.data.excerpt}>
-    <BlogPost dataProps={[PAGE]} client:visible>
-        <Content />
-    </BlogPost>
+    <Header client:load />
+    <div class="contentWrapper" transition:animate="fade">
+        <BlogPost dataProps={[PAGE]} client:visible>
+            <Content />
+        </BlogPost>
+    </div>
 </Layout>
