@@ -31,3 +31,6 @@ pnpm-debug.log*
 
 # blog posts
 posts/
+
+# deno kv
+.kv/

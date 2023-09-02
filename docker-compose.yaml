@@ -1,15 +1,5 @@
 version: '3'
 services:
-  mongo:
-    image: mongo:4.4.23
-    hostname: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: CHANGEME
-      MONGO_INITDB_ROOT_PASSWORD: CHANGEME
-    volumes:
-      - ./data/db:/data/db
-    restart: unless-stopped
-
   astro:
     build:
       context: .
@@ -19,7 +9,4 @@ services:
       - '127.0.0.1:8085:8085'
     environment:
       TZ: Europe/Vienna
-      DB_USER: CHANGEME
-      DB_PASS: CHANGEME
-      DB_HOST: 'mongo'
     restart: unless-stopped

@@ -12,6 +12,9 @@ if (!PAGE) return Astro.redirect("/404");
 const API = new APIHandler();
 const { Content } = await PAGE.render();
 
+// initialize kvapi
+await API.init();
+
 // hash client's IP
 const REAL_IP = (Astro.request.headers.get("x-forwarded-for") || "")
     .split(",")[0]
