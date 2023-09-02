@@ -40,17 +40,24 @@ class KVHandler {
             // get the post with id
             const RESP = await this.#db?.get([post_id])
             let POST = RESP?.value as PostResource;
+            // evaluate
             if (POST && POST != null) {
+                // check what type of action to perform
+                // if upvoted twice, remove, same for down
                 if (voteType === "up") {
                     if (POST.downvotes.has(hash_id)) {
                         POST.downvotes.delete(hash_id);
-                    }
-                    POST.upvotes.add(hash_id);
+                        POST.upvotes.add(hash_id);
+                    } else if (POST.upvotes.has(hash_id)) {
+                        POST.upvotes.delete(hash_id);
+                    } else POST.upvotes.add(hash_id);
                 } else if (voteType === "down") {
                     if (POST.upvotes.has(hash_id)) {
                         POST.upvotes.delete(hash_id);
-                    }
-                    POST.downvotes.add(hash_id);
+                        POST.downvotes.add(hash_id);
+                    } else if (POST.downvotes.has(hash_id)) {
+                        POST.downvotes.delete(hash_id);
+                    } else POST.downvotes.add(hash_id);
                 }
             } else {
                 // new entry
@@ -79,6 +86,8 @@ class KVHandler {
             // get the post with id
             const RESP = await this.#db?.get([post_id])
             const POST = RESP?.value as PostResource;
+            // evaluate resp
+            // check for user up or downvote and total count
             if (POST && POST != null) {
                 return {
                     upvotes: POST.upvotes ? POST.upvotes.size : 0,
@@ -91,6 +100,7 @@ class KVHandler {
                         : false,
                 };
             } else {
+                // on null or error always return plain object
                 return {
                     upvotes: 0,
                     downvotes: 0,
