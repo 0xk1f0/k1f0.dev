@@ -1,5 +1,8 @@
 import { join } from "node:path";
 
+// path from env, else default
+const DB_PATH = Deno.env.get("DB_PATH") || "/var/lib/denokv/";
+
 // post data interface
 interface PostResource {
     id: string;
@@ -12,13 +15,14 @@ class KVHandler {
 
     async prepareKV() {
         // check for exist, else create
-        const KVDIR = join(Deno.cwd(), ".kv");
+        const KVDIR = join(`${DB_PATH}.kv`);
         try {
-            await Deno.mkdir(KVDIR, { recursive: true, mode: 0o777 });
+            await Deno.mkdir(KVDIR, { recursive: true, mode: 0o770 });
         } catch (err) {
             // Already exists
             if (err.name !== "AlreadyExists") {
-                throw err;
+                console.log(err);
+                return false;
             }
         }
 

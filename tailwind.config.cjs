@@ -28,10 +28,10 @@ module.exports = {
 				"3/4": "75%"
 			},
 			width: {
-				"almost": "99%"
+				"almost": "98%"
 			},
 			height: {
-				"almost": "99%"
+				"almost": "98%"
 			}
 		},
     },

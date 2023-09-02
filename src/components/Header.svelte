@@ -7,7 +7,6 @@
         setInterval(() => {
             timeString = new Date().toLocaleTimeString("eu");
         }, 1000)
-        console.log(timeString);
     });
 </script>
 
