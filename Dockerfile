@@ -11,17 +11,16 @@ WORKDIR /app
 # Copy initial necessary files to container
 COPY package.json \
 package-lock.json \
+astro.config.mjs \
+tailwind.config.cjs \
+svelte.config.js \
 ./
 
 # Install dependencies
 RUN npm install
 
-# Copy all files from src/
-COPY astro.config.mjs \
-tailwind.config.cjs \
-svelte.config.js \
-src \
-./
+# Copy all other files
+COPY src ./src
 
 # build
 RUN npm run build
