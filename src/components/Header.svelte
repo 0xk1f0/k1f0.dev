@@ -6,7 +6,7 @@
     onMount(() => {
         setInterval(() => {
             timeString = new Date().toLocaleTimeString("eu");
-        }, 1000)
+        }, 10000)
     });
 </script>
 
@@ -18,7 +18,7 @@
             </a>
         </div>
         <div id="top-clock">
-            <p>{timeString}</p>
+            <p>{timeString.slice(0, timeString.length-3)}</p>
         </div>
         <ul id="top-nav">
             <li>

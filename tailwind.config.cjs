@@ -9,6 +9,7 @@ module.exports = {
             "color-foreground": "#8EC9DF",
             "color-transparent": "#00000000",
 			"color-grey": "#3f3f3f",
+			"color-justblack": "#000000",
 			"color-orange": "#ff3300",
         },
         extend: {

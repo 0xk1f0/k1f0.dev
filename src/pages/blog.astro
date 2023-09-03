@@ -12,7 +12,7 @@ const POSTS = await getCollection("posts");
         <div class="container post-container">
             {
                 POSTS.toReversed().map((post) => (
-                    <article class="post">
+                    <article class="post listing-post">
                         <div id="listing-post-header">
                             <h2>{post.data.title}</h2>
                             <p id="listing-author-mention">

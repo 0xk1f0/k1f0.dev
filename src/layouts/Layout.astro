@@ -105,7 +105,7 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .general-container {
-        @apply mt-1/10;
+        @apply mt-1/4;
         animation: fadeInY 500ms;
     }
 
@@ -132,7 +132,7 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .highlighter-div {
-        @apply w-fit mx-auto outline -outline-offset-4 p-4 outline-color-primary;
+        @apply w-fit mx-auto outline -outline-offset-4 p-4 outline-color-foreground;
         -webkit-mask:
             conic-gradient(at 20px 20px,#0000 75%,#000 0)
             0 0/calc(100% - 20px) calc(100% - 20px),
@@ -177,7 +177,15 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .post {
-        @apply p-4 m-2.5 bg-color-surface;
+        @apply p-4 m-2.5 outline -outline-offset-4 outline-color-foreground;
+        -webkit-mask:
+            conic-gradient(at 20px 20px,#0000 75%,#000 0)
+            0 0/calc(100% - 20px) calc(100% - 20px),
+            linear-gradient(#000 0 0) content-box;
+    }
+
+    .listing-post {
+        @apply mb-8;
     }
 
     #listing-post-header {
@@ -208,8 +216,12 @@ const { title = "", desc = "" } = Astro.props as Props;
         @apply w-10 h-10;
     }
 
+    .about-body {
+        @apply mb-8;
+    }
+
     .astro-code {
-        @apply border-2 p-4 my-6 !bg-color-background !overflow-scroll !whitespace-pre;
+        @apply border-2 p-4 my-6 !bg-color-justblack !overflow-scroll !whitespace-pre;
     }
 
     .astro-code code .line {
@@ -221,11 +233,11 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .voteContainer {
-        @apply flex flex-col bg-color-surface;
+        @apply flex flex-col;
     }
 
     .voteContainer button {
-        @apply bg-color-surface text-color-orange p-2.5 border-none;
+        @apply text-color-orange p-2.5 border-none;
     }
 
     .votes-counter {

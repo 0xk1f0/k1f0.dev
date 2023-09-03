@@ -4,11 +4,12 @@
   "version": "1.0",
   "private": true,
   "scripts": {
-    "dev": "deno run -A --unstable npm:astro dev",
-    "start": "deno run -A --unstable npm:astro dev",
+    "dev": "deno run -A --unstable --node-modules-dir npm:astro dev",
+    "start": "deno run -A --unstable --node-modules-dir npm:astro dev",
     "build": "astro build",
     "preview": "deno run -A --unstable ./dist/server/entry.mjs",
     "astro": "astro",
+    "nodedev": "astro dev",
     "denorun": "astro build && deno run -A --unstable ./dist/server/entry.mjs",
     "npmrun": "astro build && HOST=0.0.0.0 PORT=8085 node ./dist/server/entry.mjs"
   },
