@@ -1,13 +1,19 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onMount } from 'svelte';
+    let date = new Date();
 
-    let timeString: string = new Date().toLocaleTimeString("eu");
+    $: hours = date.getHours();
+    $: minutes = date.getMinutes();
 
     onMount(() => {
-        setInterval(() => {
-            timeString = new Date().toLocaleTimeString("eu");
-        }, 10000)
-    });
+		const interval = setInterval(() => {
+			date = new Date();
+		}, 10000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	});
 </script>
 
 <header class="header">
@@ -18,7 +24,7 @@
             </a>
         </div>
         <div id="top-clock">
-            <p>{timeString.slice(0, timeString.length-3)}</p>
+            <p>{hours}:{minutes}</p>
         </div>
         <ul id="top-nav">
             <li>
