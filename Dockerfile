@@ -12,7 +12,7 @@ WORKDIR /app
 COPY package.json \
 package-lock.json \
 deno.json \
-deno.lock. \
+deno.lock \
 astro.config.mjs \
 tailwind.config.cjs \
 svelte.config.js \
