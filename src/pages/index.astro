@@ -7,10 +7,14 @@ import APIHandler from "../components/helpers/api";
 const API = new APIHandler();
 
 // hash client's IP
-const REAL_IP = (Astro.request.headers.get("x-forwarded-for") || "")
-    .split(",")[0]
-    .trim();
-const IP_ID = await API.hashClientAddress(REAL_IP || Astro.clientAddress);
+// check for SSR, otherwise dev
+let real_ip: string = '127.0.0.1';
+if (!import.meta.env.DEV) {
+    real_ip = (Astro.clientAddress || Astro.request.headers.get("x-forwarded-for") || "")
+        .split(",")[0]
+        .trim();
+} else console.log("Dev Mode IP: " + real_ip);
+const IP_ID = await API.hashClientAddress(real_ip);
 ---
 
 <Layout title="k1f0.dev" desc="The Starting Void">

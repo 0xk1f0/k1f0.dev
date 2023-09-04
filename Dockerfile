@@ -11,6 +11,8 @@ WORKDIR /app
 # Copy initial necessary files to container
 COPY package.json \
 package-lock.json \
+deno.json \
+deno.lock. \
 astro.config.mjs \
 tailwind.config.cjs \
 svelte.config.js \
@@ -24,6 +26,8 @@ COPY src ./src
 
 # build
 RUN npm run build
+# wait for upstream fix
+#RUN deno run -A --unstable --node-modules-dir npm:astro build
 
 # Start deno
 CMD ["deno", "run", "-A", "--unstable", "./dist/server/entry.mjs"]
