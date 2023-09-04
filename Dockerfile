@@ -25,7 +25,7 @@ RUN npm install
 COPY src ./src
 
 # build
-RUN npm run build
+RUN npm run nodebuild
 # wait for upstream fix
 #RUN deno run -A --unstable --node-modules-dir npm:astro build
 
