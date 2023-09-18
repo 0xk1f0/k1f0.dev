@@ -14,5 +14,10 @@ export default defineConfig({
             theme: "github-dark-dimmed",
         },
     },
+    image: {
+        service: {
+            entrypoint: "./src/components/void.ts",
+        }
+    },
     integrations: [svelte(), tailwind()],
 });
