@@ -16,15 +16,15 @@
 	});
 </script>
 
-<header class="header">
-    <div class="header-container">
+<nav class="bg-surface w-full p-0 m-0 h-14 flex flex-row justify-between">
+    <div class="flex flex-row justify-between my-2 mx-auto w-almost">
         <div id="top-icon">
             <a href="/">
-                <p>k1f0.dev</p>
+                <p class="text-xl m-0">k1f0.dev</p>
             </a>
         </div>
         <div id="top-clock">
-            <p>{hours}:{minutes}</p>
+            <p class="text-xl m-0">{hours}:{minutes}</p>
         </div>
         <ul id="top-nav">
             <li>
@@ -39,4 +39,4 @@
             </li>
         </ul>
     </div>
-</header>
+</nav>

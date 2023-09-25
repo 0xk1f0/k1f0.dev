@@ -37,7 +37,7 @@
     }
 </script>
 
-<div class="container container-fullscreen">
+<div class="container-fullscreen flex flex-1 overflow-scroll min-h-full max-w-screen-xl mx-auto">
     <article class="post">
         <div class="voteWrapper">
             <div class="votes-counter">

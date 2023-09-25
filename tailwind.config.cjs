@@ -1,22 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+    mode: "jit",
     theme: {
-        mode: "jit",
         purge: [
             "./public/**/*.html",
             "./src/**/*.{js,jsx,ts,tsx,vue}",
             "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
         ],
         colors: {
-            "color-primary": "#0094C6",
-            "color-surface": "#09131D",
-            "color-background": "#020217",
-            "color-foreground": "#8EC9DF",
-            "color-transparent": "#00000000",
-            "color-grey": "#3f3f3f",
-            "color-justblack": "#000000",
-            "color-orange": "#ff3300",
+            "primary": "#0094C6",
+            "surface": "#09131D",
+            "background": "#020217",
+            "foreground": "#8EC9DF",
+            "transparent": "#00000000",
+            "grey": "#3f3f3f",
+            "justblack": "#000000",
+            "orange": "#ff3300",
         },
         extend: {
             fontFamily: {

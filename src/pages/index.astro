@@ -19,10 +19,10 @@ const IP_ID = await API.hashClientAddress(real_ip);
 
 <Layout title="k1f0.dev" desc="The Starting Void">
     <Header client:load />
-    <div class="contentWrapper" transition:animate="fade">
-        <div class="container general-container">
+    <div class="w-full flex flex-col min-h-screen" transition:animate="fade">
+        <div class="general-container flex flex-row flex-1 h-full">
             <article class="general-page">
-                <h1>
+                <h1 class="text-foreground mb-3 font-bold text-3xl">
                     Hello Visitor <br /><code class="font-mono italic"
                         >"{IP_ID.slice(0, 8)}"</code
                     >

@@ -9,71 +9,64 @@ export interface Props {
 const { title = "", desc = "" } = Astro.props as Props;
 ---
 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={desc} />
+        <!--OG Tags-->
+        <meta property="og:title" content={title} />
+        <meta property="og:site_name" content="k1f0.dev" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en" />
+        <meta property="og:description" content={desc} />
+        <meta property="og:image" content="https://k1f0.dev/og-preview.jpg" />
+        <meta property="og:image:alt" content="O.o" />
+        <!--Twitter Tags-->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="k1f0.dev" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:image" content="https://k1f0.dev/og-preview.jpg" />
+        <meta name="twitter:image:alt" content="O.o" />
+        <link rel="icon" href="/favicon.svg" sizes="256x256" type="image/svg" />
+        <title>{title}</title>
+        <ViewTransitions />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
 <style is:global>
-    @keyframes fadeIn {
-        0% {
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
-
-    @keyframes fadeInY {
-        0% {
-            transform: translateY(+25%);
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    @keyframes fadeInX {
-        0% {
-            transform: translateX(+25%);
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    * {
-        @apply box-border m-0 p-0;
-    }
-
-    html {
-        @apply h-full;
-    }
-
     body {
-        @apply m-0 p-0 bg-color-background h-full w-full flex flex-col font-system-ui;
+        @apply m-0 p-0
+        bg-background
+        min-h-screen
+        flex flex-col
+        font-system-ui;
     }
 
     a {
-        @apply no-underline text-color-primary;
+        @apply text-primary;
     }
 
     p {
-        @apply text-color-foreground mb-3 text-lg;
+        @apply text-foreground mb-3 text-base lg:text-lg ;
     }
 
     h1 {
-        @apply text-color-foreground mb-3 font-bold text-3xl;
+        @apply text-foreground mb-3 font-bold text-2xl lg:text-3xl;
     }
 
     h2 {
-        @apply text-color-foreground mb-2 font-bold text-xl;
+        @apply text-foreground mb-2 font-bold text-xl lg:text-2xl;
     }
 
     h3 {
-        @apply text-color-foreground mb-1 font-bold text-base;
+        @apply text-foreground mb-1 font-bold text-lg lg:text-xl;
     }
 
     ul {
@@ -81,31 +74,11 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     li {
-        @apply p-1 text-color-foreground text-base;
-    }
-
-    header {
-        @apply bg-color-surface w-full text-left;
-    }
-
-    header .header-container {
-        @apply flex justify-between my-2 mx-auto w-almost;
-    }
-
-    header .header-container p {
-        @apply text-xl m-0;
-    }
-
-    .contentWrapper {
-        @apply w-full flex h-screen;
-    }
-
-    .container {
-        @apply max-w-screen-xl mx-auto mb-auto;
+        @apply p-1 text-foreground text-base;
     }
 
     .general-container {
-        @apply mt-1/10;
+        @apply mt-1/10 overflow-scroll;
         animation: fadeInY 500ms;
     }
 
@@ -132,7 +105,7 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .highlighter-div {
-        @apply w-fit mx-auto outline -outline-offset-4 p-4 outline-color-foreground;
+        @apply w-fit mx-auto outline -outline-offset-4 p-4 outline-foreground;
         -webkit-mask:
             conic-gradient(at 20px 20px,#0000 75%,#000 0)
             0 0/calc(100% - 20px) calc(100% - 20px),
@@ -165,7 +138,7 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .btn {
-        @apply inline-block text-color-primary uppercase font-mono text-sm;
+        @apply inline-block text-primary uppercase font-mono text-sm;
     }
 
     .btn-post {
@@ -177,7 +150,7 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .post {
-        @apply p-4 m-2.5 outline -outline-offset-4 outline-color-foreground;
+        @apply p-4 m-2.5 outline -outline-offset-4 outline-foreground;
         -webkit-mask:
             conic-gradient(at 20px 20px,#0000 75%,#000 0)
             0 0/calc(100% - 20px) calc(100% - 20px),
@@ -221,7 +194,7 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .astro-code {
-        @apply border-2 p-4 my-6 !bg-color-justblack !overflow-scroll !whitespace-pre;
+        @apply border-2 p-4 my-6 !bg-justblack !overflow-scroll !whitespace-pre;
     }
 
     .astro-code code .line {
@@ -237,7 +210,7 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .voteContainer button {
-        @apply text-color-orange p-2.5 border-none;
+        @apply text-orange p-2.5 border-none;
     }
 
     .votes-counter {
@@ -245,63 +218,44 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .votes-counter p {
-        @apply text-color-grey m-auto p-2.5 font-bold text-2xl border-none;
+        @apply text-grey m-auto p-2.5 font-bold text-xl lg:text-2xl border-none;
     }
 
     .voteContainer img {
         @apply m-0 p-0 w-3;
     }
 
-    @media (pointer: none), (pointer: coarse) {
-        p {
-            @apply text-base;
+    @keyframes fadeIn {
+        0% {
+            transform: scale(0);
+            opacity: 0;
         }
 
-        h1 {
-            @apply text-2xl;
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInY {
+        0% {
+            transform: translateY(+25%);
+            opacity: 0;
         }
 
-        h2 {
-            @apply text-xl;
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInX {
+        0% {
+            transform: translateX(+25%);
+            opacity: 0;
         }
 
-        h3 {
-            @apply text-lg;
-        }
-
-        .votes-counter p {
-            @apply text-xl;
+        100% {
+            opacity: 1;
         }
     }
 </style>
-
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.svg" sizes="256x256" type="image/svg" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-        <meta name="description" content={desc} />
-        <!--OG Tags-->
-        <meta property="og:title" content={title} />
-        <meta property="og:site_name" content="k1f0.dev" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en" />
-        <meta property="og:description" content={desc} />
-        <meta property="og:image" content="https://k1f0.dev/og-preview.jpg" />
-        <meta property="og:image:alt" content="O.o" />
-        <!--Twitter Tags-->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="k1f0.dev" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={desc} />
-        <meta name="twitter:image" content="https://k1f0.dev/og-preview.jpg" />
-        <meta name="twitter:image:alt" content="O.o" />
-        <ViewTransitions />
-    </head>
-    <body>
-        <slot />
-    </body>
-</html>

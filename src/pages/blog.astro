@@ -8,8 +8,8 @@ const POSTS = await getCollection("posts");
 
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
     <Header client:load />
-    <div class="contentWrapper" transition:animate="fade">
-        <div class="container post-container">
+    <div class="w-full flex flex-row overflow-scroll min-h-screen" transition:animate="fade">
+        <div class="post-container w-full flex flex-col h-full max-w-screen-xl mx-auto">
             {
                 POSTS.toReversed().map((post) => (
                     <article class="post listing-post">

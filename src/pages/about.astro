@@ -5,9 +5,9 @@ import Header from "../components/Header.svelte";
 
 <Layout title="About - k1f0.dev" desc="Where are we?">
     <Header client:load />
-    <div class="contentWrapper" transition:animate="fade">
-        <div class="container about-container">
-            <article class="about-page">
+    <div class="w-full flex flex-col min-h-screen" transition:animate="fade">
+        <div class="about-container flex flex-row flex-1 h-full">
+            <article class="about-page max-w-screen-xl">
                 <h1>About me</h1>
                 <div class="about-body highlighter-div">
                     <p>
