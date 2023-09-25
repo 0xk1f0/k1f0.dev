@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Copy initial necessary files to container
 COPY package.json \
+package-lock.json \
 deno.json \
 deno.lock \
 astro.config.mjs \

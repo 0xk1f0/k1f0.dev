@@ -6,7 +6,7 @@
       "npm:@astrojs/internal-helpers": "npm:@astrojs/internal-helpers@0.2.0",
       "npm:@astrojs/svelte@^4.0.2": "npm:@astrojs/svelte@4.0.2_astro@3.1.3__@babel+core@7.23.0__vite@4.4.9_svelte@4.2.1",
       "npm:@astrojs/tailwind@^5.0.0": "npm:@astrojs/tailwind@5.0.0_astro@3.1.3__@babel+core@7.23.0__vite@4.4.9_tailwindcss@3.3.3__postcss@8.4.30_postcss@8.4.30",
-      "npm:astro@^3.1.0": "npm:astro@3.1.3_@babel+core@7.23.0_vite@4.4.9",
+      "npm:astro@^3.1.3": "npm:astro@3.1.3_@babel+core@7.23.0_vite@4.4.9",
       "npm:clsx": "npm:clsx@2.0.0",
       "npm:cookie": "npm:cookie@0.5.0",
       "npm:html-escaper": "npm:html-escaper@3.0.3",
@@ -14,7 +14,7 @@
       "npm:mime": "npm:mime@3.0.0",
       "npm:path-to-regexp": "npm:path-to-regexp@6.2.1",
       "npm:string-width": "npm:string-width@6.1.0",
-      "npm:svelte@^4.2.0": "npm:svelte@4.2.1",
+      "npm:svelte@^4.2.1": "npm:svelte@4.2.1",
       "npm:tailwindcss@^3.3.3": "npm:tailwindcss@3.3.3_postcss@8.4.30"
     },
     "npm": {
