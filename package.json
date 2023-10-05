@@ -13,7 +13,7 @@
     "denorun": "deno run -A --unstable --node-modules-dir npm:astro build && deno run -A --unstable ./dist/server/entry.mjs"
   },
   "dependencies": {
-    "@astrojs/deno": "^5.0.0",
+    "@astrojs/deno": "^5.0.1",
     "@astrojs/svelte": "^4.0.2",
     "@astrojs/tailwind": "^5.0.0",
     "astro": "^3.1.3",
