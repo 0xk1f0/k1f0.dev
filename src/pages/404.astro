@@ -3,11 +3,14 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="404 - k1f0.dev">
-    <div class="w-full flex flex-col min-h-screen" transition:animate="fade">
-        <div class="four-o-four-container flex flex-col flex-1 min-h-screen max-w-screen-xl mx-auto">
-            <div id="four-o-four">
-                <h1>404</h1>
-                <p>Page not found.</p>
+    <div
+        class="w-full flex flex-col min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)]"
+        transition:animate="fade"
+    >
+        <div class="flex flex-col h-full max-w-screen-xl m-auto">
+            <div id="text-center text-6xl m-auto">
+                <h1 class="text-4xl">404</h1>
+                <p class="text-2xl">Page not found.</p>
             </div>
         </div>
     </div>

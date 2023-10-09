@@ -40,12 +40,12 @@ class APIHandler {
                 break;
 
             case "votes":
-                const RESP = await this.#kh.votesCheck(
+                resp = await this.#kh.votesCheck(
                     btoa(slug || ""),
                     address
                 );
-                if (RESP) {
-                    return RESP;
+                if (resp) {
+                    return resp;
                 }
                 break;
 

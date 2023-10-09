@@ -37,22 +37,44 @@
     }
 </script>
 
-<div class="container-fullscreen flex flex-1 overflow-scroll min-h-full max-w-screen-xl mx-auto">
-    <article class="post">
-        <div class="voteWrapper">
-            <div class="votes-counter">
+<div
+    class="container-fullscreen flex flex-1 overflow-scroll min-h-full mx-auto"
+>
+    <article class="m-8">
+        <div class="flex flex-row float-right">
+            <div class="flex">
                 {#if votes.user_downvoted || votes.user_upvoted}
-                    <p style="color: #ff0000;">{votes.upvotes - votes.downvotes}</p>
+                    <p
+                        class="text-grey m-auto p-2.5 font-bold text-xl lg:text-2xl border-none"
+                        style="color: #ff0000;"
+                    >
+                        {votes.upvotes - votes.downvotes}
+                    </p>
                 {:else}
-                    <p>{votes.upvotes - votes.downvotes}</p>
+                    <p
+                        class="text-grey m-auto p-2.5 font-bold text-xl lg:text-2xl border-none"
+                    >
+                        {votes.upvotes - votes.downvotes}
+                    </p>
                 {/if}
             </div>
-            <div class="voteContainer">
+            <div class="flex flex-col">
                 {#if votes.user_upvoted}
-                    <button on:click={upvote}>
-                        <img src="/svg/upvote_fa.svg" alt="Upvote" />
+                    <button
+                        class="text-orange p-2.5 border-none"
+                        on:click={upvote}
+                    >
+                        <img
+                            class="m-0 p-0 w-3"
+                            src="/svg/upvote_fa.svg"
+                            alt="Upvote"
+                        />
                     </button>
-                    <button style="color: grey;" on:click={downvote}>
+                    <button
+                        class="text-orange p-2.5 border-none"
+                        style="color: grey;"
+                        on:click={downvote}
+                    >
                         <img
                             style="filter: saturate(0);"
                             src="/svg/downvote_fa.svg"
@@ -60,26 +82,48 @@
                         />
                     </button>
                 {:else if votes.user_downvoted}
-                    <button style="color: grey;" on:click={upvote}>
+                    <button
+                        class="text-orange p-2.5 border-none"
+                        style="color: grey;"
+                        on:click={upvote}
+                    >
                         <img
+                            class="m-0 p-0 w-3"
                             style="filter: saturate(0);"
                             src="/svg/upvote_fa.svg"
                             alt="Upvote"
                         />
                     </button>
-                    <button on:click={downvote}>
-                        <img src="/svg/downvote_fa.svg" alt="Downvote" />
+                    <button
+                        class="text-orange p-2.5 border-none"
+                        on:click={downvote}
+                    >
+                        <img
+                            class="m-0 p-0 w-3"
+                            src="/svg/downvote_fa.svg"
+                            alt="Downvote"
+                        />
                     </button>
                 {:else}
-                    <button style="color: grey;" on:click={upvote}>
+                    <button
+                        class="text-orange p-2.5 border-none"
+                        style="color: grey;"
+                        on:click={upvote}
+                    >
                         <img
+                            class="m-0 p-0 w-3"
                             style="filter: saturate(0);"
                             src="/svg/upvote_fa.svg"
                             alt="Upvote"
                         />
                     </button>
-                    <button style="color: grey;" on:click={downvote}>
+                    <button
+                        class="text-orange p-2.5 border-none"
+                        style="color: grey;"
+                        on:click={downvote}
+                    >
                         <img
+                            class="m-0 p-0 w-3"
                             style="filter: saturate(0);"
                             src="/svg/downvote_fa.svg"
                             alt="Downvote"
@@ -88,9 +132,12 @@
                 {/if}
             </div>
         </div>
-        <a class="btn btn-post" href="/blog">&lt Go Back</a>
+        <a
+            class="inline-block text-primary uppercase font-mono text-sm mb-4"
+            href="/blog">&lt Go Back</a
+        >
         <h1>{PAGE.data.title}</h1>
-        <div class="author-mention">
+        <div class="font-mono text-sm my-5">
             <p>
                 by <strong>{PAGE.data.author}</strong> on {new Date(
                     PAGE.data.date

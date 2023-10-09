@@ -8,14 +8,19 @@ const POSTS = await getCollection("posts");
 
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
     <Header client:load />
-    <div class="w-full flex flex-row overflow-scroll min-h-screen" transition:animate="fade">
-        <div class="post-container w-full flex flex-col h-full max-w-screen-xl mx-auto">
+    <div
+        class="w-full flex flex-row min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)]"
+        transition:animate="fade"
+    >
+        <div
+            class="post-container w-full flex flex-col h-full max-w-screen-xl m-auto"
+        >
             {
-                POSTS.toReversed().map((post) => (
-                    <article class="post listing-post">
-                        <div id="listing-post-header">
+                POSTS.toReversed().map((post: any) => (
+                    <div class="m-4 listing-post">
+                        <div class="flex flex-row justify-between items-center">
                             <h2>{post.data.title}</h2>
-                            <p id="listing-author-mention">
+                            <p id="italic text-sm mb-2">
                                 by <strong> {post.data.author} </strong> on
                                 {new Date(post.data.date).toLocaleDateString(
                                     "en-GB",
@@ -26,7 +31,7 @@ const POSTS = await getCollection("posts");
                         <a class="btn" href={`/bp/${post.data.shortcut}`}>
                             Read More &gt
                         </a>
-                    </article>
+                    </div>
                 ))
             }
         </div>

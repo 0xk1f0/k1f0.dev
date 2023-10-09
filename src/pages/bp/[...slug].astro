@@ -17,9 +17,13 @@ await API.init();
 
 // hash client's IP
 // check for SSR, otherwise dev
-let real_ip: string = '127.0.0.1';
+let real_ip: string = "127.0.0.1";
 if (!import.meta.env.DEV) {
-    real_ip = (Astro.request.headers.get("x-forwarded-for") || Astro.clientAddress || "")
+    real_ip = (
+        Astro.request.headers.get("x-forwarded-for") ||
+        Astro.clientAddress ||
+        ""
+    )
         .split(",")[0]
         .trim();
 } else console.log("Dev Mode IP: " + real_ip);
@@ -53,7 +57,10 @@ if (Astro.request.method === "POST") {
 
 <Layout title={PAGE.data.title + " - k1f0.dev"} desc={PAGE.data.excerpt}>
     <Header client:load />
-    <div class="w-full flex flex-col min-h-screen" transition:animate="fade">
+    <div
+        class="w-full flex flex-col mx-auto my-auto max-w-screen-xl"
+        transition:animate="fade"
+    >
         <BlogPost dataProps={[PAGE]} client:visible>
             <Content />
         </BlogPost>

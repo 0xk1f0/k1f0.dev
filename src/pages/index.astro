@@ -8,9 +8,13 @@ const API = new APIHandler();
 
 // hash client's IP
 // check for SSR, otherwise dev
-let real_ip: string = '127.0.0.1';
+let real_ip: string = "127.0.0.1";
 if (!import.meta.env.DEV) {
-    real_ip = (Astro.request.headers.get("x-forwarded-for") || Astro.clientAddress || "")
+    real_ip = (
+        Astro.request.headers.get("x-forwarded-for") ||
+        Astro.clientAddress ||
+        ""
+    )
         .split(",")[0]
         .trim();
 } else console.log("Dev Mode IP: " + real_ip);
@@ -19,15 +23,18 @@ const IP_ID = await API.hashClientAddress(real_ip);
 
 <Layout title="k1f0.dev" desc="The Starting Void">
     <Header client:load />
-    <div class="w-full flex flex-col min-h-screen" transition:animate="fade">
-        <div class="general-container flex flex-row flex-1 h-full">
-            <article class="general-page">
+    <div
+        class="w-full flex flex-col min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)]"
+        transition:animate="fade"
+    >
+        <div class="general-container flex flex-row h-full my-auto">
+            <div class="w-3/4 p-4 text-center mx-auto">
                 <h1 class="text-foreground mb-3 font-bold text-3xl">
                     Hello Visitor <br /><code class="font-mono italic"
                         >"{IP_ID.slice(0, 8)}"</code
                     >
                 </h1>
-                <div class="highlighter-div">
+                <div>
                     <p>
                         Above are the first 8 characters of the hash that will
                         identify you as a voter on this page.<br />
@@ -39,11 +46,11 @@ const IP_ID = await API.hashClientAddress(real_ip);
                         ><br />
                          If you would like to read and/or vote, please head over
                         to my
-                        <a href="/blog">Blogposts</a>.<br /><br />
+                        <a href="/blog">Blogposts</a>.<br />
                          I hope you enjoy your stay here.
                     </p>
                 </div>
-            </article>
+            </div>
         </div>
     </div>
 </Layout>

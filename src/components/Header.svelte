@@ -1,42 +1,26 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    let date = new Date();
-
-    $: hours = date.getHours() > 9 ? date.getHours() : `0${date.getHours()}`;
-    $: minutes = date.getMinutes() > 9 ? date.getMinutes() : `0${date.getMinutes()}`;
-
-    onMount(() => {
-		const interval = setInterval(() => {
-			date = new Date();
-		}, 10000);
-
-		return () => {
-			clearInterval(interval);
-		};
-	});
 </script>
 
-<nav class="bg-surface w-full p-0 m-0 h-14 flex flex-row justify-between">
-    <div class="flex flex-row justify-between my-2 mx-auto w-almost">
-        <div id="top-icon">
-            <a href="/">
-                <p class="text-xl m-0">k1f0.dev</p>
-            </a>
+<nav class="bg-surface h-14 sticky top-0 left-0 px-4 z-30">
+    <div
+        class="h-14 flex flex-wrap justify-between items-center mx-auto my-auto max-w-screen-xl font-mono"
+    >
+        <a href="/" class="flex items-center">
+            <img src="/favicon.svg" class="mr-2 h-8 self-start" alt="Logo" />
+            <span class="text-xl font-semibold text-foreground self-end"
+                >k1f0.dev</span
+            >
+        </a>
+        <div class="flex items-center">
+            <a
+                href="/blog"
+                class="font-medium rounded-lg text-xl mr-2 text-foreground"
+                >Blog</a
+            >
+            <a
+                href="/about"
+                class="font-medium rounded-lg text-xl text-foreground">About</a
+            >
         </div>
-        <div id="top-clock">
-            <p class="text-xl m-0">{hours}:{minutes}</p>
-        </div>
-        <ul id="top-nav">
-            <li>
-                <a href="/blog">
-                    <img src="/svg/blog.svg" alt="blog_ic" />
-                </a>
-            </li>
-            <li>
-                <a href="/about">
-                    <img src="/svg/about.svg" alt="blog_ic" />
-                </a>
-            </li>
-        </ul>
     </div>
 </nav>

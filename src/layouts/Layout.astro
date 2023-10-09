@@ -78,119 +78,19 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .general-container {
-        @apply mt-1/10 overflow-scroll;
         animation: fadeInY 500ms;
     }
 
     .post-container {
-        @apply mt-1;
         animation: fadeInY 500ms;
     }
 
     .about-container {
-        @apply mt-1/20;
         animation: fadeInY 500ms;
     }
 
     .container-fullscreen {
         animation: fadeInX 500ms;
-    }
-
-    .general-page {
-        @apply w-3/4 p-4 text-center mx-auto;
-    }
-
-    .about-page {
-        @apply w-3/4 p-4 text-center mx-auto;
-    }
-
-    .highlighter-div {
-        @apply w-fit mx-auto outline -outline-offset-4 p-4 outline-foreground;
-        -webkit-mask:
-            conic-gradient(at 20px 20px,#0000 75%,#000 0)
-            0 0/calc(100% - 20px) calc(100% - 20px),
-            linear-gradient(#000 0 0) content-box;
-        animation: fadeIn 750ms;
-    }
-
-    #top-icon {
-        @apply text-xl font-mono flex items-center;
-    }
-
-    #top-clock {
-        @apply text-xl font-mono flex items-center;
-    }
-
-    #top-nav {
-        @apply m-0 inline-flex justify-center;
-    }
-
-    #top-nav li {
-        @apply inline-flex justify-center;
-    }
-
-    #top-nav a {
-        @apply w-8 h-8;
-    }
-
-    #top-nav img {
-        @apply max-w-full max-h-full;
-    }
-
-    .btn {
-        @apply inline-block text-primary uppercase font-mono text-sm;
-    }
-
-    .btn-post {
-        @apply mb-4;
-    }
-
-    .author-mention {
-        @apply font-mono text-sm my-5;
-    }
-
-    .post {
-        @apply p-4 m-2.5 outline -outline-offset-4 outline-foreground;
-        -webkit-mask:
-            conic-gradient(at 20px 20px,#0000 75%,#000 0)
-            0 0/calc(100% - 20px) calc(100% - 20px),
-            linear-gradient(#000 0 0) content-box;
-    }
-
-    .listing-post {
-        @apply mb-8;
-    }
-
-    #listing-post-header {
-        @apply flex flex-wrap justify-between items-center;
-    }
-
-    #listing-author-mention {
-        @apply italic text-sm mb-2;
-    }
-
-    .four-o-four-container {
-        @apply h-full flex;
-    }
-
-    #four-o-four {
-        @apply text-center text-6xl m-auto;
-    }
-
-    #four-o-four p {
-        @apply text-4xl;
-    }
-
-    #about-link-list li {
-        @apply inline-flex flex-col text-center text-sm px-2;
-    }
-
-    #about-link-list img {
-        @apply w-10 h-10;
-    }
-
-    .about-body {
-        @apply mb-8;
     }
 
     .astro-code {
@@ -199,42 +99,6 @@ const { title = "", desc = "" } = Astro.props as Props;
 
     .astro-code code .line {
         @apply text-base mx-2.5;
-    }
-
-    .voteWrapper {
-        @apply flex flex-row float-right;
-    }
-
-    .voteContainer {
-        @apply flex flex-col;
-    }
-
-    .voteContainer button {
-        @apply text-orange p-2.5 border-none;
-    }
-
-    .votes-counter {
-        @apply flex;
-    }
-
-    .votes-counter p {
-        @apply text-grey m-auto p-2.5 font-bold text-xl lg:text-2xl border-none;
-    }
-
-    .voteContainer img {
-        @apply m-0 p-0 w-3;
-    }
-
-    @keyframes fadeIn {
-        0% {
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
     }
 
     @keyframes fadeInY {

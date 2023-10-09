@@ -5,11 +5,16 @@ import Header from "../components/Header.svelte";
 
 <Layout title="About - k1f0.dev" desc="Where are we?">
     <Header client:load />
-    <div class="w-full flex flex-col min-h-screen" transition:animate="fade">
-        <div class="about-container flex flex-row flex-1 h-full">
-            <article class="about-page max-w-screen-xl">
+    <div
+        class="w-full flex flex-col min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)]"
+        transition:animate="fade"
+    >
+        <div class="about-container flex flex-row h-full my-auto">
+            <div
+                class="p-4 text-center mx-auto max-w-screen-xl lg:max-w-screen-lg"
+            >
                 <h1>About me</h1>
-                <div class="about-body highlighter-div">
+                <div class="about-body mb-12">
                     <p>
                         Hi, I'm k1f0 but my real name is Fabian. I love
                         programming, hacking and all sorts of tech related
@@ -26,7 +31,7 @@ import Header from "../components/Header.svelte";
                     </p>
                 </div>
                 <h1>About Voting</h1>
-                <div class="about-body highlighter-div">
+                <div class="about-body mb-12">
                     <p>
                         Quite recently I added the ability to up and downvote
                         the post I share on This Website, to give the readers a
@@ -48,23 +53,35 @@ import Header from "../components/Header.svelte";
                     </p>
                 </div>
                 <h1>Find me here</h1>
-                <div class="highlighter-div">
+                <div>
                     <p>
                         <ul id="about-link-list">
-                            <li>
+                            <li
+                                class="inline-flex flex-col text-center text-sm px-2"
+                            >
                                 <a href="https://github.com/0xk1f0">
-                                    <img src="/svg/github.svg" alt="gh_ic" />
+                                    <img
+                                        class="h-10"
+                                        src="/svg/github.svg"
+                                        alt="gh_ic"
+                                    />
                                 </a>
                             </li>
-                            <li>
+                            <li
+                                class="inline-flex flex-col text-center text-sm px-2"
+                            >
                                 <a href="https://codeberg.org/0xk1f0">
-                                    <img src="/svg/codeberg.svg" alt="gh_ic" />
+                                    <img
+                                        class="h-10"
+                                        src="/svg/codeberg.svg"
+                                        alt="gh_ic"
+                                    />
                                 </a>
                             </li>
                         </ul>
                     </p>
                 </div>
-            </article>
+            </div>
         </div>
     </div>
 </Layout>
