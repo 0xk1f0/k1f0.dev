@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@astrojs/deno": "^5.0.1",
-    "@astrojs/svelte": "^4.0.2",
+    "@astrojs/svelte": "^4.0.3",
     "@astrojs/tailwind": "^5.0.0",
     "astro": "^3.2.0",
     "svelte": "^4.2.1",
