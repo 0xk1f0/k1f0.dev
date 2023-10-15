@@ -14,12 +14,13 @@
         <div class="flex items-center">
             <a
                 href="/blog"
-                class="font-medium rounded-lg text-xl mr-2 text-foreground"
+                class="font-semibold rounded-lg text-xl text-foreground"
                 >Blog</a
             >
             <a
                 href="/about"
-                class="font-medium rounded-lg text-xl text-foreground">About</a
+                class="font-semibold rounded-lg text-xl ml-4 text-foreground"
+                >About</a
             >
         </div>
     </div>

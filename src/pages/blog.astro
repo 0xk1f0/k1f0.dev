@@ -18,7 +18,7 @@ const POSTS = await getCollection("posts");
             {
                 POSTS.toReversed().map((post: any) => (
                     <div class="m-4 listing-post">
-                        <div class="flex flex-row justify-between items-center">
+                        <div class="flex flex-col justify-between">
                             <h2>{post.data.title}</h2>
                             <p id="italic text-sm mb-2">
                                 by <strong> {post.data.author} </strong> on
