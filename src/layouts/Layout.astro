@@ -41,6 +41,12 @@ const { title = "", desc = "" } = Astro.props as Props;
 </html>
 
 <style is:global>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
     body {
         @apply m-0 p-0
         bg-background
@@ -94,11 +100,14 @@ const { title = "", desc = "" } = Astro.props as Props;
     }
 
     .astro-code {
-        @apply border-2 p-4 my-6 !bg-justblack !overflow-scroll !whitespace-pre;
+        @apply py-2
+        !bg-justblack
+        border-2
+        border-surface;
     }
 
-    .astro-code code .line {
-        @apply text-base mx-2.5;
+    .astro-code > code > .line {
+        @apply m-2;
     }
 
     @keyframes fadeInY {

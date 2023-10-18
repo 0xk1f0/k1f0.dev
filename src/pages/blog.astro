@@ -9,15 +9,15 @@ const POSTS = await getCollection("posts");
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
     <Header client:load />
     <div
-        class="w-full flex flex-row min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)]"
+        class="flex flex-row min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] w-screen"
         transition:animate="fade"
     >
         <div
-            class="post-container w-full flex flex-col h-full max-w-screen-xl m-auto"
+            class="post-container flex flex-col h-full mx-auto w-full max-w-screen-xl p-4"
         >
             {
                 POSTS.toReversed().map((post: any) => (
-                    <div class="m-4 listing-post">
+                    <div class="mb-8 listing-post">
                         <div class="flex flex-col lg:flex-row justify-between">
                             <h2>{post.data.title}</h2>
                             <p id="italic text-sm mb-2">

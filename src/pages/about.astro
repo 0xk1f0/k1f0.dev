@@ -6,12 +6,12 @@ import Header from "../components/Header.svelte";
 <Layout title="About - k1f0.dev" desc="Where are we?">
     <Header client:load />
     <div
-        class="w-full flex flex-col min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)]"
+        class="flex flex-col min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] m-auto w-screen"
         transition:animate="fade"
     >
-        <div class="about-container flex flex-row h-full my-auto">
+        <div class="about-container flex flex-row h-full m-auto w-full max-w-screen-xl p-4">
             <div
-                class="p-4 text-center mx-auto max-w-screen-xl lg:max-w-screen-lg"
+                class="p-4 text-center mx-auto"
             >
                 <h1>About me</h1>
                 <div class="about-body mb-12">

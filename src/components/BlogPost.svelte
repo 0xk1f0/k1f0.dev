@@ -38,9 +38,9 @@
 </script>
 
 <div
-    class="container-fullscreen flex flex-1 overflow-scroll min-h-full mx-auto"
+    class="container-fullscreen flex min-h-full w-full max-w-screen-xl m-auto"
 >
-    <article class="m-8">
+    <div class="w-screen p-4">
         <div class="flex flex-row float-right">
             <div class="flex">
                 {#if votes.user_downvoted || votes.user_upvoted}
@@ -147,5 +147,5 @@
         <div>
             <slot />
         </div>
-    </article>
+    </div>
 </div>

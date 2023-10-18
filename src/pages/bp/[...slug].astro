@@ -58,7 +58,7 @@ if (Astro.request.method === "POST") {
 <Layout title={PAGE.data.title + " - k1f0.dev"} desc={PAGE.data.excerpt}>
     <Header client:load />
     <div
-        class="w-full flex flex-col mx-auto my-auto max-w-screen-xl"
+        class="flex flex-col m-auto min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] w-screen"
         transition:animate="fade"
     >
         <BlogPost dataProps={[PAGE]} client:visible>
