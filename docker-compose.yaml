@@ -1,24 +1,14 @@
 version: '3'
 services:
-  proxy:
-    image: nginx:latest
-    hostname: proxy
-    ports:
-      - '80:80'
-      - '443:443'
-    volumes:
-      - ./proxy/conf:/etc/nginx/conf.d
-      - ./proxy/ssl:/etc/ssl/private
-    environment:
-      TZ: Europe/Vienna
-    restart: unless-stopped
   astro:
     build:
       context: .
       dockerfile: Dockerfile
     hostname: astro
     volumes:
-      - './data:/var/lib/denokv'
+      - ./data:/var/lib/denokv:Z
     environment:
       TZ: Europe/Vienna
+    ports:
+      - 127.0.0.1:8085:8085
     restart: unless-stopped
