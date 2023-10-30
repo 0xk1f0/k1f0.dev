@@ -13,7 +13,7 @@ const POSTS = await getCollection("posts");
         transition:animate="fade"
     >
         <div
-            class="post-container flex flex-col h-full mx-auto w-full max-w-screen-xl p-4"
+            class="post-container flex flex-col h-full m-auto w-full max-w-screen-xl p-4"
         >
             {
                 POSTS.toReversed().map((post: any) => (

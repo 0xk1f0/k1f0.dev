@@ -30,7 +30,7 @@ pnpm-debug.log*
 .astro/
 
 # blog posts
-posts/
+posts/*
 
 # deno kv
 .kv/

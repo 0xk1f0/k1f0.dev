@@ -67,7 +67,7 @@
                         <img
                             class="m-0 p-0 w-3"
                             src="/svg/upvote_fa.svg"
-                            alt="Upvote"
+                            alt="U"
                         />
                     </button>
                     <button
@@ -78,7 +78,7 @@
                         <img
                             style="filter: saturate(0);"
                             src="/svg/downvote_fa.svg"
-                            alt="Downvote"
+                            alt="D"
                         />
                     </button>
                 {:else if votes.user_downvoted}
@@ -91,7 +91,7 @@
                             class="m-0 p-0 w-3"
                             style="filter: saturate(0);"
                             src="/svg/upvote_fa.svg"
-                            alt="Upvote"
+                            alt="U"
                         />
                     </button>
                     <button
@@ -101,7 +101,7 @@
                         <img
                             class="m-0 p-0 w-3"
                             src="/svg/downvote_fa.svg"
-                            alt="Downvote"
+                            alt="D"
                         />
                     </button>
                 {:else}
@@ -114,7 +114,7 @@
                             class="m-0 p-0 w-3"
                             style="filter: saturate(0);"
                             src="/svg/upvote_fa.svg"
-                            alt="Upvote"
+                            alt="U"
                         />
                     </button>
                     <button
@@ -126,7 +126,7 @@
                             class="m-0 p-0 w-3"
                             style="filter: saturate(0);"
                             src="/svg/downvote_fa.svg"
-                            alt="Downvote"
+                            alt="D"
                         />
                     </button>
                 {/if}
