@@ -10,6 +10,7 @@
       "npm:astro@^3.2.3": "npm:astro@3.2.3_@babel+core@7.23.0_vite@4.4.11",
       "npm:astro@^3.3.1": "npm:astro@3.3.1_@babel+core@7.23.0_vite@4.4.11",
       "npm:astro@^3.3.2": "npm:astro@3.4.0_@babel+core@7.23.0_vite@4.4.11",
+      "npm:astro@^3.4.0": "npm:astro@3.4.0_@babel+core@7.23.0_vite@4.4.11",
       "npm:clsx": "npm:clsx@2.0.0",
       "npm:cookie": "npm:cookie@0.5.0",
       "npm:html-escaper": "npm:html-escaper@3.0.3",
@@ -19,7 +20,9 @@
       "npm:string-width": "npm:string-width@6.1.0",
       "npm:svelte@^4.2.1": "npm:svelte@4.2.1",
       "npm:svelte@^4.2.2": "npm:svelte@4.2.2",
-      "npm:tailwindcss@^3.3.3": "npm:tailwindcss@3.3.3_postcss@8.4.31"
+      "npm:tailwindcss@^3.3.3": "npm:tailwindcss@3.3.3_postcss@8.4.31",
+      "npm:tailwindcss@^3.3.5": "npm:tailwindcss@3.3.5_postcss@8.4.31",
+      "npm:zod@^3.22.4": "npm:zod@3.22.4"
     },
     "npm": {
       "@alloc/quick-lru@5.2.0": {
@@ -3273,6 +3276,33 @@
           "sucrase": "sucrase@3.34.0"
         }
       },
+      "tailwindcss@3.3.5_postcss@8.4.31": {
+        "integrity": "sha512-5SEZU4J7pxZgSkv7FP1zY8i2TIAOooNZ1e/OGtxIEv6GltpoiXUqWvLy89+a10qYTB1N5Ifkuw9lqQkN9sscvA==",
+        "dependencies": {
+          "@alloc/quick-lru": "@alloc/quick-lru@5.2.0",
+          "arg": "arg@5.0.2",
+          "chokidar": "chokidar@3.5.3",
+          "didyoumean": "didyoumean@1.2.2",
+          "dlv": "dlv@1.1.3",
+          "fast-glob": "fast-glob@3.3.1",
+          "glob-parent": "glob-parent@6.0.2",
+          "is-glob": "is-glob@4.0.3",
+          "jiti": "jiti@1.20.0",
+          "lilconfig": "lilconfig@2.1.0",
+          "micromatch": "micromatch@4.0.5",
+          "normalize-path": "normalize-path@3.0.0",
+          "object-hash": "object-hash@3.0.0",
+          "picocolors": "picocolors@1.0.0",
+          "postcss": "postcss@8.4.31",
+          "postcss-import": "postcss-import@15.1.0_postcss@8.4.31",
+          "postcss-js": "postcss-js@4.0.1_postcss@8.4.31",
+          "postcss-load-config": "postcss-load-config@4.0.1_postcss@8.4.31",
+          "postcss-nested": "postcss-nested@6.0.1_postcss@8.4.31",
+          "postcss-selector-parser": "postcss-selector-parser@6.0.13",
+          "resolve": "resolve@1.22.6",
+          "sucrase": "sucrase@3.34.0"
+        }
+      },
       "tar-fs@2.1.1": {
         "integrity": "sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==",
         "dependencies": {
@@ -3639,6 +3669,10 @@
       },
       "zod@3.21.1": {
         "integrity": "sha512-+dTu2m6gmCbO9Ahm4ZBDapx2O6ZY9QSPXst2WXjcznPMwf2YNpn3RevLx4KkZp1OPW/ouFcoBtBzFz/LeY69oA==",
+        "dependencies": {}
+      },
+      "zod@3.22.4": {
+        "integrity": "sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==",
         "dependencies": {}
       },
       "zwitch@2.0.4": {
