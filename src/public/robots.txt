@@ -2,6 +2,9 @@ User-agent: *
 Disallow: /blog
 
 User-agent: *
+Disallow: /about
+
+User-agent: *
 Disallow: /bp
 
 User-agent: *
