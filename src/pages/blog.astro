@@ -28,7 +28,10 @@ const POSTS = await getCollection("posts");
                             </p>
                         </div>
                         <p>{post.data.excerpt}</p>
-                        <a class="btn" href={`/bp/${post.data.shortcut}`}>
+                        <a
+                            class="text-primary"
+                            href={`/bp/${post.data.shortcut}`}
+                        >
                             Read More &gt
                         </a>
                     </div>

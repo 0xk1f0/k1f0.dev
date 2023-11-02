@@ -9,14 +9,14 @@ module.exports = {
             "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
         ],
         colors: {
-            "primary": "#0094C6",
-            "surface": "#09131D",
-            "background": "#020217",
-            "foreground": "#8EC9DF",
+            "primary": "#888888",
+            "surface": "#242424",
+            "background": "#101010",
+            "foreground": "#ffffff",
             "transparent": "#00000000",
-            "grey": "#3f3f3f",
-            "justblack": "#000000",
-            "orange": "#ff3300",
+            "black": "#000000",
+            "white": "#ffffff",
+            "orange": "#ff4400",
         },
         extend: {
             fontFamily: {
@@ -33,12 +33,6 @@ module.exports = {
                 "1/4": "25%",
                 "2/4": "50%",
                 "3/4": "75%",
-            },
-            width: {
-                almost: "98%",
-            },
-            height: {
-                almost: "98%",
             },
         },
     },

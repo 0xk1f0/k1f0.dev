@@ -22,15 +22,12 @@ const { title = "", desc = "" } = Astro.props as Props;
         <meta property="og:site_name" content="k1f0.dev" />
         <meta property="og:locale" content="en" />
         <meta property="og:description" content={desc} />
-        <meta property="og:image" content="https://k1f0.dev/og-preview.jpg" />
-        <meta property="og:image:alt" content="O.o" />
         <!--Twitter Tags-->
         <meta name="twitter:card" content="website" />
         <meta name="twitter:site" content="k1f0.dev" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:image" content="https://k1f0.dev/og-preview.jpg" />
-        <meta name="twitter:image:alt" content="O.o" />
+        <!--Misc-->
         <link rel="icon" href="/favicon.svg" sizes="256x256" type="image/svg" />
         <title>{title}</title>
         <ViewTransitions />
@@ -101,7 +98,7 @@ const { title = "", desc = "" } = Astro.props as Props;
 
     .astro-code {
         @apply py-2
-        !bg-justblack
+        !bg-black
         border-2
         border-surface;
     }

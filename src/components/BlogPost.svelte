@@ -37,22 +37,20 @@
     }
 </script>
 
-<div
-    class="container-fullscreen flex min-h-full w-full max-w-screen-xl m-auto"
->
+<div class="container-fullscreen flex min-h-full w-full max-w-screen-xl m-auto">
     <div class="w-screen p-4">
         <div class="flex flex-row float-right">
             <div class="flex">
                 {#if votes.user_downvoted || votes.user_upvoted}
                     <p
-                        class="text-grey m-auto p-2.5 font-bold text-xl lg:text-2xl border-none"
-                        style="color: #ff0000;"
+                        class="text-orange m-auto p-2.5 font-bold text-xl lg:text-2xl border-none"
                     >
                         {votes.upvotes - votes.downvotes}
                     </p>
                 {:else}
                     <p
-                        class="text-grey m-auto p-2.5 font-bold text-xl lg:text-2xl border-none"
+                        class="text-orange m-auto p-2.5 font-bold text-xl lg:text-2xl border-none"
+                        style="filter: saturate(0);"
                     >
                         {votes.upvotes - votes.downvotes}
                     </p>
@@ -61,7 +59,7 @@
             <div class="flex flex-col">
                 {#if votes.user_upvoted}
                     <button
-                        class="text-orange p-2.5 border-none"
+                        class="p-2.5 border-none"
                         on:click={upvote}
                     >
                         <img
@@ -71,8 +69,7 @@
                         />
                     </button>
                     <button
-                        class="text-orange p-2.5 border-none"
-                        style="color: grey;"
+                        class="p-2.5 border-none"
                         on:click={downvote}
                     >
                         <img
@@ -83,8 +80,7 @@
                     </button>
                 {:else if votes.user_downvoted}
                     <button
-                        class="text-orange p-2.5 border-none"
-                        style="color: grey;"
+                        class="p-2.5 border-none"
                         on:click={upvote}
                     >
                         <img
@@ -95,7 +91,7 @@
                         />
                     </button>
                     <button
-                        class="text-orange p-2.5 border-none"
+                        class="p-2.5 border-none"
                         on:click={downvote}
                     >
                         <img
@@ -106,8 +102,7 @@
                     </button>
                 {:else}
                     <button
-                        class="text-orange p-2.5 border-none"
-                        style="color: grey;"
+                        class="p-2.5 border-none"
                         on:click={upvote}
                     >
                         <img
@@ -118,8 +113,7 @@
                         />
                     </button>
                     <button
-                        class="text-orange p-2.5 border-none"
-                        style="color: grey;"
+                        class="p-2.5 border-none"
                         on:click={downvote}
                     >
                         <img

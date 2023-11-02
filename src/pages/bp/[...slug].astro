@@ -26,14 +26,14 @@ if (!import.meta.env.DEV) {
     )
         .split(",")[0]
         .trim();
-} else console.log("Dev Mode IP: " + real_ip);
+}
 const IP_ID = await API.hashClientAddress(real_ip);
 
 // handle POST reqs
 if (Astro.request.method === "POST") {
     try {
-        const TYPE = await Astro.request.text();
-        const RESP = await API.handleRequest(TYPE, slug || "", IP_ID);
+        const TYPE: string = await Astro.request.text();
+        const RESP: any = await API.handleRequest(TYPE, slug || "", IP_ID);
         if (RESP instanceof Object) {
             return new Response(
                 JSON.stringify({

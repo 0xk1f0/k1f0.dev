@@ -6,6 +6,18 @@ import APIHandler from "../components/helpers/api";
 // new API handler
 const API = new APIHandler();
 
+// greeting
+const currentTime = new Date();
+const currentHour = currentTime.getHours();
+let greeting: string;
+if (currentHour < 14) {
+    greeting = "Good morning";
+} else if (currentHour < 18) {
+    greeting = "Good afternoon";
+} else {
+    greeting = "Good evening";
+}
+
 // hash client's IP
 // check for SSR, otherwise dev
 let real_ip: string = "127.0.0.1";
@@ -17,7 +29,7 @@ if (!import.meta.env.DEV) {
     )
         .split(",")[0]
         .trim();
-} else console.log("Dev Mode IP: " + real_ip);
+}
 const IP_ID = await API.hashClientAddress(real_ip);
 ---
 
@@ -27,27 +39,19 @@ const IP_ID = await API.hashClientAddress(real_ip);
         class="flex flex-col min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] m-auto w-screen"
         transition:animate="fade"
     >
-        <div class="general-container flex flex-row h-full m-auto w-full max-w-screen-xl p-4">
+        <div
+            class="general-container flex flex-row h-full m-auto w-full max-w-screen-xl p-4"
+        >
             <div class="text-center mx-auto">
                 <h1 class="text-foreground mb-3 font-bold text-3xl">
-                    Hello Visitor <br /><code class="font-mono italic"
-                        >"{IP_ID.slice(0, 8)}"</code
-                    >
+                    {greeting}<br />
+                    <code class="font-mono italic">"{IP_ID.slice(0, 16)}"</code>
                 </h1>
                 <div>
                     <p>
-                        Above are the first 8 characters of the hash that will
-                        identify you as a voter on this page.<br />
-                         It is only used to keep track of the unique total
-                        number of votes.<br />
-                        <span style="font-weight: bolder;"
-                            >This site does not collect any other data (or none
-                            if you don't vote).</span
-                        ><br />
-                         If you would like to read and/or vote, please head over
-                        to my
-                        <a href="/blog">Blogposts</a>.<br />
-                         I hope you enjoy your stay here.
+                        I hope you enjoy your stay here.<br />
+                         If you would like to read some of the stuff I write,
+                        please head over to my <a href="/blog">Blogposts</a>.
                     </p>
                 </div>
             </div>
