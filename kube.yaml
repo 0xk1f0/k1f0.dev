@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: k1f0dev-pod
+  name: k1f0dev-pod
+spec:
+  securityContext:
+    fsGroup: 1000
+    privileged: false
+    readOnlyRootFilesystem: false
+  containers:
+  - args:
+    - deno
+    - run
+    - -A
+    - --unstable
+    - ./dist/server/entry.mjs
+    env:
+    - name: TZ
+      value: Europe/Vienna
+    image: k1f0dev:latest
+    name: k1f0dev-web
+    ports:
+    - containerPort: 8085
+      hostIP: 127.0.0.1
+      hostPort: 8085
+    volumeMounts:
+    - mountPath: /var/lib/denokv
+      name: data-0
+  volumes:
+  - hostPath:
+      path: ./data
+      type: DirectoryOrCreate
+    name: data-0
