@@ -1,10 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.svelte";
-import APIHandler from "../components/helpers/api";
-
-// new API handler
-const API = new APIHandler();
 
 // greeting
 const currentTime = new Date();
@@ -17,20 +13,6 @@ if (currentHour < 14) {
 } else {
     greeting = "Good evening";
 }
-
-// hash client's IP
-// check for SSR, otherwise dev
-let real_ip: string = "127.0.0.1";
-if (!import.meta.env.DEV) {
-    real_ip = (
-        Astro.request.headers.get("x-forwarded-for") ||
-        Astro.clientAddress ||
-        ""
-    )
-        .split(",")[0]
-        .trim();
-}
-const IP_ID = await API.hashClientAddress(real_ip);
 ---
 
 <Layout title="k1f0.dev" desc="The Starting Void">
@@ -44,8 +26,7 @@ const IP_ID = await API.hashClientAddress(real_ip);
         >
             <div class="text-center mx-auto">
                 <h1 class="text-foreground mb-3 font-bold text-3xl">
-                    {greeting}<br />
-                    <code class="font-mono italic">"{IP_ID.slice(0, 16)}"</code>
+                    {greeting} Visitor!
                 </h1>
                 <div>
                     <p>

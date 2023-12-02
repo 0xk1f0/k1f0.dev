@@ -14,8 +14,7 @@
         <div class="flex items-center">
             <a
                 href="/blog"
-                class="font-semibold rounded-lg text-xl text-foreground"
-                >Blog</a
+                class="font-semibold rounded-lg text-xl text-foreground">Blog</a
             >
             <a
                 href="/about"
