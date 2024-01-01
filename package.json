@@ -10,7 +10,7 @@
     "dist": "NODE_ENV=production HOST=0.0.0.0 PORT=8085 node ./dist/server/entry.mjs"
   },
   "dependencies": {
-    "@astrojs/node": "^7.0.2",
+    "@astrojs/node": "^7.0.3",
     "@astrojs/svelte": "^5.0.2",
     "@astrojs/tailwind": "^5.0.4",
     "astro": "^4.0.7",
