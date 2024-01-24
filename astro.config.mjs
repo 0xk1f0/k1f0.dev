@@ -1,14 +1,10 @@
 import { defineConfig } from "astro/config";
-import svelte from "@astrojs/svelte";
-import node from "@astrojs/node";
 import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-    output: "server",
-    adapter: node({
-        mode: "standalone",
-    }),
-    publicDir: "./src/public",
-    integrations: [svelte(), tailwind()],
+  publicDir: "./src/public",
+  site: 'https://k1f0.dev',
+  integrations: [tailwind(), sitemap()]
 });

@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.svelte";
+import Header from "../components/Header.astro";
 ---
 
 <Layout title="About - k1f0.dev" desc="Where are we?">
-    <Header client:load />
+    <Header />
     <div
         class="flex flex-col min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] m-auto w-screen"
         transition:animate="fade"

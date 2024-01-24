@@ -1,11 +1,3 @@
 User-agent: *
-Disallow: /blog
-
-User-agent: *
-Disallow: /about
-
-User-agent: *
-Disallow: /bp
-
-User-agent: *
-Disallow: /404
+Allow: /
+Sitemap: https://k1f0.dev/sitemap-index.xml

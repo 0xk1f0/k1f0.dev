@@ -1,24 +1,43 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.svelte";
-import BlogPost from "../../components/BlogPost.svelte";
+import Header from "../../components/Header.astro";
 
-const { slug } = Astro.params;
-const POSTS = await getCollection("posts");
-const PAGE = POSTS.find((page) => page.data.shortcut === slug);
-if (!PAGE) return Astro.redirect("/404");
-const { Content } = await PAGE.render();
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('posts');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.data.shortcut }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 ---
 
-<Layout title={PAGE.data.title + " - k1f0.dev"} desc={PAGE.data.excerpt}>
-    <Header client:load />
+<Layout title={entry.data.title + " - k1f0.dev"} desc={entry.data.excerpt}>
+    <Header />
     <div
         class="flex flex-col m-auto min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] w-screen"
         transition:animate="fade"
     >
-        <BlogPost dataProps={[PAGE]} client:visible>
-            <Content />
-        </BlogPost>
+        <div class="container-fullscreen flex min-h-full w-full max-w-screen-xl m-auto">
+            <div class="w-screen p-4">
+                <a
+                    class="inline-block text-primary uppercase font-mono text-sm mb-4"
+                    href="/blog">&lt Go Back</a
+                >
+                <h1>{entry.data.title}</h1>
+                <div class="font-mono text-sm my-5">
+                    <p>
+                        by <strong>{entry.data.author}</strong> on {
+                            new Date(entry.data.date).toLocaleDateString("en-GB")
+                        }
+                    </p>
+                </div>
+                <div>
+                    <Content />
+                </div>
+            </div>
+        </div>
     </div>
 </Layout>

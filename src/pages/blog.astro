@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.svelte";
+import Header from "../components/Header.astro";
 
 const POSTS = await getCollection("posts");
 ---
 
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
-    <Header client:load />
+    <Header />
     <div
         class="flex flex-row min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] w-screen"
         transition:animate="fade"
@@ -16,7 +16,7 @@ const POSTS = await getCollection("posts");
             class="post-container flex flex-col h-full m-auto w-full max-w-screen-xl p-4"
         >
             {
-                POSTS.toReversed().map((post: any) => (
+                POSTS.reverse().map((post: any) => (
                     <div class="mb-8 listing-post">
                         <div class="flex flex-col lg:flex-row justify-between">
                             <h2>{post.data.title}</h2>

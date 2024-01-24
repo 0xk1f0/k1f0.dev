@@ -18,7 +18,7 @@ spec:
     - name: TZ
       value: Europe/Vienna
     image: docker.io/library/nginx:latest
-    name: nginx-proxy
+    name: nginx
     ports:
     - containerPort: 443
       hostPort: 443
@@ -29,19 +29,6 @@ spec:
       name: nginx-0
     - mountPath: /etc/ssl/private
       name: ssl-0
-  - args:
-    - npm
-    - run
-    - dist
-    env:
-    - name: TZ
-      value: Europe/Vienna
-    image: k1f0dev:latest
-    name: k1f0dev-web
-    ports:
-    - containerPort: 8085
-      hostIP: 127.0.0.1
-      hostPort: 8085
   volumes:
   - hostPath:
       path: ./nginx
