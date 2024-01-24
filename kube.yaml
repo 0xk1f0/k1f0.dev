@@ -17,7 +17,7 @@ spec:
     env:
     - name: TZ
       value: Europe/Vienna
-    image: docker.io/library/nginx:latest
+    image: k1f0dev:latest
     name: nginx
     ports:
     - containerPort: 443
