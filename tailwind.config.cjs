@@ -19,6 +19,15 @@ module.exports = {
             "orange": "#ff4400",
         },
         extend: {
+            fontSize: {
+                "sm": "clamp(1.02rem, -0.18vw + 1.07rem, 0.92rem)",
+                "base": "clamp(1.13rem, -0.11vw + 1.15rem, 1.06rem)",
+                "lg": "clamp(1.24rem, -0.03vw + 1.24rem, 1.22rem)",
+                "xl": "clamp(1.36rem, 0.08vw + 1.34rem, 1.41rem)",
+                "2xl": "clamp(1.5rem, 0.22vw + 1.44rem, 1.62rem)",
+                "3xl": "clamp(1.65rem, 0.38vw + 1.55rem, 1.86rem)",
+                "4xl": "clamp(1.81rem, 0.59vw + 1.66rem, 2.14rem)"
+            },
             fontFamily: {
                 "system-ui": "system-ui",
             },
@@ -34,6 +43,12 @@ module.exports = {
                 "2/4": "50%",
                 "3/4": "75%",
             },
+            minHeight: {
+                "respect-header": "calc(100%-3.5rem)"
+            },
+            maxHeight: {
+                "respect-header": "calc(100%-3.5rem)"
+            }
         },
     },
     plugins: [],
