@@ -17,10 +17,10 @@ const POSTS = await getCollection("posts");
         >
             {
                 POSTS.reverse().map((post: any) => (
-                    <div class="mb-8 listing-post">
+                    <div class="mb-8 listing-post post-preview">
                         <div class="flex flex-col lg:flex-row justify-between">
                             <h2>{post.data.title}</h2>
-                            <p id="italic text-sm mb-2">
+                            <p id="italic text-sm">
                                 by <strong> {post.data.author} </strong> on
                                 {new Date(post.data.date).toLocaleDateString(
                                     "en-GB",
