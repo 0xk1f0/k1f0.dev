@@ -30,9 +30,12 @@ RUN mkdir -p /var/www/html/
 # copy files
 COPY --from=builder /app/dist /var/www/html
 
-# expose 80 and 443
+# replace nginx config
+RUN rm -f /etc/nginx/nginx.conf
+COPY docker/nginx.conf /etc/nginx/
+
+# expose 80
 EXPOSE 80
-EXPOSE 443
 
 # serve nginx
 CMD ["nginx", "-g", "daemon off;"]
