@@ -24,18 +24,15 @@ RUN npm run build
 # from nginx latest
 FROM nginx:bookworm
 
-# make sure root exists
-RUN mkdir -p /var/www/html/
-
-# copy files
-COPY --from=builder /app/dist /var/www/html
-
 # replace nginx config
 RUN rm -f /etc/nginx/nginx.conf
 COPY docker/nginx.conf /etc/nginx/
 
-# expose 80
-EXPOSE 80
+# copy built files
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# expose 8080
+EXPOSE 8080
 
 # serve nginx
 CMD ["nginx", "-g", "daemon off;"]

@@ -20,6 +20,6 @@ spec:
     image: k1f0dev:latest
     name: website
     ports:
-    - containerPort: 80
+    - containerPort: 8080
       hostIP: 127.0.0.1
       hostPort: 8880
