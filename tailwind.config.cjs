@@ -10,13 +10,12 @@ module.exports = {
         ],
         colors: {
             "primary": "#888888",
-            "surface": "#242424",
+            "surface": "#1b1b1b",
             "background": "#101010",
             "foreground": "#ffffff",
             "transparent": "#00000000",
             "black": "#000000",
-            "white": "#ffffff",
-            "orange": "#ff4400",
+            "white": "#ffffff"
         },
         extend: {
             fontSize: {

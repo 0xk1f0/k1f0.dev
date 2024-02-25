@@ -5,6 +5,6 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   publicDir: "./src/public",
-  site: 'https://k1f0.dev',
+  site: 'https://blog.k1f0.dev',
   integrations: [tailwind(), sitemap()]
 });

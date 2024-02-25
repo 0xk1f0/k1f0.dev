@@ -1,41 +1,50 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 
-// greeting
-const currentTime = new Date();
-const currentHour = currentTime.getHours();
-let greeting: string;
-if (currentHour < 14) {
-    greeting = "Good morning";
-} else if (currentHour < 18) {
-    greeting = "Good afternoon";
-} else {
-    greeting = "Good evening";
-}
+const POSTS = await getCollection("posts");
 ---
 
-<Layout title="k1f0.dev" desc="The Starting Void">
+<Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
     <Header />
     <div
-        class="flex flex-col m-auto w-screen min-h-respect-header max-h-respect-header"
+        class="flex flex-row w-screen min-h-respect-header max-h-respect-header"
         transition:animate="fade"
     >
         <div
-            class="general-container flex flex-row h-full m-auto w-full max-w-screen-xl p-4"
+            class="post-container flex flex-col h-full m-auto w-full max-w-screen-xl p-4 mt-4"
         >
-            <div class="text-center mx-auto">
-                <h1 class="text-foreground mb-3 text-3xl italic">
-                    {greeting} Visitor!
-                </h1>
-                <div>
-                    <p>
-                        I hope you enjoy your stay here.<br />
-                         If you would like to read some of the stuff I write,
-                        please head over to my <a href="/blog">Blogposts</a>.
-                    </p>
-                </div>
-            </div>
+            {
+                POSTS.reverse().map((post: any) => (
+                    <div class="mb-8 listing-post post-preview">
+                        <div class="flex flex-col lg:flex-row justify-between">
+                            <h2>{post.data.title}</h2>
+                            <p id="italic text-sm">
+                                by <strong> {post.data.author} </strong> on
+                                {new Date(post.data.date).toLocaleDateString(
+                                    "en-GB",
+                                )}
+                            </p>
+                        </div>
+                        <p>{post.data.excerpt}</p>
+                        <div class="flex items-center content-center justify-start mt-2">
+                            <a
+                                class="inline-block text-primary uppercase font-mono font-semibold text-base"
+                                href={`/bp/${post.data.shortcut}`}
+                            >
+                                Read More
+                            </a>
+                            <a
+                                class="inline-block text-primary uppercase font-mono font-semibold text-xl ml-2"
+                                href={`/bp/${post.data.shortcut}`}
+                            >
+                                &gt
+                            </a>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </Layout>
