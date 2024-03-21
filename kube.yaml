@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: k1f0dev
-  name: k1f0dev
+    app: blog
+  name: blog
 spec:
   securityContext:
     fsGroup: 1000
@@ -17,8 +17,8 @@ spec:
     env:
     - name: TZ
       value: Europe/Vienna
-    image: k1f0dev:latest
-    name: website
+    image: k1f0dev-blog:latest
+    name: server
     ports:
     - containerPort: 8080
       hostIP: 127.0.0.1
