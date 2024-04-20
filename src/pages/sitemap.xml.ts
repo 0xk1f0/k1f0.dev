@@ -7,7 +7,7 @@ export const GET: APIRoute = async () => {
     const POSTS = await getRawPostData(POSTS_PATH);
     const ORIGIN = "https://blog.k1f0.dev";
     let siteMapConstruct: string[] = POSTS.map(
-        (entry) => `<url><loc>${ORIGIN}/${entry.data.shortcut}/</loc></url>`
+        (entry) => `<url><loc>${ORIGIN}/bp/${entry.data.shortcut}/</loc></url>`
     );
     siteMapConstruct.push(`<url><loc>${ORIGIN}/</loc></url>`);
     return new Response(
