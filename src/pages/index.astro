@@ -1,10 +1,10 @@
 ---
-import { getRawPostData } from "../lib/helpers";
+import { getRawPostList } from "../lib/helpers";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 
 const POSTS_PATH = process.env.POSTS_PATH || "/posts";
-const POSTS = await getRawPostData(POSTS_PATH);
+const POSTS = await getRawPostList(POSTS_PATH);
 ---
 
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
@@ -33,6 +33,7 @@ const POSTS = await getRawPostData(POSTS_PATH);
                             <a
                                 class="inline-block text-primary uppercase font-mono font-semibold text-base"
                                 href={`/bp/${post.data.shortcut}`}
+                                data-astro-prefetch
                             >
                                 Read More <span class="text-xl">&gt</span>
                             </a>

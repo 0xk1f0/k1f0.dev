@@ -12,13 +12,12 @@ const MARKDOWNIT = markdownit().use(
         theme: "dark-plus",
     })
 );
-const POSTS = await getRawPostData(POSTS_PATH);
-const CONTENT = POSTS.find((entry) => entry.data.shortcut === short);
-if (CONTENT === undefined) return Astro.redirect("/404");
-const HTML = MARKDOWNIT.render(CONTENT.content);
+const POST = await getRawPostData(POSTS_PATH, short || '');
+if (POST === undefined) return Astro.redirect("/404");
+const HTML = MARKDOWNIT.render(POST.content);
 ---
 
-<Layout title={CONTENT.data.title + " - k1f0.dev"} desc={CONTENT.data.excerpt}>
+<Layout title={POST.data.title + " - k1f0.dev"} desc={POST.data.excerpt}>
     <Header />
     <div
         class="flex flex-col m-auto w-screen min-h-respect-header max-h-respect-header"
@@ -36,11 +35,11 @@ const HTML = MARKDOWNIT.render(CONTENT.content);
                         href="/"><span class="text-xl">&lt</span> Go Back</a
                     >
                 </div>
-                <h1>{CONTENT.data.title}</h1>
+                <h1>{POST.data.title}</h1>
                 <div class="font-mono text-sm my-5">
                     <p>
-                        by <strong>{CONTENT.data.author}</strong> on {
-                            new Date(CONTENT.data.date).toLocaleDateString(
+                        by <strong>{POST.data.author}</strong> on {
+                            new Date(POST.data.date).toLocaleDateString(
                                 "en-GB"
                             )
                         }
