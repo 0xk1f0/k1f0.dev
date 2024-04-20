@@ -28,4 +28,4 @@ RUN npm run build
 EXPOSE 8080
 
 # serve nginx
-CMD ["HOST=0.0.0.0", "PORT=8080", "node", "./dist/server/entry.mjs"]
+CMD ["npm", "run", "dist"]
