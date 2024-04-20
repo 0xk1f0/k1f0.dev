@@ -10,16 +10,22 @@ spec:
     privileged: false
     readOnlyRootFilesystem: false
   containers:
-  - args:
-    - nginx
-    - -g
-    - daemon off;
+  - image: blog:latest
+    name: server
     env:
     - name: TZ
       value: Europe/Vienna
-    image: k1f0dev-blog:latest
-    name: server
+    - name: POSTS_PATH
+      value: /posts
     ports:
     - containerPort: 8080
       hostIP: 127.0.0.1
       hostPort: 8880
+    volumeMounts:
+    - mountPath: /posts
+      name: data-posts
+  volumes:
+  - hostPath:
+      path: ./posts
+      type: DirectoryOrCreate
+    name: data-posts

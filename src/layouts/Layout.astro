@@ -135,18 +135,6 @@ const { title = "", desc = "" } = Astro.props as Props;
         font-bold;
     }
 
-    .astro-code {
-        @apply py-2
-        !bg-black
-        border-2
-        border-surface
-        my-4;
-    }
-
-    .astro-code > code > .line {
-        @apply m-2;
-    }
-
     @keyframes fadeInY {
         0% {
             transform: translateY(+25%);
@@ -156,6 +144,12 @@ const { title = "", desc = "" } = Astro.props as Props;
         100% {
             opacity: 1;
         }
+    }
+
+    pre:has(code) {
+        @apply p-4
+        rounded-md
+        overflow-x-scroll;
     }
 
     @keyframes fadeInX {

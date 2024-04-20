@@ -1,8 +1,11 @@
 # from node latest
-FROM node:bookworm-slim as builder
+FROM node:bookworm-slim
 
 # Set working directory
 WORKDIR /app
+
+# make posts dir
+RUN mkdir -p /posts
 
 # Copy initial necessary files to container
 COPY package.json \
@@ -21,18 +24,8 @@ COPY src ./src
 # build
 RUN npm run build
 
-# from nginx latest
-FROM nginx:bookworm
-
-# replace nginx config
-RUN rm -f /etc/nginx/nginx.conf
-COPY docker/nginx.conf /etc/nginx/
-
-# copy built files
-COPY --from=builder /app/dist /usr/share/nginx/html
-
 # expose 8080
 EXPOSE 8080
 
 # serve nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["HOST=0.0.0.0", "PORT=8080", "node", "./dist/server/entry.mjs"]

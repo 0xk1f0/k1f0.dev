@@ -1,0 +1,59 @@
+---
+import markdownit from "markdown-it";
+import Shiki from "@shikijs/markdown-it";
+import { getRawPostData } from "../../lib/helpers";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+
+const POSTS_PATH = process.env.POSTS_PATH || "/posts";
+const { short } = Astro.params;
+const MARKDOWNIT = markdownit().use(
+    await Shiki({
+        theme: "dark-plus",
+    })
+);
+const POSTS = await getRawPostData(POSTS_PATH);
+const CONTENT = POSTS.find((entry) => entry.data.shortcut === short);
+if (CONTENT === undefined) return Astro.redirect("/404");
+const HTML = MARKDOWNIT.render(CONTENT.content);
+---
+
+<Layout title={CONTENT.data.title + " - k1f0.dev"} desc={CONTENT.data.excerpt}>
+    <Header />
+    <div
+        class="flex flex-col m-auto w-screen min-h-respect-header max-h-respect-header"
+        transition:animate="fade"
+    >
+        <div
+            class="container-fullscreen flex min-h-full w-full max-w-screen-xl m-auto"
+        >
+            <div class="w-screen p-4">
+                <div
+                    class="flex my-2 items-center content-center justify-start"
+                >
+                    <a
+                        class="inline-block text-primary uppercase font-mono font-semibold text-base"
+                        href="/"><span class="text-xl">&lt</span> Go Back</a
+                    >
+                </div>
+                <h1>{CONTENT.data.title}</h1>
+                <div class="font-mono text-sm my-5">
+                    <p>
+                        by <strong>{CONTENT.data.author}</strong> on {
+                            new Date(CONTENT.data.date).toLocaleDateString(
+                                "en-GB"
+                            )
+                        }
+                    </p>
+                </div>
+                <div class="blog-post" set:html={HTML} />
+                <div class="flex my-2 items-center content-center justify-end">
+                    <a
+                        class="inline-block text-primary uppercase font-mono font-semibold text-base"
+                        href="/"><span class="text-xl">&lt</span> Go Back</a
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
