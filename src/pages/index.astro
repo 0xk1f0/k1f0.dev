@@ -3,8 +3,7 @@ import { getRawPostList } from "../lib/helpers";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 
-const POSTS_PATH = process.env.POSTS_PATH || "/posts";
-const POSTS = await getRawPostList(POSTS_PATH);
+const POSTS = await getRawPostList();
 ---
 
 <Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
@@ -17,7 +16,9 @@ const POSTS = await getRawPostList(POSTS_PATH);
             class="post-container flex flex-col h-full m-auto w-full max-w-screen-xl p-4 mt-4"
         >
             {
-                POSTS.reverse().map((post) => (
+                POSTS.sort((a, b) =>
+                    new Date(b.data.date) > new Date(a.data.date) ? 1 : -1
+                ).map((post) => (
                     <div class="mb-8 listing-post post-preview">
                         <div class="flex flex-col lg:flex-row justify-between">
                             <h2>{post.data.title}</h2>

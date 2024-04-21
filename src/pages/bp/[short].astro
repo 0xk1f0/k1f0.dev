@@ -5,14 +5,13 @@ import { getRawPostData } from "../../lib/helpers";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 
-const POSTS_PATH = process.env.POSTS_PATH || "/posts";
 const { short } = Astro.params;
 const MARKDOWNIT = markdownit().use(
     await Shiki({
         theme: "dark-plus",
     })
 );
-const POST = await getRawPostData(POSTS_PATH, short || '');
+const POST = await getRawPostData(short || '');
 if (POST === undefined) return Astro.redirect("/404");
 const HTML = MARKDOWNIT.render(POST.content);
 ---

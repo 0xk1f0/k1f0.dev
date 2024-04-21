@@ -17,6 +17,8 @@ spec:
       value: Europe/Vienna
     - name: POSTS_PATH
       value: /posts
+    - name: DB_HOST
+      value: db
     ports:
     - containerPort: 8080
       hostIP: 127.0.0.1
@@ -24,8 +26,20 @@ spec:
     volumeMounts:
     - mountPath: /posts
       name: data-posts
+  - image: ghcr.io/dragonflydb/dragonfly:latest
+    name: db
+    env:
+    - name: TZ
+      value: Europe/Vienna
+    volumeMounts:
+    - mountPath: /data
+      name: data-db
   volumes:
   - hostPath:
       path: ./posts
       type: DirectoryOrCreate
     name: data-posts
+  - hostPath:
+      path: ./database
+      type: DirectoryOrCreate
+    name: data-db

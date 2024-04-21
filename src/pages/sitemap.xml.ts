@@ -1,10 +1,8 @@
 import type { APIRoute } from "astro";
 import { getRawPostList } from "../lib/helpers";
 
-const POSTS_PATH = process.env.POSTS_PATH || "/posts";
-
 export const GET: APIRoute = async () => {
-    const POSTS = await getRawPostList(POSTS_PATH);
+    const POSTS = await getRawPostList();
     const ORIGIN = "https://blog.k1f0.dev";
     let siteMapConstruct: string[] = POSTS.map(
         (entry) => `<url><loc>${ORIGIN}/bp/${entry.data.shortcut}/</loc></url>`

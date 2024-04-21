@@ -12,6 +12,6 @@ export default defineConfig({
     mode: "standalone"
   }),
   prefetch: {
-    defaultStrategy: 'hover'
+    defaultStrategy: 'viewport'
   }
 });
