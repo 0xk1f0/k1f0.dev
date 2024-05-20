@@ -26,7 +26,11 @@ spec:
     volumeMounts:
     - mountPath: /posts
       name: data-posts
-  - image: docker.io/library/redis:7-alpine
+  - args:
+    - redis-server
+    - --save 60 1
+    - --loglevel warning
+    image: docker.io/library/redis:7-alpine
     name: db
     env:
     - name: TZ
