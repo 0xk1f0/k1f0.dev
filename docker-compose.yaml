@@ -1,8 +1,8 @@
 version: '3.9'
 services:
-  dragonfly-dev:
-    image: ghcr.io/dragonflydb/dragonfly:latest
-    hostname: dragonfly
+  redis-dev:
+    image: docker.io/library/redis:7-alpine
+    hostname: db
     environment:
       TZ: Europe/Vienna
     ports:

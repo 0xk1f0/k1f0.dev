@@ -26,7 +26,7 @@ spec:
     volumeMounts:
     - mountPath: /posts
       name: data-posts
-  - image: ghcr.io/dragonflydb/dragonfly:latest
+  - image: docker.io/library/redis:7-alpine
     name: db
     env:
     - name: TZ
