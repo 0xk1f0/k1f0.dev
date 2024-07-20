@@ -4,15 +4,16 @@ import Layout from "../layouts/Layout.astro";
 export const prerender = true;
 ---
 
-<Layout title="404 - blog.k1f0.dev" desc="Page not found">
+<Layout title="500 - blog.k1f0.dev" desc="Internal Server Error">
     <div
         class="flex flex-row w-full h-full min-h-screen"
         transition:animate="fade"
     >
         <div class="flex flex-col m-auto">
             <div id="text-center text-6xl m-auto">
-                <h1 class="text-4xl">404</h1>
-                <p class="text-2xl">Page not found.</p>
+                <h1 class="text-4xl">500</h1>
+                <p class="text-2xl">Internal Server Error.</p>
+                <p class="text-2xl">Contact Site Owner if this repeats.</p>
             </div>
         </div>
     </div>

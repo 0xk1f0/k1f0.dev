@@ -9,6 +9,7 @@ export interface Props {
 const { title = "", desc = "" } = Astro.props as Props;
 ---
 
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -48,8 +49,8 @@ const { title = "", desc = "" } = Astro.props as Props;
     body {
         @apply m-0 p-0
         bg-background
-        min-h-screen
-        flex flex-col
+        min-w-full
+        min-h-full
         font-system-ui;
     }
 

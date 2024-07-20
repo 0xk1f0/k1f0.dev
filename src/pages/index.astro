@@ -1,47 +1,72 @@
 ---
-import { getRawPostList } from "../lib/helpers";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-
-const POSTS = await getRawPostList();
+import PostsListing from "../components/PostsListing.astro";
 ---
 
-<Layout title="Blog - k1f0.dev" desc="Occasional Blog Posts">
+<Layout title="Posts - blog.k1f0.dev" desc="Coder & Linux Enthusiast">
     <Header />
-    <div
-        class="flex flex-row w-screen min-h-respect-header max-h-respect-header"
-        transition:animate="fade"
-    >
-        <div
-            class="post-container flex flex-col h-full m-auto w-full max-w-screen-xl p-4 mt-4"
-        >
-            {
-                POSTS.sort((a, b) =>
-                    new Date(b.data.date) > new Date(a.data.date) ? 1 : -1
-                ).map((post) => (
-                    <div class="mb-8 listing-post post-preview">
-                        <div class="flex flex-col lg:flex-row justify-between">
-                            <h2>{post.data.title}</h2>
-                            <p id="italic text-sm">
-                                by <strong> {post.data.author} </strong> on
-                                {new Date(post.data.date).toLocaleDateString(
-                                    "en-GB"
-                                )}
-                            </p>
-                        </div>
-                        <p>{post.data.excerpt}</p>
-                        <div class="flex items-center content-center justify-start mt-2">
-                            <a
-                                class="inline-block text-primary uppercase font-mono font-semibold text-base"
-                                href={`/bp/${post.data.shortcut}`}
-                                data-astro-prefetch
-                            >
-                                Read More <span class="text-xl">&gt</span>
-                            </a>
-                        </div>
-                    </div>
-                ))
-            }
-        </div>
+    <div class="flex flex-col w-full h-full min-h-respect-header" transition:animate="fade">
+        <PostsListing server:defer>
+            <div slot="fallback" class="flex flex-col m-auto">
+                <svg
+                    class="text-primary"
+                    width="128"
+                    height="128"
+                    version="1.1"
+                    id="L4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 50 100"
+                    enable-background="new 0 0 0 0"
+                    xml:space="preserve"
+                >
+                    <circle
+                        fill="currentColor"
+                        stroke="none"
+                        cx="6"
+                        cy="50"
+                        r="6"
+                    >
+                        <animate
+                            attributeName="opacity"
+                            dur="1s"
+                            values="0;1;0"
+                            repeatCount="indefinite"
+                            begin="0.1"></animate>
+                    </circle>
+                    <circle
+                        fill="currentColor"
+                        stroke="none"
+                        cx="26"
+                        cy="50"
+                        r="6"
+                    >
+                        <animate
+                            attributeName="opacity"
+                            dur="1s"
+                            values="0;1;0"
+                            repeatCount="indefinite"
+                            begin="0.2"></animate>
+                    </circle>
+                    <circle
+                        fill="currentColor"
+                        stroke="none"
+                        cx="46"
+                        cy="50"
+                        r="6"
+                    >
+                        <animate
+                            attributeName="opacity"
+                            dur="1s"
+                            values="0;1;0"
+                            repeatCount="indefinite"
+                            begin="0.3"></animate>
+                    </circle>
+                </svg>
+            </div>
+        </PostsListing>
     </div>
 </Layout>

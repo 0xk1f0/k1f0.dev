@@ -42,11 +42,14 @@ module.exports = {
                 "2/4": "50%",
                 "3/4": "75%",
             },
+            height: {
+                "respect-header": "calc(100vh - 3.5rem)"
+            },
             minHeight: {
-                "respect-header": "calc(100% - 3.5rem)"
+                "respect-header": "calc(100vh - 3.5rem)"
             },
             maxHeight: {
-                "respect-header": "calc(100% - 3.5rem)"
+                "respect-header": "calc(100vh - 3.5rem)"
             }
         },
     },

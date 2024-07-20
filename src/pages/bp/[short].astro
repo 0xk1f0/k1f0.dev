@@ -9,23 +9,23 @@ const { short } = Astro.params;
 const MARKDOWNIT = markdownit().use(
     await Shiki({
         theme: "dark-plus",
-    })
+    }),
 );
-const POST = await getRawPostData(short || '');
+const POST = await getRawPostData(short || "");
 if (POST === undefined) return Astro.redirect("/404");
 const HTML = MARKDOWNIT.render(POST.content);
 ---
 
-<Layout title={POST.data.title + " - k1f0.dev"} desc={POST.data.excerpt}>
+<Layout title={POST.data.title + " - blog.k1f0.dev"} desc={POST.data.excerpt}>
     <Header />
     <div
-        class="flex flex-col m-auto w-screen min-h-respect-header max-h-respect-header"
+        class="flex flex-col w-full h-full min-h-respect-header"
         transition:animate="fade"
     >
         <div
-            class="container-fullscreen flex min-h-full w-full max-w-screen-xl m-auto"
+            class="container-fullscreen flex w-full h-full max-w-screen-xl m-auto px-5 py-2"
         >
-            <div class="w-screen p-4">
+            <div>
                 <div
                     class="flex my-2 items-center content-center justify-start"
                 >
@@ -38,9 +38,7 @@ const HTML = MARKDOWNIT.render(POST.content);
                 <div class="font-mono text-sm my-5">
                     <p>
                         by <strong>{POST.data.author}</strong> on {
-                            new Date(POST.data.date).toLocaleDateString(
-                                "en-GB"
-                            )
+                            new Date(POST.data.date).toLocaleDateString("en-GB")
                         }
                     </p>
                 </div>
