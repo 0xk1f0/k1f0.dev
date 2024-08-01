@@ -1,7 +1,6 @@
-version: '3.9'
 services:
-  redis-dev:
-    image: docker.io/library/redis:7-alpine
+  valkey-dev:
+    image: docker.io/valkey/valkey:7-alpine
     hostname: db
     environment:
       TZ: Europe/Vienna
