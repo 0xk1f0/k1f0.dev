@@ -147,10 +147,8 @@ const { title = "", desc = "" } = Astro.props as Props;
         }
     }
 
-    pre:has(code) {
-        @apply p-4
-        rounded-md
-        overflow-x-scroll;
+    .shiki {
+        @apply rounded-sm overflow-x-scroll p-3;
     }
 
     @keyframes fadeInX {
