@@ -74,12 +74,12 @@ const { title = "", desc = "" } = Astro.props as Props;
         @apply text-foreground m-0 p-0 font-semibold text-xl;
     }
 
-    ul {
-        @apply m-2;
-    }
-
     li {
         @apply p-1 text-foreground text-base;
+    }
+
+    ul {
+        @apply list-disc ml-5 p-0;
     }
 
     .general-container {
