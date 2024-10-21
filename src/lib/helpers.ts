@@ -1,4 +1,4 @@
-import { createClient } from "redis";
+import { createClient } from "@redis/client";
 import type { GrayMatterFile } from "gray-matter";
 
 const DB_HOST = process.env.DB_HOST || "localhost";
@@ -8,7 +8,7 @@ const CLIENT = createClient({
 });
 
 export async function getRawPostList() {
-    await CLIENT.connect();
+    if (!CLIENT.isOpen) await CLIENT.connect();
     const POSTS = (await CLIENT.scan(0)).keys;
     if (POSTS.length === 0) return [];
     let postDataList: GrayMatterFile<string>[] = [];
@@ -17,14 +17,14 @@ export async function getRawPostList() {
         if (POST !== null)
             postDataList.push(JSON.parse(POST) as GrayMatterFile<string>);
     }
-    await CLIENT.disconnect();
+    if (CLIENT.isOpen) await CLIENT.disconnect();
     return postDataList;
 }
 
 export async function getRawPostData(name: string) {
-    await CLIENT.connect();
+    if (!CLIENT.isOpen) await CLIENT.connect();
     const POST = await CLIENT.get(name);
-    await CLIENT.disconnect();
+    if (CLIENT.isOpen) await CLIENT.disconnect();
     if (POST === null) return undefined;
     return JSON.parse(POST) as GrayMatterFile<string>;
 }

@@ -1,6 +1,6 @@
 services:
   valkey-dev:
-    image: docker.io/valkey/valkey:7-alpine
+    image: docker.io/valkey/valkey:8-alpine
     hostname: db
     environment:
       TZ: Europe/Vienna

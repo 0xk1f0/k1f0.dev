@@ -1,16 +1,16 @@
 ---
 import markdownit from "markdown-it";
-import Shiki from "@shikijs/markdown-it";
+import hljs from "highlight.js";
+import HighlightJS from "markdown-it-highlightjs";
 import { getRawPostData } from "../../lib/helpers";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 
+const HLJSOPTS = {
+    hljs: hljs,
+};
 const { short } = Astro.params;
-const MARKDOWNIT = markdownit().use(
-    await Shiki({
-        theme: "material-theme-darker",
-    }),
-);
+const MARKDOWNIT = markdownit().use(HighlightJS, HLJSOPTS);
 const POST = await getRawPostData(short || "");
 if (POST === undefined) return Astro.redirect("/404");
 const HTML = MARKDOWNIT.render(POST.content);
