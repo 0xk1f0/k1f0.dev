@@ -18,9 +18,9 @@ spec:
     - name: CONFIG_PATH
       value: /config/config.yaml
     ports:
-    - containerPort: 8080
+    - containerPort: 8081
       hostIP: 127.0.0.1
-      hostPort: 8880
+      hostPort: 8881
     volumeMounts:
     - mountPath: /config
       name: data-config

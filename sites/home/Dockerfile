@@ -28,7 +28,7 @@ RUN npm run build
 RUN ln -s /app/dist/client/icons /icons
 
 # expose 8080
-EXPOSE 8080
+EXPOSE 8081
 
 # serve nginx
 CMD ["npm", "run", "dist"]
