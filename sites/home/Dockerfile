@@ -26,7 +26,7 @@ RUN npm run build
 # symlink images path
 RUN ln -s /app/dist/client/icons /icons
 
-# expose 8080
+# expose 8081
 EXPOSE 8081
 
 # serve nginx
