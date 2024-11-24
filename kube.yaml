@@ -16,7 +16,7 @@ spec:
     - name: TZ
       value: Europe/Vienna
     - name: CONFIG_PATH
-      value: /config/config.yaml
+      value: /config/config.json
     ports:
     - containerPort: 8081
       hostIP: 127.0.0.1
