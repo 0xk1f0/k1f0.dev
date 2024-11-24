@@ -1,0 +1,83 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+export interface Props {
+    title?: string;
+    desc?: string;
+}
+
+const { title = "", desc = "" } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={desc} />
+        <!--OG Tags-->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:site_name" content="k1f0.dev" />
+        <meta property="og:locale" content="en" />
+        <meta property="og:description" content={desc} />
+        <!--Twitter Tags-->
+        <meta name="twitter:card" content="website" />
+        <meta name="twitter:site" content="k1f0.dev" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
+        <!--Misc-->
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <link rel="icon" href="/favicon.svg" sizes="256x256" type="image/svg" />
+        <title>{title}</title>
+        <ViewTransitions />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        @apply m-0 p-0
+        bg-background
+        min-w-full
+        min-h-full
+        font-system-ui;
+    }
+
+    a {
+        @apply text-primary;
+    }
+
+    p {
+        @apply text-foreground m-0 p-0 text-base;
+    }
+
+    h1 {
+        @apply text-foreground m-0 p-0 font-semibold text-3xl;
+    }
+
+    h2 {
+        @apply text-foreground m-0 p-0 font-semibold text-2xl;
+    }
+
+    h3 {
+        @apply text-foreground m-0 p-0 font-semibold text-xl;
+    }
+
+    li {
+        @apply p-1 text-foreground text-base;
+    }
+
+    ul {
+        @apply list-disc ml-5 p-0;
+    }
+</style>

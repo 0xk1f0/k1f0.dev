@@ -1,0 +1,11 @@
+services:
+  valkey-dev:
+    image: docker.io/valkey/valkey:8-alpine
+    hostname: db
+    environment:
+      TZ: Europe/Vienna
+    ports:
+      - '127.0.0.1:6379:6379'
+    restart: unless-stopped
+    profiles:
+      - dev

@@ -1,0 +1,16 @@
+---
+export interface Props {
+    icon?: string;
+    desc?: string;
+    link?: string;
+}
+
+const BASE_PATH = "";
+
+const { icon = "", desc = "", link = "" } = Astro.props as Props;
+---
+
+<div>
+    <img src={icon} />
+    <a href={link}>{name}</a>
+</div>

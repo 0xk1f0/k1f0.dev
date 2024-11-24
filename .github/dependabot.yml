@@ -1,11 +1,20 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/sites/blog"
     schedule:
       interval: "weekly"
       day: "monday"
     groups:
-      npm:
+      npm-blog:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/sites/home"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      npm-home:
         patterns:
           - "*"

@@ -27,5 +27,5 @@ try {
 }
 
 await CLIENT.disconnect();
-console.log("✨ ~ Cached all posts ~ ✨");
+console.log("~ Cached all posts ~");
 process.exit(0);

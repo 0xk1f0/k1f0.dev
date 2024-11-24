@@ -6,7 +6,10 @@ import PostsListing from "../components/PostsListing.astro";
 
 <Layout title="Posts - blog.k1f0.dev" desc="Coder & Linux Enthusiast">
     <Header />
-    <div class="flex flex-col w-full h-full min-h-respect-header" transition:animate="fade">
+    <div
+        class="flex flex-col w-full h-full min-h-respect-header"
+        transition:animate="fade"
+    >
         <PostsListing server:defer>
             <div slot="fallback" class="flex flex-col m-auto">
                 <svg

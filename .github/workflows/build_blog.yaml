@@ -1,0 +1,28 @@
+name: Install and Build
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - '.github/workflows/build_blog.yaml'
+      - 'sites/blog/**'
+  pull_request:
+    branches: [ "master" ]
+    paths:
+      - '.github/workflows/build_blog.yaml'
+      - 'sites/blog/**'
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install and Build
+        run: |
+          cd ./sites/blog/
+          npm install
+          npm run build

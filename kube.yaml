@@ -2,16 +2,30 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: blog
-  name: blog
+    app: k1f0dev
+  name: k1f0dev
 spec:
   securityContext:
     fsGroup: 1000
     privileged: false
     readOnlyRootFilesystem: false
   containers:
+  - image: home:latest
+    name: home
+    env:
+    - name: TZ
+      value: Europe/Vienna
+    - name: CONFIG_PATH
+      value: /config
+    ports:
+    - containerPort: 8080
+      hostIP: 127.0.0.1
+      hostPort: 8880
+    volumeMounts:
+    - mountPath: /config
+      name: data-config
   - image: blog:latest
-    name: server
+    name: blog
     env:
     - name: TZ
       value: Europe/Vienna
@@ -43,6 +57,10 @@ spec:
       path: ./posts
       type: DirectoryOrCreate
     name: data-posts
+  - hostPath:
+      path: ./config
+      type: DirectoryOrCreate
+    name: data-config
   - hostPath:
       path: ./database
       type: DirectoryOrCreate
