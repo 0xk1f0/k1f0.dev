@@ -9,7 +9,6 @@ RUN mkdir -p /config
 
 # Copy initial necessary files to container
 COPY package.json \
-package-lock.json \
 astro.config.mjs \
 tailwind.config.cjs \
 tsconfig.json \
