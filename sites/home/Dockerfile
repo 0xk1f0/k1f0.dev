@@ -4,6 +4,9 @@ FROM node:bookworm-slim
 # Set working directory
 WORKDIR /app
 
+# create necessary paths
+RUN mkdir -p /config
+
 # Copy initial necessary files to container
 COPY package.json \
 package-lock.json \
@@ -20,6 +23,9 @@ COPY src ./src
 
 # build
 RUN npm run build
+
+# symlink images path
+RUN ln -s /app/dist/client/icons /icons
 
 # expose 8080
 EXPOSE 8080

@@ -1,0 +1,14 @@
+{
+    "title": "Username",
+    "intro": "Hello World",
+    "links": [
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        }
+    ]
+}

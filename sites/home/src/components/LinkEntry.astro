@@ -1,16 +1,43 @@
 ---
+import path from "path";
+
 export interface Props {
-    icon?: string;
-    desc?: string;
-    link?: string;
+    icon: string;
+    desc: string;
+    link: string;
+    borderColor: string;
+    backgroundColor: string;
+    foregroundColor: string;
 }
 
-const BASE_PATH = "";
-
-const { icon = "", desc = "", link = "" } = Astro.props as Props;
+const {
+    icon = "",
+    desc = "",
+    link = "",
+    borderColor = "",
+    backgroundColor = "",
+    foregroundColor = "",
+} = Astro.props as Props;
+const ICONS_PATH = "/icons";
+const ICON = path.basename(icon);
 ---
 
-<div>
-    <img src={icon} />
-    <a href={link}>{name}</a>
-</div>
+<a href={link}>
+    <div
+        style={{ backgroundColor: backgroundColor, borderColor: borderColor }}
+        class="flex flex-row justify-center align-middle space-x-2 border-2 rounded-lg h-14 hover:!border-white transition"
+    >
+        <img
+            class="my-auto"
+            width="20px"
+            height="20px"
+            src={path.join(ICONS_PATH, ICON)}
+        />
+        <p
+            class="my-auto text-lg leading-none"
+            style={{ color: foregroundColor }}
+        >
+            {desc}
+        </p>
+    </div>
+</a>

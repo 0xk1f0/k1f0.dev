@@ -16,7 +16,7 @@ spec:
     - name: TZ
       value: Europe/Vienna
     - name: CONFIG_PATH
-      value: /config
+      value: /config/config.yaml
     ports:
     - containerPort: 8080
       hostIP: 127.0.0.1
@@ -24,6 +24,8 @@ spec:
     volumeMounts:
     - mountPath: /config
       name: data-config
+    - mountPath: /icons
+      name: data-icons
   - image: blog:latest
     name: blog
     env:
@@ -57,6 +59,10 @@ spec:
       path: ./posts
       type: DirectoryOrCreate
     name: data-posts
+  - hostPath:
+      path: ./icons
+      type: DirectoryOrCreate
+    name: data-icons
   - hostPath:
       path: ./config
       type: DirectoryOrCreate
