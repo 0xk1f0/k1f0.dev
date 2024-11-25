@@ -1,10 +1,8 @@
 # k1f0.dev
 
-Website Source Code
+### Website Source Code Monorepo
 
-### Monorepo
+- [Home](https://github.com/0xk1f0/k1f0.dev/tree/master/sites/home)
+- [Blog](https://github.com/0xk1f0/k1f0.dev/tree/master/sites/blog)
 
-- [Home](https://astro.build)
-- [Blog](https://astro.build)
-
-**Built with [Astro](https://astro.build)**
+*Built with [Astro](https://astro.build)*
