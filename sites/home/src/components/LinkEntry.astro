@@ -22,22 +22,23 @@ const ICONS_PATH = "/icons";
 const ICON = path.basename(icon);
 ---
 
-<a href={link} target="_blank">
-    <div
-        style={{ backgroundColor: backgroundColor, borderColor: borderColor }}
-        class="flex flex-row justify-center align-middle space-x-2 border-2 rounded-lg h-14 hover:!border-white transition"
-    >
-        <img
-            class="my-auto"
-            width="20px"
-            height="20px"
-            src={path.join(ICONS_PATH, ICON)}
-        />
-        <p
-            class="my-auto text-lg leading-none"
-            style={{ color: foregroundColor }}
+<div
+    style={{ backgroundColor: backgroundColor, borderColor: borderColor }}
+    class="flex flex-col justify-center w-full h-full max-h-[65px] m-1.5 border-2 rounded-md hover:!border-white transition"
+>
+    <a href={link} target="_blank">
+        <div
+            class="flex flex-row w-full justify-center h-full space-x-2 p-2"
         >
-            {desc}
-        </p>
-    </div>
-</a>
+            <img
+                class="my-auto w-6 h-6"
+                width="24px"
+                height="24px"
+                src={path.join(ICONS_PATH, ICON)}
+            />
+            <p class="my-auto text-lg text-center break-all -translate-y-0.5" style={{ color: foregroundColor }}>
+                {desc}
+            </p>
+        </div>
+    </a>
+</div>

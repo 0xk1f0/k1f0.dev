@@ -1,0 +1,78 @@
+{
+    "title": "Username",
+    "subtitle": "Hello World",
+    "links": [
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        },
+        {
+            "icon": "example.svg",
+            "desc": "Long Social Name",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        },
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        },
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        },
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        },
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        },
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        },
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        },
+        {
+            "icon": "example.svg",
+            "desc": "Example",
+            "link": "https://example.com/",
+            "borderColor": "#888888",
+            "backgroundColor": "#444444",
+            "foregroundColor": "#ffffff"
+        }
+    ]
+}

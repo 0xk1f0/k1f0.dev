@@ -2,11 +2,11 @@ import { z } from "zod";
 import path from "path";
 import { promises as fs } from "fs";
 
-const CONFIG_PATH = process.env.CONFIG_PATH || "/config/config.json";
+const CONFIG_PATH = path.normalize(process.env.CONFIG || "/config/config.json");
 
 const ConfigFile = z.object({
     title: z.string(),
-    intro: z.string(),
+    subtitle: z.string(),
     links: z.array(
         z.object({
             icon: z.string(),
@@ -21,13 +21,13 @@ const ConfigFile = z.object({
 
 export type ConfigFileType = z.infer<typeof ConfigFile>;
 
-export async function parseConfig(): Promise<ConfigFileType | false> {
-    let config = await fs.readFile(path.normalize(CONFIG_PATH), "utf-8");
+export async function parseConfig(): Promise<ConfigFileType> {
+    let config = await fs.readFile(CONFIG_PATH, "utf-8");
     try {
         let jsonObject = JSON.parse(config);
         return ConfigFile.parse(jsonObject);
     } catch (e: any) {
-        console.error(JSON.stringify(e));
-        return false;
+        console.error("Config File Syntax Error");
+        throw e;
     }
 }

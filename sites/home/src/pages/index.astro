@@ -4,111 +4,39 @@ import LinkEntry from "../components/LinkEntry.astro";
 import { parseConfig } from "../lib/config";
 
 const CONFIG = await parseConfig();
-if (!CONFIG) return Astro.redirect("/500");
 ---
 
 <Layout title="Home - k1f0.dev" desc="Coder & Linux Enthusiast">
-    <div
-        class="flex flex-col w-full h-screen justify-center align-middle"
-        transition:animate="fade"
-    >
+    <div class="flex flex-col w-full h-full">
         <div
-            class="mx-auto mt-auto mb-8 text-center space-y-6 max-h-[calc(100vh-50%)]"
+            class="m-auto flex flex-col w-[90%] h-full max-w-[350px] max-h-[calc(100vh-20%)] sm:max-h-[calc(100vh-30%)]"
         >
-            <img
-                class="m-auto"
-                width="150px"
-                height="150px"
-                src="favicon.svg"
-            />
-            <h1 class="font-extrabold text-5xl">{CONFIG.title}</h1>
-            <p class="font-medium">{CONFIG.intro}</p>
-        </div>
-        <div
-            id="scrollable"
-            class="flex flex-col space-y-4 mx-auto mb-auto w-full max-w-[20rem] max-h-[calc(100vh-50%)] overflow-scroll rounded-lg"
-        >
-            {
-                CONFIG.links.map((entry) => (
-                    <LinkEntry
-                        icon={entry.icon}
-                        desc={entry.desc}
-                        link={entry.link}
-                        borderColor={entry.borderColor}
-                        backgroundColor={entry.backgroundColor}
-                        foregroundColor={entry.foregroundColor}
-                    />
-                ))
-            }
-            <div
-                id="scrollable-shadow-top"
-                class="-translate-y-4 opacity-0 pointer-events-none fixed w-full max-w-[20rem] h-full max-h-[calc(100vh-50%)] bg-gradient-to-t from-transparent from-90% to-[#ffffff66] transition rounded-lg"
-            >
+            <div class="text-center space-y-6 mb-3">
+                <img
+                    class="m-auto max-h-[50%]"
+                    width="150px"
+                    height="150px"
+                    src="favicon.svg"
+                />
+                <h1 class="font-extrabold text-5xl">{CONFIG.title}</h1>
+                <p class="font-medium">{CONFIG.subtitle}</p>
             </div>
             <div
-                id="scrollable-shadow-bottom"
-                class="-translate-y-4 opacity-0 pointer-events-none fixed w-full max-w-[20rem] h-full max-h-[calc(100vh-50%)] bg-gradient-to-b from-transparent from-90% to-[#ffffff66] transition rounded-lg"
+                class="flex flex-wrap flex-row w-full h-full overflow-scroll rounded-md px-2"
             >
+                {
+                    CONFIG.links.map((entry) => (
+                        <LinkEntry
+                            icon={entry.icon}
+                            desc={entry.desc}
+                            link={entry.link}
+                            borderColor={entry.borderColor}
+                            backgroundColor={entry.backgroundColor}
+                            foregroundColor={entry.foregroundColor}
+                        />
+                    ))
+                }
             </div>
         </div>
     </div>
-    <script>
-        let scrollable = document.getElementById("scrollable");
-        let scrollableShadowTop = document.getElementById(
-            "scrollable-shadow-top",
-        );
-        let scrollableShadowBottom = document.getElementById(
-            "scrollable-shadow-bottom",
-        );
-
-        function showScrollShadows(
-            ele: HTMLElement,
-            top: HTMLElement,
-            bottom: HTMLElement,
-        ) {
-            if (
-                Math.abs(ele.scrollHeight - ele.clientHeight - ele.scrollTop) <
-                10
-            ) {
-                bottom.style.opacity = "0%";
-            } else {
-                bottom.style.opacity = "100%";
-            }
-            if (Math.abs(ele.scrollTop) < 10) {
-                top.style.opacity = "0%";
-            } else {
-                top.style.opacity = "100%";
-            }
-        }
-
-        if (
-            scrollable !== null &&
-            scrollableShadowBottom !== null &&
-            scrollableShadowTop !== null
-        ) {
-            showScrollShadows(
-                scrollable,
-                scrollableShadowTop,
-                scrollableShadowBottom,
-            );
-            scrollable.addEventListener("scroll", () =>
-                showScrollShadows(
-                    scrollable,
-                    scrollableShadowTop,
-                    scrollableShadowBottom,
-                ),
-            );
-        }
-    </script>
 </Layout>
-
-<style>
-    #scrollable::-webkit-scrollbar {
-        display: none !important;
-    }
-
-    #scrollable {
-        -ms-overflow-style: none !important;
-        scrollbar-width: none !important;
-    }
-</style>

@@ -5,6 +5,3 @@ src/public/icons/*.jpg
 src/public/icons/*.png
 src/public/icons/*.webp
 !src/public/icons/example.svg
-
-# user config
-misc/config.json
