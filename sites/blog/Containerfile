@@ -30,6 +30,7 @@ FROM node:22-slim
 WORKDIR /app
 
 # copy app files
+COPY --from=builder /build/package.json /app
 COPY --from=builder /build/dist /app/dist
 COPY --from=builder /build/node_modules ./node_modules
 
