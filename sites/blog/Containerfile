@@ -1,0 +1,43 @@
+# from node 22 slim
+FROM node:22-slim as builder
+
+# change workdir
+WORKDIR /build
+
+# Copy initial necessary files to container
+COPY package.json \
+    astro.config.mjs \
+    tailwind.config.cjs \
+    tsconfig.json \
+    ./
+
+# Install dependencies
+RUN npm install
+
+# Copy all other files
+COPY src ./src
+
+# build
+RUN npm run build
+
+# remove unnecessary dependencies
+RUN npm prune --production
+
+# from node 22 slim
+FROM node:22-slim
+
+# Set working directory
+WORKDIR /app
+
+# copy app files
+COPY --from=builder /build/dist /app/dist
+COPY --from=builder /build/node_modules ./node_modules
+
+# make posts dir
+RUN mkdir -p /posts
+
+# expose 8080
+EXPOSE 8080
+
+# serve nginx
+CMD ["npm", "run", "dist"]

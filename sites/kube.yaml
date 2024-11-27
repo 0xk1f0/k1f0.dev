@@ -18,7 +18,7 @@ spec:
     - name: CONFIG
       value: /config/config.json
     ports:
-    - containerPort: 8081
+    - containerPort: 80
       hostIP: 127.0.0.1
       hostPort: 8881
     volumeMounts:
@@ -36,7 +36,7 @@ spec:
     - name: DB_HOST
       value: db
     ports:
-    - containerPort: 8080
+    - containerPort: 80
       hostIP: 127.0.0.1
       hostPort: 8880
     volumeMounts:
