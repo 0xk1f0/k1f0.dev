@@ -1,4 +1,4 @@
-name: Install and Build
+name: Test Build Blog
 
 on:
   push:
