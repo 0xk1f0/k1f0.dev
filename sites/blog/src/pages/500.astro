@@ -1,5 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+interface Props {
+    error: unknown;
+}
+
+const { error } = Astro.props;
+// dont show 500 page if user navigates to it manually
+if (error === undefined) return Astro.redirect("/404");
 ---
 
 <Layout title="500 - blog.k1f0.dev" desc="Internal Server Error">
