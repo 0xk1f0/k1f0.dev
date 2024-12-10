@@ -2,10 +2,12 @@
 import markdownit from "markdown-it";
 import hljs from "highlight.js";
 import HighlightJS from "markdown-it-highlightjs";
-import { getRawPostData } from "../../lib/helpers";
+import { getRawPostData } from "../../lib/database";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
+import { parseConfig } from "../../lib/config";
 
+const CONFIG = await parseConfig();
 const HLJSOPTS = {
     hljs: hljs,
 };
@@ -16,8 +18,12 @@ if (POST === undefined) return Astro.redirect("/404");
 const HTML = MARKDOWNIT.render(POST.content);
 ---
 
-<Layout title={POST.data.title + " - blog.k1f0.dev"} desc={POST.data.excerpt}>
-    <Header />
+<Layout
+    site={CONFIG.site}
+    title={`${POST.data.title} - ${CONFIG.name}`}
+    desc={POST.data.excerpt}
+>
+    <Header name={CONFIG.name} />
     <div
         class="flex flex-col max-w-screen-xl h-full min-h-respect-header m-auto"
         transition:animate="fade"

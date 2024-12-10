@@ -1,12 +1,11 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-
 export interface Props {
     title?: string;
+    site?: string;
     desc?: string;
 }
 
-const { title = "", desc = "" } = Astro.props as Props;
+const { title = "", site = "", desc = "" } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -19,19 +18,18 @@ const { title = "", desc = "" } = Astro.props as Props;
         <!--OG Tags-->
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
-        <meta property="og:site_name" content="k1f0.dev" />
+        <meta property="og:site_name" content={site} />
         <meta property="og:locale" content="en" />
         <meta property="og:description" content={desc} />
         <!--Twitter Tags-->
         <meta name="twitter:card" content="website" />
-        <meta name="twitter:site" content="k1f0.dev" />
+        <meta name="twitter:site" content={site} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
         <!--Misc-->
         <link rel="sitemap" href="/sitemap-index.xml" />
         <link rel="icon" href="/favicon.svg" sizes="256x256" type="image/svg" />
         <title>{title}</title>
-        <ViewTransitions />
     </head>
     <body>
         <slot />

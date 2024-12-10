@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /404
-Disallow: /500
-Allow: /
-Sitemap: https://blog.k1f0.dev/sitemap-index.xml

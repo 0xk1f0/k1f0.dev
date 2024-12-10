@@ -2,10 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import PostsListing from "../components/PostsListing.astro";
+import { parseConfig } from "../lib/config";
+
+const CONFIG = await parseConfig();
 ---
 
-<Layout title="Posts - blog.k1f0.dev" desc="Coder & Linux Enthusiast">
-    <Header />
+<Layout
+    site={CONFIG.site}
+    title={`Posts - ${CONFIG.name}`}
+    desc={CONFIG.description}
+>
+    <Header name={CONFIG.name} />
     <div
         class="flex flex-col w-full h-full min-h-respect-header"
         transition:animate="fade"

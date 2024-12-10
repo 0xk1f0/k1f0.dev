@@ -23,7 +23,7 @@ spec:
       hostPort: 8881
     volumeMounts:
     - mountPath: /config
-      name: data-config
+      name: data-home-config
     - mountPath: /icons
       name: data-icons
   - image: blog:latest
@@ -40,6 +40,8 @@ spec:
       hostIP: 127.0.0.1
       hostPort: 8880
     volumeMounts:
+    - mountPath: /config
+      name: data-blog-config
     - mountPath: /posts
       name: data-posts
   - args:
@@ -64,9 +66,13 @@ spec:
       type: DirectoryOrCreate
     name: data-icons
   - hostPath:
-      path: ./config
+      path: ./blog_config
       type: DirectoryOrCreate
-    name: data-config
+    name: data-blog-config
+  - hostPath:
+      path: ./home_config
+      type: DirectoryOrCreate
+    name: data-home-config
   - hostPath:
       path: ./database
       type: DirectoryOrCreate
