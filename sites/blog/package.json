@@ -1,13 +1,13 @@
 {
-    "name": "blog.k1f0.dev",
+    "name": "blog",
     "type": "module",
-    "version": "2.1",
+    "version": "3.0",
     "private": true,
     "scripts": {
         "astro": "astro",
         "dev": "astro dev",
         "build": "astro build",
-        "dist": "HOST=0.0.0.0 PORT=80 node ./dist/server/entry.mjs",
+        "dist": "NODE_ENV=production HOST=0.0.0.0 PORT=80 node ./dist/server/entry.mjs",
         "cache": "node ./src/scripts/caching.mjs"
     },
     "dependencies": {
