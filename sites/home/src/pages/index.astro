@@ -8,8 +8,8 @@ const CONFIG = await parseConfig();
 
 <Layout
     site={CONFIG.site}
-    title="Home - k1f0.dev"
-    desc="Coder & Linux Enthusiast"
+    title={`Home - ${CONFIG.name}`}
+    desc={CONFIG.description}
 >
     <div class="flex flex-col w-full h-full" transition:animate="fade">
         <div
