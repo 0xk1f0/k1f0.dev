@@ -1,7 +1,7 @@
 {
-    "title": "Username",
+    "name": "Username",
     "site": "https://some.site.org",
-    "subtitle": "Hello World",
+    "description": "Hello World",
     "links": [
         {
             "icon": "example.svg",

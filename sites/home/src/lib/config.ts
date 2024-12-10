@@ -5,9 +5,9 @@ import { promises as fs } from "fs";
 const CONFIG_PATH = path.normalize(process.env.CONFIG || "/config/config.json");
 
 const ConfigFile = z.object({
-    title: z.string(),
+    name: z.string(),
     site: z.string().url(),
-    subtitle: z.string(),
+    description: z.string(),
     links: z.array(
         z.object({
             icon: z.string(),

@@ -8,7 +8,7 @@ const CONFIG = await parseConfig();
 
 <Layout
     site={CONFIG.site}
-    title={`Home - ${CONFIG.title}`}
+    title={`Home - ${CONFIG.name}`}
     desc={CONFIG.description}
 >
     <div class="flex flex-col w-full h-full" transition:animate="fade">
@@ -22,8 +22,8 @@ const CONFIG = await parseConfig();
                     height="150px"
                     src="favicon.svg"
                 />
-                <h1 class="font-extrabold text-5xl">{CONFIG.title}</h1>
-                <p class="font-medium">{CONFIG.subtitle}</p>
+                <h1 class="font-extrabold text-5xl">{CONFIG.name}</h1>
+                <p class="font-medium">{CONFIG.description}</p>
             </div>
             <div
                 class="flex flex-wrap flex-row w-full h-full overflow-y-scroll rounded-md px-2"
