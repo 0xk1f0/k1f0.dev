@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: blog-dev
+  name: blog-dev
+spec:
+  securityContext:
+    privileged: false
+  containers:
+  - image: docker.io/valkey/valkey:8-alpine
+    name: db
+    env:
+    - name: TZ
+      value: Europe/Vienna
+    ports:
+    - containerPort: 6379
+      hostIP: 127.0.0.1
+      hostPort: 6379
