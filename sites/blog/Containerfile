@@ -28,6 +28,7 @@ WORKDIR /app
 
 # copy app files
 COPY --from=builder /build/package.json /app
+COPY --from=builder /build/src/scripts/cache.js /app
 COPY --from=builder /build/dist /app/dist
 COPY --from=builder /build/node_modules ./node_modules
 
