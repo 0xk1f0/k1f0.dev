@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+    --font-system-ui: system-ui;
+
+    --text-sm: clamp(1.02rem, -0.18vw + 1.07rem, 0.92rem);
+    --text-base: clamp(1.13rem, -0.11vw + 1.15rem, 1.06rem);
+    --text-lg: clamp(1.24rem, -0.03vw + 1.24rem, 1.22rem);
+    --text-xl: clamp(1.36rem, 0.08vw + 1.34rem, 1.41rem);
+    --text-2xl: clamp(1.5rem, 0.22vw + 1.44rem, 1.62rem);
+    --text-3xl: clamp(1.65rem, 0.38vw + 1.55rem, 1.86rem);
+    --text-4xl: clamp(1.81rem, 0.59vw + 1.66rem, 2.14rem);
+
+    --color-primary: #888888;
+    --color-surface: #1b1b1b;
+    --color-background: #101010;
+    --color-foreground: #ffffff;
+    --color-transparent: #00000000;
+    --color-black: #000000;
+    --color-white: #ffffff;
+
+    --height-respect-header: calc(100vh - 3.5rem);
+    --min-height-respect-header: calc(100vh - 3.5rem);
+    --max-height-respect-header: calc(100vh - 3.5rem);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: grey transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 4px;
+    border: 1px solid grey;
+}
+
+body {
+    @apply m-0 p-0
+    bg-background
+    w-screen
+    h-screen
+    overflow-hidden
+    font-system-ui;
+}
+
+a {
+    @apply text-primary;
+}
+
+p {
+    @apply text-foreground m-0 p-0 text-base;
+}
+
+h1 {
+    @apply text-foreground m-0 p-0 font-semibold text-3xl;
+}
+
+h2 {
+    @apply text-foreground m-0 p-0 font-semibold text-2xl;
+}
+
+h3 {
+    @apply text-foreground m-0 p-0 font-semibold text-xl;
+}
+
+li {
+    @apply p-1 text-foreground text-base;
+}
+
+ul {
+    @apply list-disc ml-5 p-0;
+}
