@@ -7,24 +7,15 @@ const { name = "" } = Astro.props as Props;
 ---
 
 <nav
-    class="bg-surface h-14 sticky top-0 left-0 px-4 z-30 border-b-2 border-[#444444]"
+    class="h-14 sticky top-0 left-0 px-4 z-30 bg-opacity-50 bg-gradient-to-b from-surface to-80% to-transparent"
 >
     <div
-        class="h-14 flex justify-center items-center mx-auto my-auto max-w-screen-xl font-mono"
+        class="h-14 flex flex-row justify-center items-center mx-auto my-auto max-w-screen-xl font-mono"
     >
-        <div>
-            <a href="/" class="flex items-center">
-                <img
-                    width="auto"
-                    height="auto"
-                    src="/favicon.svg"
-                    class="mr-2 h-8 self-start"
-                    alt="Logo"
-                />
-                <span class="text-lg font-semibold text-foreground self-end"
-                    >Blog - {name}</span
-                >
-            </a>
-        </div>
+        <a href="/">
+            <p class="!text-lg font-semibold text-foreground self-center">
+                {name}
+            </p>
+        </a>
     </div>
 </nav>

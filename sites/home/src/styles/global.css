@@ -11,13 +11,13 @@
     --text-3xl: clamp(1.65rem, 0.38vw + 1.55rem, 1.86rem);
     --text-4xl: clamp(1.81rem, 0.59vw + 1.66rem, 2.14rem);
 
-    --color-primary: #cccccc;
-    --color-surface: #1b1b1b;
-    --color-background: #101010;
-    --color-foreground: #ffffff;
+    --color-primary: #90A8B7;
+    --color-surface: #1A1D1A;
+    --color-background: #020508;
+    --color-foreground: #AAC5C2;
     --color-transparent: #00000000;
     --color-black: #000000;
-    --color-white: #ffffff;
+    --color-white: #FFFFFF;
 }
 
 *,

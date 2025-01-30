@@ -11,17 +11,13 @@
     --text-3xl: clamp(1.65rem, 0.38vw + 1.55rem, 1.86rem);
     --text-4xl: clamp(1.81rem, 0.59vw + 1.66rem, 2.14rem);
 
-    --color-primary: #888888;
-    --color-surface: #1b1b1b;
-    --color-background: #101010;
-    --color-foreground: #ffffff;
+    --color-primary: #90A8B7;
+    --color-surface: #1A1D1A;
+    --color-background: #020508;
+    --color-foreground: #AAC5C2;
     --color-transparent: #00000000;
     --color-black: #000000;
-    --color-white: #ffffff;
-
-    --height-respect-header: calc(100vh - 3.5rem);
-    --min-height-respect-header: calc(100vh - 3.5rem);
-    --max-height-respect-header: calc(100vh - 3.5rem);
+    --color-white: #FFFFFF;
 }
 
 *,
@@ -59,19 +55,19 @@ a {
 }
 
 p {
-    @apply text-foreground m-0 p-0 text-base;
+    @apply text-foreground text-base;
 }
 
 h1 {
-    @apply text-foreground m-0 p-0 font-semibold text-3xl;
+    @apply text-foreground font-semibold text-3xl;
 }
 
 h2 {
-    @apply text-foreground m-0 p-0 font-semibold text-2xl;
+    @apply text-foreground font-semibold text-2xl;
 }
 
 h3 {
-    @apply text-foreground m-0 p-0 font-semibold text-xl;
+    @apply text-foreground font-semibold text-xl;
 }
 
 li {
