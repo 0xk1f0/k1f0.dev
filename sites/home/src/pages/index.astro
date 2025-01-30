@@ -15,15 +15,19 @@ const CONFIG = await parseConfig();
         <div
             class="m-auto flex flex-col w-[90%] h-full max-w-[350px] max-h-[calc(100vh-20%)] sm:max-h-[calc(100vh-30%)]"
         >
-            <div class="text-center space-y-6 mb-3">
-                <img
-                    class="m-auto max-h-[50%]"
-                    width="150px"
-                    height="150px"
-                    src="favicon.svg"
-                />
-                <h1 class="font-extrabold text-5xl">{CONFIG.name}</h1>
-                <p class="font-medium">{CONFIG.description}</p>
+            <div class="flex flex-col space-y-4 mb-4 text-center">
+                <div>
+                    <img
+                        class="m-auto"
+                        width="128px"
+                        height="128px"
+                        src="favicon.svg"
+                    />
+                </div>
+                <div>
+                    <p class="text-2xl text-foreground font-extrabold">{CONFIG.name}</p>
+                    <p class="text-base text-primary font-medium">{CONFIG.description}</p>
+                </div>
             </div>
             <div
                 class="flex flex-wrap flex-row w-full h-full overflow-y-scroll rounded-md px-2"

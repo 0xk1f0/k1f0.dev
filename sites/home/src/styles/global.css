@@ -11,17 +11,13 @@
     --text-3xl: clamp(1.65rem, 0.38vw + 1.55rem, 1.86rem);
     --text-4xl: clamp(1.81rem, 0.59vw + 1.66rem, 2.14rem);
 
-    --color-primary: #888888;
+    --color-primary: #cccccc;
     --color-surface: #1b1b1b;
     --color-background: #101010;
     --color-foreground: #ffffff;
     --color-transparent: #00000000;
     --color-black: #000000;
     --color-white: #ffffff;
-
-    --height-respect-header: calc(100vh - 3.5rem);
-    --min-height-respect-header: calc(100vh - 3.5rem);
-    --max-height-respect-header: calc(100vh - 3.5rem);
 }
 
 *,
@@ -53,32 +49,4 @@ body {
     h-screen
     overflow-hidden
     font-system-ui;
-}
-
-a {
-    @apply text-primary;
-}
-
-p {
-    @apply text-foreground m-0 p-0 text-base;
-}
-
-h1 {
-    @apply text-foreground m-0 p-0 font-semibold text-3xl;
-}
-
-h2 {
-    @apply text-foreground m-0 p-0 font-semibold text-2xl;
-}
-
-h3 {
-    @apply text-foreground m-0 p-0 font-semibold text-xl;
-}
-
-li {
-    @apply p-1 text-foreground text-base;
-}
-
-ul {
-    @apply list-disc ml-5 p-0;
 }
