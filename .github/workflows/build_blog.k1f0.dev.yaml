@@ -1,16 +1,16 @@
-name: Test Build Home
+name: Build blog.k1f0.dev
 
 on:
   push:
     branches: [ "master" ]
     paths:
-      - '.github/workflows/build_home.yaml'
-      - 'sites/home/**'
+      - '.github/workflows/build_blog.yaml'
+      - 'blog.k1f0.dev/**'
   pull_request:
     branches: [ "master" ]
     paths:
-      - '.github/workflows/build_home.yaml'
-      - 'sites/home/**'
+      - '.github/workflows/build_blog.yaml'
+      - 'blog.k1f0.dev/**'
 
 jobs:
   test-build:
@@ -23,6 +23,6 @@ jobs:
           node-version: 22
       - name: Install and Build
         run: |
-          cd ./sites/home/
+          cd ./sites/blog/
           npm install
           npm run build

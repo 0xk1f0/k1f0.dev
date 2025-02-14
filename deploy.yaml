@@ -1,17 +1,13 @@
 apiVersion: v1
 kind: Pod
-metadata:
-  labels:
-    app: k1f0dev
-  name: k1f0dev
 spec:
   securityContext:
     fsGroup: 1000
     privileged: false
     readOnlyRootFilesystem: false
   containers:
-  - image: home:latest
-    name: home
+  - name: k1f0.dev
+    image: k1f0.dev:latest
     env:
     - name: TZ
       value: Europe/Vienna
@@ -23,57 +19,57 @@ spec:
       hostPort: 8881
     volumeMounts:
     - mountPath: /config
-      name: data-home-config
+      name: data-k1f0.dev
     - mountPath: /icons
       name: data-icons
-  - image: blog:latest
-    name: blog
+  - name: blog.k1f0.dev
+    image: blog.k1f0.dev:latest
     env:
     - name: TZ
       value: Europe/Vienna
     - name: POSTS_PATH
       value: /posts
     - name: DB_HOST
-      value: db
+      value: valkey
     ports:
     - containerPort: 80
       hostIP: 127.0.0.1
       hostPort: 8880
     volumeMounts:
     - mountPath: /config
-      name: data-blog-config
+      name: data-blog.k1f0.dev
     - mountPath: /posts
       name: data-posts
-  - args:
+  - name: valkey
+    image: docker.io/valkey/valkey:8-alpine
+    args:
     - valkey-server
     - --save 60 1
     - --loglevel warning
-    image: docker.io/valkey/valkey:8-alpine
-    name: db
     env:
     - name: TZ
       value: Europe/Vienna
     volumeMounts:
     - mountPath: /data
-      name: data-db
+      name: data-valkey
   volumes:
   - hostPath:
-      path: ./posts
-      type: DirectoryOrCreate
+    path: ./.data/database
+    type: DirectoryOrCreate
+    name: data-valkey
+  - hostPath:
+    path: ./.data/posts
+    type: DirectoryOrCreate
     name: data-posts
   - hostPath:
-      path: ./icons
-      type: DirectoryOrCreate
+    path: ./.data/icons
+    type: DirectoryOrCreate
     name: data-icons
   - hostPath:
-      path: ./blog_config
-      type: DirectoryOrCreate
-    name: data-blog-config
+    path: ./.data/k1f0.dev
+    type: DirectoryOrCreate
+    name: data-k1f0.dev
   - hostPath:
-      path: ./home_config
-      type: DirectoryOrCreate
-    name: data-home-config
-  - hostPath:
-      path: ./database
-      type: DirectoryOrCreate
-    name: data-db
+    path: ./.data/blog.k1f0.dev
+    type: DirectoryOrCreate
+    name: data-blog.k1f0.dev
