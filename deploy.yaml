@@ -56,22 +56,22 @@ spec:
       name: data-valkey
   volumes:
   - hostPath:
-    path: ./.data/database
-    type: DirectoryOrCreate
+      path: ./.data/database
+      type: DirectoryOrCreate
     name: data-valkey
   - hostPath:
-    path: ./.data/posts
-    type: DirectoryOrCreate
+      path: ./.data/posts
+      type: DirectoryOrCreate
     name: data-posts
   - hostPath:
-    path: ./.data/icons
-    type: DirectoryOrCreate
+      path: ./.data/icons
+      type: DirectoryOrCreate
     name: data-icons
   - hostPath:
-    path: ./.data/k1f0.dev
-    type: DirectoryOrCreate
+      path: ./.data/k1f0.dev
+      type: DirectoryOrCreate
     name: data-k1f0.dev
   - hostPath:
-    path: ./.data/blog.k1f0.dev
-    type: DirectoryOrCreate
+      path: ./.data/blog.k1f0.dev
+      type: DirectoryOrCreate
     name: data-blog.k1f0.dev
