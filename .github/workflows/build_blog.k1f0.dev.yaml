@@ -23,6 +23,6 @@ jobs:
           node-version: 22
       - name: Install and Build
         run: |
-          cd ./sites/blog/
+          cd ./blog.k1f0.dev/
           npm install
           npm run build
