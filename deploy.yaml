@@ -37,7 +37,7 @@ spec:
       value: Europe/Vienna
     volumeMounts:
     - mountPath: /data
-      name: data-valkey
+      name: database
   volumes:
   - hostPath:
       path: ./.data/database
