@@ -4,13 +4,13 @@ on:
   push:
     branches: [ "master" ]
     paths:
-      - '.github/workflows/build_home.yaml'
-      - 'k1f0.dev/**'
+      - '.github/workflows/build.yaml'
+      - 'src/**'
   pull_request:
     branches: [ "master" ]
     paths:
-      - '.github/workflows/build_home.yaml'
-      - 'k1f0.dev/**'
+      - '.github/workflows/build.yaml'
+      - 'src/**'
 
 jobs:
   test-build:
@@ -23,6 +23,5 @@ jobs:
           node-version: 22
       - name: Install and Build
         run: |
-          cd ./k1f0.dev/
           npm install
           npm run build
