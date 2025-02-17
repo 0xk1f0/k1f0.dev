@@ -1,15 +1,27 @@
 {
-    "name": "Username",
+    "name": "Blog Name",
     "site": "https://some.site.org",
     "description": "Hello World",
     "links": [
         {
-            "icon": "example.svg",
-            "desc": "Example",
-            "link": "https://example.com/",
-            "borderColor": "#888888",
-            "backgroundColor": "#444444",
-            "foregroundColor": "#ffffff"
+            "label": "Example",
+            "link": "https://example.com/"
+        },
+        {
+            "label": "Example",
+            "link": "https://example.com/"
+        },
+        {
+            "label": "Example",
+            "link": "https://example.com/"
+        },
+        {
+            "label": "Example",
+            "link": "https://example.com/"
+        },
+        {
+            "label": "Example",
+            "link": "https://example.com/"
         }
     ]
 }

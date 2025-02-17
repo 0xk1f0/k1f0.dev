@@ -1,48 +1,32 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: app
+  name: k1f0.dev
+  annotations:
+    io.podman.annotations.userns: keep-id
 spec:
-  securityContext:
-    fsGroup: 1000
-    privileged: false
-    readOnlyRootFilesystem: false
   containers:
-  - name: k1f0.dev
+  - name: server
     image: k1f0.dev:latest
     env:
     - name: TZ
       value: Europe/Vienna
     - name: CONFIG
       value: /config/config.json
+    - name: DB_HOST
+      value: valkey
+    - name: POSTS
+      value: /posts
     ports:
     - containerPort: 8080
       hostIP: 127.0.0.1
-      hostPort: 8881
+      hostPort: 8888
     volumeMounts:
     - mountPath: /config
-      name: data-k1f0.dev
-    - mountPath: /icons
-      name: data-icons
-  - name: blog.k1f0.dev
-    image: blog.k1f0.dev:latest
-    env:
-    - name: TZ
-      value: Europe/Vienna
-    - name: POSTS_PATH
-      value: /posts
-    - name: DB_HOST
-      value: valkey
-    ports:
-    - containerPort: 80
-      hostIP: 127.0.0.1
-      hostPort: 8880
-    volumeMounts:
-    - mountPath: /config
-      name: data-blog.k1f0.dev
+      name: config
     - mountPath: /posts
-      name: data-posts
-  - name: valkey
+      name: posts
+  - name: database
     image: docker.io/valkey/valkey:8-alpine
     args:
     - valkey-server
@@ -58,20 +42,12 @@ spec:
   - hostPath:
       path: ./.data/database
       type: DirectoryOrCreate
-    name: data-valkey
+    name: database
   - hostPath:
-      path: ./.data/posts
+      path: ./.data/k1f0.dev/posts
       type: DirectoryOrCreate
-    name: data-posts
+    name: posts
   - hostPath:
-      path: ./.data/icons
+      path: ./.data/k1f0.dev/config
       type: DirectoryOrCreate
-    name: data-icons
-  - hostPath:
-      path: ./.data/k1f0.dev
-      type: DirectoryOrCreate
-    name: data-k1f0.dev
-  - hostPath:
-      path: ./.data/blog.k1f0.dev
-      type: DirectoryOrCreate
-    name: data-blog.k1f0.dev
+    name: config

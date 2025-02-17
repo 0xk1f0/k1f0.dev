@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import LinkEntry from "../components/LinkEntry.astro";
+import Header from "../components/Header.astro";
 import { parseConfig } from "../lib/config";
 
 const CONFIG = await parseConfig();
@@ -11,38 +12,18 @@ const CONFIG = await parseConfig();
     title={`Home - ${CONFIG.name}`}
     desc={CONFIG.description}
 >
-    <div class="flex flex-col w-full h-full" transition:animate="fade">
-        <div
-            class="m-auto flex flex-col w-[90%] h-full max-w-[350px] max-h-[calc(100vh-20%)] sm:max-h-[calc(100vh-30%)]"
-        >
-            <div class="flex flex-col space-y-4 mb-4 text-center">
-                <div>
-                    <img
-                        class="m-auto"
-                        width="128px"
-                        height="128px"
-                        src="favicon.svg"
-                    />
-                </div>
-                <div>
-                    <p class="text-2xl text-foreground font-extrabold">{CONFIG.name}</p>
-                    <p class="text-base text-primary font-medium">{CONFIG.description}</p>
-                </div>
-            </div>
-            <div
-                class="flex flex-wrap flex-row w-full h-full overflow-y-scroll rounded-md px-2"
-            >
+    <Header name={CONFIG.name} />
+    <div class="flex flex-1 flex-col w-full h-full" transition:animate="fade">
+        <div class="flex flex-col w-full h-full min-h-[calc(100vh-3.5rem)]">
+            <div class="m-auto -translate-y-[3.5rem]">
                 {
-                    CONFIG.links.map((entry) => (
-                        <LinkEntry
-                            icon={entry.icon}
-                            desc={entry.desc}
-                            link={entry.link}
-                            borderColor={entry.borderColor}
-                            backgroundColor={entry.backgroundColor}
-                            foregroundColor={entry.foregroundColor}
-                        />
-                    ))
+                    CONFIG.links.map((entry, index) =>
+                        index % 2 ? (
+                            <LinkEntry color="var(--color-primary)" label={entry.label} link={entry.link} />
+                        ) : (
+                            <LinkEntry color="var(--color-foreground)" label={entry.label} link={entry.link} />
+                        ),
+                    )
                 }
             </div>
         </div>

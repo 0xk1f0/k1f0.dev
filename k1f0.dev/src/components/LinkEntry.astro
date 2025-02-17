@@ -2,43 +2,23 @@
 import path from "path";
 
 export interface Props {
-    icon: string;
-    desc: string;
+    label: string;
     link: string;
-    borderColor: string;
-    backgroundColor: string;
-    foregroundColor: string;
+    color: string;
 }
 
-const {
-    icon = "",
-    desc = "",
-    link = "",
-    borderColor = "",
-    backgroundColor = "",
-    foregroundColor = "",
-} = Astro.props as Props;
-const ICONS_PATH = "/icons";
-const ICON = path.basename(icon);
+const { label = "", link = "", color = "" } = Astro.props as Props;
 ---
 
 <div
-    style={{ backgroundColor: backgroundColor, borderColor: borderColor }}
-    class="flex flex-col justify-center w-full h-full max-h-[65px] m-1.5 border-2 rounded-md hover:!border-white transition"
+    class="flex flex-col justify-center w-full h-full max-h-[65px] mt-8 hover:translate-y-0.5 transition"
 >
     <a href={link} target="_blank">
-        <div
-            class="flex flex-row w-full justify-center h-full space-x-2 p-2"
+        <p
+            style={{ color: color + " !important" }}
+            class="font-mono my-auto !text-4xl text-center hover:!text-white"
         >
-            <img
-                class="my-auto w-6 h-6"
-                width="24px"
-                height="24px"
-                src={path.join(ICONS_PATH, ICON)}
-            />
-            <p class="my-auto text-lg text-center break-all -translate-y-0.5" style={{ color: foregroundColor }}>
-                {desc}
-            </p>
-        </div>
+            {label}
+        </p>
     </a>
 </div>

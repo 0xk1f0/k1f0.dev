@@ -45,8 +45,115 @@
 body {
     @apply m-0 p-0
     bg-background
-    w-screen
-    h-screen
-    overflow-hidden
+    min-w-full
+    min-h-full
     font-system-ui;
+}
+
+a {
+    @apply text-primary;
+}
+
+p {
+    @apply text-foreground text-base;
+}
+
+h1 {
+    @apply text-foreground font-semibold text-3xl;
+}
+
+h2 {
+    @apply text-foreground font-semibold text-2xl;
+}
+
+h3 {
+    @apply text-foreground font-semibold text-xl;
+}
+
+li {
+    @apply p-1 text-foreground text-base;
+}
+
+ul {
+    @apply list-disc ml-5 p-0;
+}
+
+.general-container {
+    animation: fadeInY 500ms;
+}
+
+.post-container {
+    animation: fadeInY 500ms;
+}
+
+.about-container {
+    animation: fadeInY 500ms;
+}
+
+.container-fullscreen {
+    animation: fadeInX 500ms;
+}
+
+.blog-post > p {
+    @apply my-2.5;
+}
+
+.blog-post > h1 {
+    @apply my-5
+    font-bold;
+}
+
+.blog-post > h2 {
+    @apply my-4
+    font-bold;
+}
+
+.blog-post > h3 {
+    @apply my-3
+    font-bold;
+}
+
+.post-preview > p {
+    @apply my-2;
+}
+
+.post-preview > h1 {
+    @apply my-2
+    font-bold;
+}
+
+.post-preview > h2 {
+    @apply my-2
+    font-bold;
+}
+
+.post-preview > h3 {
+    @apply my-2
+    font-bold;
+}
+
+@keyframes fadeInY {
+    0% {
+        transform: translateY(+25%);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.shiki {
+    @apply rounded-sm overflow-x-scroll p-3;
+}
+
+@keyframes fadeInX {
+    0% {
+        transform: translateX(+25%);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

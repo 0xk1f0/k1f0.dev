@@ -1,7 +1,0 @@
-# image files
-src/public/icons/*.svg
-src/public/icons/*.jpeg
-src/public/icons/*.jpg
-src/public/icons/*.png
-src/public/icons/*.webp
-!src/public/icons/example.svg

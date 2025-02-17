@@ -1,15 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  labels:
-    app: blog-dev
-  name: blog-dev
+  name: k1f0.dev
 spec:
-  securityContext:
-    privileged: false
   containers:
-  - image: docker.io/valkey/valkey:8-alpine
-    name: db
+  - name: database
+    image: docker.io/valkey/valkey:8-alpine
     env:
     - name: TZ
       value: Europe/Vienna

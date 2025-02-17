@@ -9,12 +9,15 @@ export const GET: APIRoute = async () => {
     let siteMapConstruct: string[] = POSTS.map(
         (entry) =>
             `<url>
-                <loc>${new URL(CONFIG.site).origin}/bp/${entry.data.shortcut}/</loc>
+                <loc>${new URL(CONFIG.site).origin}/blog/${entry.data.shortcut}/</loc>
             </url>`,
     );
     siteMapConstruct.push(
         `<url>
             <loc>${new URL(CONFIG.site).origin}/</loc>
+        </url>`,
+        `<url>
+            <loc>${new URL(CONFIG.site).origin}/blog</loc>
         </url>`,
     );
     return new Response(

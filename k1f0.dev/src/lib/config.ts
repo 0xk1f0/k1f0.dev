@@ -10,12 +10,8 @@ const ConfigFile = z.object({
     description: z.string(),
     links: z.array(
         z.object({
-            icon: z.string(),
-            desc: z.string(),
-            link: z.string().url(),
-            borderColor: z.string().startsWith("#").min(7).max(7),
-            backgroundColor: z.string().startsWith("#").min(7).max(7),
-            foregroundColor: z.string().startsWith("#").min(7).max(7),
+            label: z.string(),
+            link: z.string().url()
         }),
     ),
 });
