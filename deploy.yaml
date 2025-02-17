@@ -14,7 +14,7 @@ spec:
     - name: CONFIG
       value: /config/config.json
     - name: DB_HOST
-      value: valkey
+      value: database
     - name: POSTS
       value: /posts
     ports:
