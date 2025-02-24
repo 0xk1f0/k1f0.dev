@@ -5,15 +5,16 @@ export interface Props {
     label: string;
     link: string;
     color: string;
+    ext: boolean;
 }
 
-const { label = "", link = "", color = "" } = Astro.props as Props;
+const { label = "", link = "", color = "", ext = false } = Astro.props as Props;
 ---
 
 <div
     class="flex flex-col justify-center w-full h-full max-h-[65px] mt-8 hover:translate-y-0.5 transition"
 >
-    <a href={link} target="_blank">
+    <a href={link} target={ext ? "_blank" : "_self"}>
         <p
             style={{ color: color + " !important" }}
             class="font-mono my-auto !text-4xl text-center hover:!text-white"

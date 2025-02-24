@@ -11,7 +11,8 @@ const ConfigFile = z.object({
     links: z.array(
         z.object({
             label: z.string(),
-            link: z.string().url()
+            link: z.string(),
+            external: z.boolean(),
         }),
     ),
 });

@@ -5,7 +5,8 @@
     "links": [
         {
             "label": "Example",
-            "link": "https://example.com/"
+            "link": "https://example.com/",
+            "external": true
         }
     ]
 }

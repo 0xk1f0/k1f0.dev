@@ -19,9 +19,19 @@ const CONFIG = await parseConfig();
                 {
                     CONFIG.links.map((entry, index) =>
                         index % 2 ? (
-                            <LinkEntry color="var(--color-primary)" label={entry.label} link={entry.link} />
+                            <LinkEntry
+                                color="var(--color-primary)"
+                                label={entry.label}
+                                link={entry.link}
+                                ext={entry.external}
+                            />
                         ) : (
-                            <LinkEntry color="var(--color-foreground)" label={entry.label} link={entry.link} />
+                            <LinkEntry
+                                color="var(--color-foreground)"
+                                label={entry.label}
+                                link={entry.link}
+                                ext={entry.external}
+                            />
                         ),
                     )
                 }
