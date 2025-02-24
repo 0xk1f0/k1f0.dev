@@ -17,7 +17,7 @@ export const GET: APIRoute = async () => {
             <loc>${new URL(CONFIG.site).origin}/</loc>
         </url>`,
         `<url>
-            <loc>${new URL(CONFIG.site).origin}/blog</loc>
+            <loc>${new URL(CONFIG.site).origin}/blog/</loc>
         </url>`,
     );
     return new Response(
