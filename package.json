@@ -14,11 +14,11 @@
         "@redis/client": "~1.6.0",
         "@tailwindcss/vite": "~4.0.8",
         "astro": "~5.3.1",
-        "svelte": "~5.20.4",
         "gray-matter": "~4.0.3",
         "highlight.js": "~11.11.1",
         "markdown-it": "~14.1.0",
         "markdown-it-highlightjs": "~4.2.0",
+        "svelte": "~5.20.4",
         "tailwindcss": "~4.0.8",
         "zod": "~3.24.2"
     },

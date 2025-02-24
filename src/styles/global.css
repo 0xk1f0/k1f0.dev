@@ -78,6 +78,10 @@ ul {
     @apply list-disc ml-5 p-0;
 }
 
+.hljs {
+    @apply border-primary border rounded-md !p-3 !m-0;
+}
+
 .general-container {
     animation: fadeInY 500ms;
 }
@@ -141,10 +145,6 @@ ul {
     100% {
         opacity: 1;
     }
-}
-
-.shiki {
-    @apply rounded-sm overflow-x-scroll p-3;
 }
 
 @keyframes fadeInX {
