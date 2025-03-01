@@ -1,31 +1,30 @@
-import { z } from "zod";
+import { type } from "arktype";
 import path from "path";
 import { promises as fs } from "fs";
 
 const CONFIG_PATH = path.normalize(process.env.CONFIG || "/config/config.json");
 
-const ConfigFile = z.object({
-    name: z.string(),
-    site: z.string().url(),
-    description: z.string(),
-    links: z.array(
-        z.object({
-            label: z.string(),
-            link: z.string(),
-            external: z.boolean(),
-        }),
-    ),
+const ConfigFile = type("string.json.parse").to({
+    name: "string",
+    site: "string.url",
+    description: "string",
+    links: [
+        {
+            label: "string",
+            link: "string",
+            external: "boolean",
+        },
+    ],
 });
 
-export type ConfigFileType = z.infer<typeof ConfigFile>;
+type Config = typeof ConfigFile.infer;
 
-export async function parseConfig(): Promise<ConfigFileType> {
-    let config = await fs.readFile(CONFIG_PATH, "utf-8");
-    try {
-        let jsonObject = JSON.parse(config);
-        return ConfigFile.parse(jsonObject);
-    } catch (e: any) {
-        console.error("Config File Syntax Error");
-        throw e;
+export async function getConfig(): Promise<Config | undefined> {
+    let content = await fs.readFile(CONFIG_PATH, "utf-8");
+    let config = ConfigFile(content);
+    if (config instanceof type.errors) {
+        console.error(config.summary);
+        return undefined;
     }
+    return config;
 }

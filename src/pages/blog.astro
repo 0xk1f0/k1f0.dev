@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import PostsListing from "../components/PostsListing.astro";
-import { parseConfig } from "../lib/config";
+import { getConfig } from "../lib/config";
 
-const CONFIG = await parseConfig();
+const CONFIG = await getConfig();
+if (CONFIG === undefined) return Astro.redirect("/404?r=config");
 ---
 
 <Layout

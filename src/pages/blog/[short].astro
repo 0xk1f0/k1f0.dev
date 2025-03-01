@@ -5,16 +5,17 @@ import HighlightJS from "markdown-it-highlightjs";
 import { getRawPostData } from "../../lib/database";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
-import { parseConfig } from "../../lib/config";
+import { getConfig } from "../../lib/config";
 
-const CONFIG = await parseConfig();
+const CONFIG = await getConfig();
+if (CONFIG === undefined) return Astro.redirect("/404?r=config");
 const HLJSOPTS = {
     hljs: hljs,
 };
 const { short } = Astro.params;
 const MARKDOWNIT = markdownit().use(HighlightJS, HLJSOPTS);
 const POST = await getRawPostData(short || "");
-if (POST === undefined) return Astro.redirect("/404");
+if (POST === undefined) return Astro.redirect("/404?r=post");
 const HTML = MARKDOWNIT.render(POST.content);
 ---
 
@@ -32,23 +33,26 @@ const HTML = MARKDOWNIT.render(POST.content);
             <div class="flex my-2 items-center content-center justify-start">
                 <a
                     class="inline-block text-primary uppercase font-mono font-semibold text-base"
-                    href="/blog"><span class="text-xl">&lt</span> Go Back</a
+                    href="/blog"
                 >
+                    <span class="text-xl">&lt</span> Go Back
+                </a>
             </div>
             <h1>{POST.data.title}</h1>
             <div class="font-mono text-sm my-5">
                 <p>
-                    by <strong>{POST.data.author}</strong> on {
-                        new Date(POST.data.date).toLocaleDateString("en-GB")
-                    }
+                    by <strong>{POST.data.author}</strong> on{" "}
+                    {new Date(POST.data.date).toLocaleDateString("en-GB")}
                 </p>
             </div>
             <div class="blog-post" set:html={HTML} />
             <div class="flex my-2 items-center content-center justify-end">
                 <a
                     class="inline-block text-primary uppercase font-mono font-semibold text-base"
-                    href="/blog"><span class="text-xl">&lt</span> Go Back</a
+                    href="/blog"
                 >
+                    <span class="text-xl">&lt</span> Go Back
+                </a>
             </div>
         </div>
     </div>
