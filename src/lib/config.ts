@@ -4,17 +4,17 @@ import { promises as fs } from "fs";
 
 const CONFIG_PATH = path.normalize(process.env.CONFIG || "/config/config.json");
 
+const Link = type({
+    label: "string",
+    link: "string",
+    external: "boolean",
+});
+
 const ConfigFile = type("string.json.parse").to({
     name: "string",
     site: "string.url",
     description: "string",
-    links: [
-        {
-            label: "string",
-            link: "string",
-            external: "boolean",
-        },
-    ],
+    links: Link.array(),
 });
 
 type Config = typeof ConfigFile.infer;
