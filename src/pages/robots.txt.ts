@@ -5,8 +5,9 @@ const CONFIG = await getConfig();
 
 export const GET: APIRoute = async (context) => {
     if (CONFIG) {
+        const URL_ORIGIN = new URL(CONFIG.site).origin
         return new Response(
-            `User-agent: *\nDisallow: /404\nDisallow: /500\nAllow: /\nSitemap: ${new URL("/sitemap-index.xml", CONFIG.site).href}\n`,
+            `User-agent: *\nDisallow: /404\nDisallow: /500\nAllow: /\nSitemap: ${new URL("/sitemap-index.xml", URL_ORIGIN).href}\n`,
             {
                 headers: {
                     "Content-Type": "text/plain",

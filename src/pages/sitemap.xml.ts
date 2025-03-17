@@ -6,19 +6,20 @@ const CONFIG = await getConfig();
 
 export const GET: APIRoute = async (context) => {
     if (CONFIG) {
+        const URL_ORIGIN = new URL(CONFIG.site).origin;
         const POSTS = await getRawPostList();
         let siteMapConstruct: string[] = POSTS.map(
             (entry) =>
                 `<url>
-                    <loc>${new URL(CONFIG.site).origin}/blog/${entry.data.shortcut}/</loc>
+                    <loc>${URL_ORIGIN}/blog/${entry.data.shortcut}/</loc>
                 </url>`,
         );
         siteMapConstruct.push(
             `<url>
-                <loc>${new URL(CONFIG.site).origin}/</loc>
+                <loc>${URL_ORIGIN}/</loc>
             </url>`,
             `<url>
-                <loc>${new URL(CONFIG.site).origin}/blog/</loc>
+                <loc>${URL_ORIGIN}/blog/</loc>
             </url>`,
         );
         return new Response(

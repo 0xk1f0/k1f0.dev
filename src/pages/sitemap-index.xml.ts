@@ -5,11 +5,12 @@ const CONFIG = await getConfig();
 
 export const GET: APIRoute = async (context) => {
     if (CONFIG) {
+        const URL_ORIGIN = new URL(CONFIG.site).origin
         return new Response(
             `<?xml version="1.0" encoding="UTF-8"?>
             <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <sitemap>
-                <loc>${new URL("/sitemap.xml", CONFIG.site).href}</loc>
+                <loc>${new URL("/sitemap.xml", URL_ORIGIN).href}</loc>
             </sitemap>
         </sitemapindex>`,
             {

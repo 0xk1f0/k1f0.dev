@@ -1,9 +1,11 @@
 ---
 export interface Props {
+    site: string;
+    path?: string;
     name?: string;
 }
 
-const { name = "" } = Astro.props as Props;
+const { site, path = "", name = "" } = Astro.props as Props;
 ---
 
 <nav
@@ -12,7 +14,7 @@ const { name = "" } = Astro.props as Props;
     <div
         class="h-14 flex flex-row justify-center items-center mx-auto my-auto max-w-screen-xl font-mono"
     >
-        <a href="/">
+        <a href={site + path}>
             <p class="!text-lg font-semibold text-foreground self-center">
                 {name}
             </p>
