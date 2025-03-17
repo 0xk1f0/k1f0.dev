@@ -31,7 +31,7 @@ jobs:
         id: buildah
         uses: redhat-actions/buildah-build@v2
         with:
-          image: k1f0.dev
+          image: ${{ github.repository }}
           tags: latest
           context: ./
           containerfiles: |
