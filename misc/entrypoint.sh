@@ -2,7 +2,7 @@
 
 export NODE_ENV=production
 export HOST=0.0.0.0
-export PORT=8080
+export PORT=80
 
 echo '''
     __  ___________       __
@@ -15,11 +15,11 @@ echo '''
 
 echo "[+] Waiting for Database Connection ..."
 
-node /init.js
+node /app/init.js
 
 echo "[+] Performing initial Cache Run ..."
 
-node /cache.js
+node /app/cache.js
 
 echo "[+] Starting Web Application ..."
 

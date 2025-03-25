@@ -33,13 +33,13 @@ RUN mkdir -p /posts && \
     mkdir -p /config
 
 # copy misc files
-COPY src/scripts/cache.js /
-COPY src/scripts/init.js /
 COPY misc/entrypoint.sh /
+COPY src/scripts/cache.js /app
+COPY src/scripts/init.js /app
 COPY misc/config.json /config
 
-# expose 8080
-EXPOSE 8080
+# expose 80
+EXPOSE 80
 
 # start app
 CMD ["/entrypoint.sh"]
