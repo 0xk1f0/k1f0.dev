@@ -18,7 +18,7 @@ COPY src ./src
 # build
 RUN npm run build
 
-FROM gcr.io/distroless/nodejs22-debian12:latest
+FROM node:22-slim
 
 # Set working directory
 WORKDIR /app
