@@ -1,7 +1,7 @@
-FROM node:22-slim as builder
+FROM docker.io/denoland/deno:alpine
 
 # change workdir
-WORKDIR /build
+WORKDIR /app
 
 # Copy initial necessary files to container
 COPY package.json \
@@ -10,23 +10,13 @@ COPY package.json \
     ./
 
 # Install dependencies
-RUN npm install --omit=dev
+RUN deno install --allow-scripts
 
 # Copy all other files
 COPY src ./src
 
 # build
-RUN npm run build
-
-FROM node:22-slim
-
-# Set working directory
-WORKDIR /app
-
-# copy app files
-COPY --from=builder /build/package.json /app
-COPY --from=builder /build/dist /app/dist
-COPY --from=builder /build/node_modules ./node_modules
+RUN deno task build
 
 # make posts dir
 RUN mkdir -p /posts && \

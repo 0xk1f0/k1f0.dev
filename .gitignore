@@ -5,6 +5,7 @@ dist/
 # dependencies
 node_modules/
 package-lock.json
+deno.lock
 
 # logs
 npm-debug.log*
@@ -19,18 +20,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# posts
-*.md
-*.mdx
-
 # vscode
 .vscode/
 
 # astro
 .astro/
-
-# blog posts
-posts/*
-
-# deno kv
-.kv/

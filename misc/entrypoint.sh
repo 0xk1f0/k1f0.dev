@@ -15,12 +15,12 @@ echo '''
 
 echo "[+] Waiting for Database Connection ..."
 
-node /app/init.js
+deno /app/init.js
 
 echo "[+] Performing initial Cache Run ..."
 
-node /app/cache.js
+deno /app/cache.js
 
 echo "[+] Starting Web Application ..."
 
-node /app/dist/server/entry.mjs
+deno --allow-net --allow-read --allow-env /app/dist/server/entry.mjs

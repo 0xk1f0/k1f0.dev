@@ -1,8 +1,8 @@
 import { createClient } from "@redis/client";
 import matter from "gray-matter";
-import path from "path";
-import { promises as fs } from "fs";
-import { extname, join } from "path";
+import path from "node:path";
+import { promises as fs } from "node:fs";
+import { extname, join } from "node:path";
 
 const POSTS = path.normalize(process.env.POSTS || "/posts");
 const DB_HOST = process.env.DB_HOST || "localhost";

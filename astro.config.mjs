@@ -1,12 +1,13 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import node from "@astrojs/node";
+import deno from "@deno/astro-adapter";
 
 export default defineConfig({
     publicDir: "./src/public",
     output: "server",
-    adapter: node({
-        mode: "standalone",
+    adapter: deno({
+        hostname: "0.0.0.0",
+        port: 80
     }),
     prefetch: {
         defaultStrategy: "viewport",

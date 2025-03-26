@@ -1,4 +1,4 @@
-import { Socket } from "net";
+import { Socket } from "node:net";
 
 const DB_HOST = process.env.DB_HOST || "localhost";
 const DB_PORT = 6379;
