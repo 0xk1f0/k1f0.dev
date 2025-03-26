@@ -5,7 +5,7 @@ metadata:
 spec:
   restartPolicy: Always
   containers:
-  - name: server
+  - name: k1f0dev
     image: k1f0.dev:latest
     resources:
       requests:
@@ -18,7 +18,7 @@ spec:
     - name: CONFIG
       value: /config/config.json
     - name: DB_HOST
-      value: database
+      value: k1f0devdb
     - name: POSTS
       value: /posts
     ports:
@@ -30,7 +30,7 @@ spec:
       name: config
     - mountPath: /posts:Z
       name: posts
-  - name: database
+  - name: k1f0devdb
     image: docker.io/valkey/valkey:8-alpine
     resources:
       requests:
