@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 export NODE_ENV=production
 export HOST=0.0.0.0
@@ -15,11 +15,11 @@ echo '''
 
 echo "[+] Waiting for Database Connection ..."
 
-deno /app/init.js
+deno --allow-net --allow-read --allow-env /app/init.js
 
 echo "[+] Performing initial Cache Run ..."
 
-deno /app/cache.js
+deno --allow-net --allow-read --allow-env /app/cache.js
 
 echo "[+] Starting Web Application ..."
 
