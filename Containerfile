@@ -24,8 +24,6 @@ RUN mkdir -p /posts && \
 
 # copy misc files
 COPY misc/entrypoint.sh /
-COPY src/scripts/cache.js /app
-COPY src/scripts/init.js /app
 COPY misc/config.json /config
 
 # expose 80
