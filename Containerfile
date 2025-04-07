@@ -10,7 +10,7 @@ COPY package.json \
     ./
 
 # Install dependencies
-RUN deno install --allow-scripts
+RUN deno install
 
 # Copy all other files
 COPY src ./src
