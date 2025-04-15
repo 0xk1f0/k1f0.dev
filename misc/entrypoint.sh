@@ -15,7 +15,7 @@ echo '''
 
 echo "[+] Performing initial Cache Run ..."
 
-deno --quiet --allow-all /app/src/scripts/cache.js
+deno --quiet --allow-all /app/src/scripts/cache.ts
 
 echo "[+] Starting Web Application ..."
 
