@@ -13,10 +13,6 @@ echo '''
 
 '''
 
-echo "[+] Waiting for Database Connection ..."
-
-deno --quiet --allow-all /app/src/scripts/init.js
-
 echo "[+] Performing initial Cache Run ..."
 
 deno --quiet --allow-all /app/src/scripts/cache.js

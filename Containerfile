@@ -20,7 +20,8 @@ RUN deno task build
 
 # make posts dir
 RUN mkdir -p /posts && \
-    mkdir -p /config
+    mkdir -p /config && \
+    mkdir -p /database
 
 # copy misc files
 COPY misc/entrypoint.sh /

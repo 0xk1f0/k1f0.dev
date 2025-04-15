@@ -1,23 +1,16 @@
 ---
-import markdownit from "markdown-it";
-import hljs from "highlight.js";
-import HighlightJS from "markdown-it-highlightjs";
-import { getRawPostData } from "../../lib/database";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
+import { getPost } from "../../lib/database";
 import { getConfig } from "../../lib/config";
 
 const CONFIG = await getConfig();
 if (CONFIG === undefined) return Astro.redirect("/404?r=config");
-const URL_ORIGIN = new URL(CONFIG.site).origin
-const HLJSOPTS = {
-    hljs: hljs,
-};
+const URL_ORIGIN = new URL(CONFIG.site).origin;
 const { short } = Astro.params;
-const MARKDOWNIT = markdownit().use(HighlightJS, HLJSOPTS);
-const POST = await getRawPostData(short || "");
+const POST = await getPost(short || "");
 if (POST === undefined) return Astro.redirect("/404?r=post");
-const HTML = MARKDOWNIT.render(POST.content);
+const HTML = POST.content;
 ---
 
 <Layout

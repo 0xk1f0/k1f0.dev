@@ -15,11 +15,11 @@ spec:
     env:
     - name: TZ
       value: Europe/Vienna
-    - name: CONFIG
+    - name: CONFIG_PATH
       value: /config/config.json
-    - name: DB_HOST
-      value: k1f0devdb
-    - name: POSTS
+    - name: DB_PATH
+      value: /data
+    - name: POSTS_PATH
       value: /posts
     ports:
     - containerPort: 80
@@ -30,33 +30,18 @@ spec:
       name: config
     - mountPath: /posts:Z
       name: posts
-  - name: k1f0devdb
-    image: docker.io/valkey/valkey:8-alpine
-    resources:
-      requests:
-        memory: "512M"
-      limits:
-        memory: "1G"
-    args:
-    - valkey-server
-    - --save 60 1
-    - --loglevel warning
-    env:
-    - name: TZ
-      value: Europe/Vienna
-    volumeMounts:
-    - mountPath: /data:Z
+    - mountPath: /database:Z
       name: database
   volumes:
   - hostPath:
-      path: ./.data/database
+      path: ./.data/k1f0.dev/config
       type: DirectoryOrCreate
-    name: database
+    name: config
   - hostPath:
       path: ./.data/k1f0.dev/posts
       type: DirectoryOrCreate
     name: posts
   - hostPath:
-      path: ./.data/k1f0.dev/config
+      path: ./.data/k1f0.dev/database
       type: DirectoryOrCreate
-    name: config
+    name: database

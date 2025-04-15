@@ -2,7 +2,7 @@ import { type } from "arktype";
 import path from "path";
 import { promises as fs } from "fs";
 
-const CONFIG_PATH = path.normalize(process.env.CONFIG || "/config/config.json");
+const CONFIG_PATH = path.normalize(process.env.CONFIG_PATH || "/config/config.json");
 
 const Link = type({
     label: "string",
