@@ -1,22 +1,43 @@
 ---
 export interface Props {
-    site: string;
-    path?: string;
+    blog: boolean;
     name?: string;
 }
 
-const { site, path = "", name = "" } = Astro.props as Props;
+const { blog, name = "" } = Astro.props as Props;
 ---
 
 <nav
     class="h-14 sticky top-0 left-0 px-4 z-30 bg-opacity-50 bg-gradient-to-b from-surface to-80% to-transparent"
 >
     <div
-        class="h-14 flex flex-row justify-center items-center mx-auto my-auto max-w-screen-xl font-mono"
+        class="h-14 flex flex-row justify-between items-center mx-auto my-auto max-w-screen-xl font-mono"
     >
-        <a href={site + path}>
+        <a href="/">
             <p class="!text-lg font-semibold text-foreground self-center">
-                {name}
+                {
+                    blog && (
+                        <span class="text-xl">&lt</span>
+                    ) || (
+                        <span class="text-xl">&gt</span>
+                    )
+                }
+                Home
+            </p>
+        </a>
+        <p class="!text-lg font-semibold text-foreground self-center">
+            {name}
+        </p>
+        <a href="/blog">
+            <p class="!text-lg font-semibold text-foreground self-center">
+                Blog 
+                {
+                    !blog && (
+                        <span class="text-xl">&gt</span>
+                    ) || (
+                        <span class="text-xl">&lt</span>
+                    )
+                }
             </p>
         </a>
     </div>

@@ -6,7 +6,7 @@ import { getConfig } from "../lib/config";
 
 const CONFIG = await getConfig();
 if (CONFIG === undefined) return Astro.redirect("/404?r=config");
-const URL_ORIGIN = new URL(CONFIG.site).origin
+const URL_ORIGIN = new URL(CONFIG.site).origin;
 ---
 
 <Layout
@@ -14,28 +14,30 @@ const URL_ORIGIN = new URL(CONFIG.site).origin
     title={`Home - ${CONFIG.name}`}
     desc={CONFIG.description}
 >
-    <Header site={URL_ORIGIN} path="/" name={CONFIG.name} />
+    <Header blog={false} name={CONFIG.name} />
     <div class="flex flex-1 flex-col w-full h-full" transition:animate="fade">
-        <div class="flex flex-col w-full h-full min-h-[calc(100vh-3.5rem)]">
-            <div class="m-auto -translate-y-[3.5rem]">
+        <div class="flex flex-col w-full h-full min-h-[calc(100vh-3.5rem)] -translate-y-[3.5rem]">
+            <div
+                style={{
+                    translate: `-${CONFIG.links.length > 1 ? "0.75" : "0"}rem 0rem`,
+                }}
+                class="flex flex-col space-x-4 m-auto"
+            >
                 {
-                    CONFIG.links.map((entry, index) =>
-                        index % 2 ? (
+                    CONFIG.links.map((entry, index) => (
+                        <div
+                            style={{
+                                "margin-left": `${CONFIG.links.length > 1 ? (CONFIG.links.length - index) * 2.5 : 0}rem`,
+                            }}
+                        >
                             <LinkEntry
-                                color="var(--color-primary)"
+                                icon={entry.icon}
                                 label={entry.label}
                                 link={entry.link}
                                 ext={entry.external}
                             />
-                        ) : (
-                            <LinkEntry
-                                color="var(--color-foreground)"
-                                label={entry.label}
-                                link={entry.link}
-                                ext={entry.external}
-                            />
-                        ),
-                    )
+                        </div>
+                    ))
                 }
             </div>
         </div>

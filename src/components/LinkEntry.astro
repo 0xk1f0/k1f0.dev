@@ -2,24 +2,26 @@
 import path from "path";
 
 export interface Props {
+    icon: string;
     label: string;
     link: string;
-    color: string;
     ext: boolean;
 }
 
-const { label = "", link = "", color = "", ext = false } = Astro.props as Props;
+const {
+    icon = "",
+    label = "",
+    link = "",
+    ext = false,
+} = Astro.props as Props;
+
+const ICON_PATH = path.join("/icons", path.basename(icon));
 ---
 
 <div
-    class="flex flex-col justify-center w-full h-full max-h-[65px] mt-8 hover:translate-y-0.5 transition"
+    class="m-3 h-12 w-12 hover:translate-y-0.5 transition"
 >
     <a href={link} target={ext ? "_blank" : "_self"}>
-        <p
-            style={{ color: color + " !important" }}
-            class="font-mono my-auto !text-4xl text-center hover:!text-white"
-        >
-            {label}
-        </p>
+        <img width="48px" height="48px" alt={label} src={ICON_PATH} />
     </a>
 </div>

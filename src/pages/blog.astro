@@ -14,13 +14,13 @@ const URL_ORIGIN = new URL(CONFIG.site).origin
     title={`Blog - ${CONFIG.name}`}
     desc={CONFIG.description}
 >
-    <Header site={URL_ORIGIN} path="/blog" name={CONFIG.name} />
+    <Header blog={true} name={CONFIG.name} />
     <div
         class="flex flex-col w-full h-full min-h-[calc(100vh-3.5rem)] mt-2"
         transition:animate="fade"
     >
         <PostsListing server:defer>
-            <div slot="fallback" class="flex flex-col m-auto">
+            <div slot="fallback" class="flex flex-col m-auto -translate-y-[3.5rem]">
                 <svg
                     class="text-primary"
                     width="128"

@@ -15,11 +15,11 @@ spec:
     env:
     - name: TZ
       value: Europe/Vienna
-    - name: CONFIG_PATH
+    - name: CONFIG
       value: /config/config.json
-    - name: DB_PATH
+    - name: DB
       value: /data
-    - name: POSTS_PATH
+    - name: POSTS
       value: /posts
     ports:
     - containerPort: 80

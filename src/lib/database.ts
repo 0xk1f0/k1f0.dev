@@ -3,9 +3,9 @@ import { createStorage } from "unstorage";
 import fsLiteDriver from "unstorage/drivers/fs-lite";
 import { normalize } from "node:path";
 
-const DB_PATH = normalize(process.env.DB_PATH || "/tmp/unstorage/k1f0.dev");
+const DB = normalize(process.env.DB || "/tmp/unstorage/k1f0.dev");
 const UNSTORAGE = createStorage({
-    driver: fsLiteDriver({ base: DB_PATH }),
+    driver: fsLiteDriver({ base: DB }),
 });
 
 export async function getPostMetaList() {
