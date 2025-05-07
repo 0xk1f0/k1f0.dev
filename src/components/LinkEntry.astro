@@ -13,20 +13,35 @@ const { icon = "", label = "", link = "", ext = false } = Astro.props as Props;
 const ICON_PATH = path.join("/icons", path.basename(icon));
 ---
 
-<div class="link-entry m-3 h-12 w-12 transition rounded-full">
-    <a href={link} target={ext ? "_blank" : "_self"}>
+<a href={link} target={ext ? "_blank" : "_self"}>
+    <div class="link-entry m-3 h-12 w-12 transition rounded-full">
         <img width="48px" height="48px" alt={label} src={ICON_PATH} />
-    </a>
-</div>
+    </div>
+</a>
 
 <style>
     .link-entry {
         filter: drop-shadow(0px 0px 35px var(--color-primary));
+        animation: scaleIn 500ms;
     }
+
     .link-entry:hover,
     .link-entry:active,
     .link-entry:focus {
         scale: 105%;
         filter: drop-shadow(0px 0px 50px var(--color-foreground)) !important;
+    }
+
+    @keyframes scaleIn {
+        0% {
+            filter: drop-shadow(0px 0px 5px var(--color-primary));
+            scale: 75%;
+            opacity: 0;
+        }
+        100% {
+            filter: drop-shadow(0px 0px 35px var(--color-primary));
+            scale: 100%;
+            opacity: 1;
+        }
     }
 </style>
