@@ -82,22 +82,6 @@ ul {
     @apply border-primary border rounded-md !p-3 !m-0;
 }
 
-.general-container {
-    animation: fadeInY 500ms;
-}
-
-.post-container {
-    animation: fadeInY 500ms;
-}
-
-.about-container {
-    animation: fadeInY 500ms;
-}
-
-.container-fullscreen {
-    animation: fadeInX 500ms;
-}
-
 .blog-post > p {
     @apply my-2.5;
 }
@@ -134,26 +118,4 @@ ul {
 .post-preview > h3 {
     @apply my-2
     font-bold;
-}
-
-@keyframes fadeInY {
-    0% {
-        transform: translateY(+25%);
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInX {
-    0% {
-        transform: translateX(+25%);
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }

@@ -22,7 +22,7 @@ const ICON_PATH = path.join("/icons", path.basename(icon));
 <style>
     .link-entry {
         filter: drop-shadow(0px 0px 35px var(--color-primary));
-        animation: scaleIn 500ms;
+        animation: scaleIn 300ms;
     }
 
     .link-entry:hover,
@@ -34,12 +34,11 @@ const ICON_PATH = path.join("/icons", path.basename(icon));
 
     @keyframes scaleIn {
         0% {
-            filter: drop-shadow(0px 0px 5px var(--color-primary));
+            filter: drop-shadow(0px 0px 5px var(--color-primary)) blur(5px);
             scale: 75%;
             opacity: 0;
         }
         100% {
-            filter: drop-shadow(0px 0px 35px var(--color-primary));
             scale: 100%;
             opacity: 1;
         }

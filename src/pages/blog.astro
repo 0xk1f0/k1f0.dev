@@ -6,7 +6,7 @@ import { getConfig } from "../lib/config";
 
 const CONFIG = await getConfig();
 if (CONFIG === undefined) return Astro.redirect("/404?r=config");
-const URL_ORIGIN = new URL(CONFIG.site).origin
+const URL_ORIGIN = new URL(CONFIG.site).origin;
 ---
 
 <Layout
@@ -20,65 +20,29 @@ const URL_ORIGIN = new URL(CONFIG.site).origin
         transition:animate="fade"
     >
         <PostsListing server:defer>
-            <div slot="fallback" class="flex flex-col m-auto -translate-y-[3.5rem]">
-                <svg
-                    class="text-primary"
-                    width="128"
-                    height="128"
-                    version="1.1"
-                    id="L4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 50 100"
-                    enable-background="new 0 0 0 0"
-                    xml:space="preserve"
-                >
-                    <circle
-                        fill="currentColor"
-                        stroke="none"
-                        cx="6"
-                        cy="50"
-                        r="6"
-                    >
-                        <animate
-                            attributeName="opacity"
-                            dur="1s"
-                            values="0;1;0"
-                            repeatCount="indefinite"
-                            begin="0.1"></animate>
-                    </circle>
-                    <circle
-                        fill="currentColor"
-                        stroke="none"
-                        cx="26"
-                        cy="50"
-                        r="6"
-                    >
-                        <animate
-                            attributeName="opacity"
-                            dur="1s"
-                            values="0;1;0"
-                            repeatCount="indefinite"
-                            begin="0.2"></animate>
-                    </circle>
-                    <circle
-                        fill="currentColor"
-                        stroke="none"
-                        cx="46"
-                        cy="50"
-                        r="6"
-                    >
-                        <animate
-                            attributeName="opacity"
-                            dur="1s"
-                            values="0;1;0"
-                            repeatCount="indefinite"
-                            begin="0.3"></animate>
-                    </circle>
-                </svg>
+            <div
+                slot="fallback"
+                class="flex flex-col m-auto -translate-y-[3.5rem]"
+            >
+                <h1 class="loader font-mono text-primary">Loading...</h1>
             </div>
         </PostsListing>
     </div>
 </Layout>
+
+<style>
+    .loader {
+        filter: drop-shadow(0px 0px 35px var(--color-primary));
+        animation: blur 150ms;
+    }
+
+    @keyframes blur {
+        0% {
+            filter: drop-shadow(0px 0px 5px var(--color-primary));
+            filter: blur(5px);
+        }
+        100% {
+            filter: blur(0px);
+        }
+    }
+</style>
