@@ -10,19 +10,19 @@
     },
     "dependencies": {
         "@deno/astro-adapter": "~0.3.0",
-        "@tailwindcss/vite": "~4.1.5",
+        "@tailwindcss/vite": "~4.1.6",
         "arktype": "^2.1.20",
-        "astro": "~5.7.10",
+        "astro": "~5.7.12",
         "gray-matter": "~4.0.3",
         "highlight.js": "~11.11.1",
         "markdown-it": "~14.1.0",
         "markdown-it-highlightjs": "~4.2.0",
         "svelte": "~5.28.2",
-        "tailwindcss": "~4.1.5",
+        "tailwindcss": "~4.1.6",
         "unstorage": "~1.16.0"
     },
     "devDependencies": {
         "@types/markdown-it": "~14.1.2",
-        "@types/node": "~22.15.3"
+        "@types/node": "~22.15.17"
     }
 }
