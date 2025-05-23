@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
-import { getPostMetaList } from "../lib/database";
-import { getConfig } from "../lib/config";
+import { getPostMetaList } from "@lib/database";
+import { getConfig } from "@lib/config";
 
 const CONFIG = await getConfig();
 

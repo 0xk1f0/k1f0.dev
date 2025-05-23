@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { getConfig } from "../lib/config";
+import { getConfig } from "@lib/config";
 
 const CONFIG = await getConfig();
 
