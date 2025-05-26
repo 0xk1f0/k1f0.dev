@@ -18,20 +18,19 @@ const HTML = POST.content;
     title={`${POST.data.title} - ${CONFIG.name}`}
     desc={POST.data.excerpt}
 >
-    <Header blog={true} name={CONFIG.name} />
+    <Header
+        isRight={true}
+        name={CONFIG.name}
+        leftText="Back"
+        leftHref="/blog"
+        rightText="Post"
+        rightHref="#"
+    />
     <div
         class="flex flex-col max-w-screen-xl h-full min-h-[calc(100vh-3.5rem)] m-auto"
         transition:animate="fade"
     >
-        <div class="fullscreen-post max-w-screen-xl mx-4 my-1">
-            <div class="flex my-2 items-center content-center justify-start">
-                <a
-                    class="inline-block text-primary uppercase font-mono font-semibold text-base"
-                    href="/blog"
-                >
-                    <span class="text-xl">&lt</span> Go Back
-                </a>
-            </div>
+        <div class="fullscreen-post max-w-screen-xl mx-4 my-2">
             <h1>{POST.data.title}</h1>
             <div class="font-mono text-sm my-5">
                 <p>
@@ -40,14 +39,6 @@ const HTML = POST.content;
                 </p>
             </div>
             <div class="blog-post" set:html={HTML} />
-            <div class="flex my-2 items-center content-center justify-end">
-                <a
-                    class="inline-block text-primary uppercase font-mono font-semibold text-base"
-                    href="/blog"
-                >
-                    <span class="text-xl">&lt</span> Go Back
-                </a>
-            </div>
         </div>
     </div>
 </Layout>

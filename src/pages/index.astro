@@ -14,7 +14,7 @@ const URL_ORIGIN = new URL(CONFIG.site).origin;
     title={`Home - ${CONFIG.name}`}
     desc={CONFIG.description}
 >
-    <Header blog={false} name={CONFIG.name} />
+    <Header isRight={false} leftHref="#" name={CONFIG.name} />
     <div class="flex flex-1 flex-col w-full h-full" transition:animate="fade">
         <div class="flex flex-col w-full h-full min-h-[calc(100vh-3.5rem)] -translate-y-[3.5rem]">
             <div

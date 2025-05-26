@@ -1,10 +1,21 @@
 ---
 export interface Props {
-    blog: boolean;
-    name?: string;
+    name: string;
+    isRight: boolean;
+    leftText?: string;
+    leftHref?: string;
+    rightText?: string;
+    rightHref?: string;
 }
 
-const { blog, name = "" } = Astro.props as Props;
+const {
+    name,
+    isRight,
+    leftText = "Home",
+    leftHref = "/",
+    rightText = "Blog",
+    rightHref = "/blog",
+} = Astro.props as Props;
 ---
 
 <nav
@@ -13,28 +24,24 @@ const { blog, name = "" } = Astro.props as Props;
     <div
         class="h-14 flex flex-row justify-between items-center mx-auto my-auto max-w-screen-xl font-mono"
     >
-        <a href="/">
+        <a href={leftHref}>
             <p class="!text-lg font-semibold text-foreground self-center">
                 {
-                    blog && (
-                        <span class="text-xl">&lt</span>
-                    ) || (
+                    (isRight && <span class="text-xl">&lt</span>) || (
                         <span class="text-xl">&gt</span>
                     )
                 }
-                Home
+                {leftText}
             </p>
         </a>
         <p class="!text-lg font-semibold text-foreground self-center">
             {name}
         </p>
-        <a href="/blog">
+        <a href={rightHref}>
             <p class="!text-lg font-semibold text-foreground self-center">
-                Blog 
+                {rightText}
                 {
-                    !blog && (
-                        <span class="text-xl">&gt</span>
-                    ) || (
+                    (!isRight && <span class="text-xl">&gt</span>) || (
                         <span class="text-xl">&lt</span>
                     )
                 }
