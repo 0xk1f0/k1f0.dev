@@ -1,7 +1,7 @@
 import type { GrayMatterFile } from "gray-matter";
 import { createStorage } from "unstorage";
 import fsLiteDriver from "unstorage/drivers/fs-lite";
-import { normalize } from "node:path";
+import { normalize } from "path";
 
 const DB = normalize(process.env.DB || "/tmp/k1f0.dev/unstorage");
 const UNSTORAGE = createStorage({

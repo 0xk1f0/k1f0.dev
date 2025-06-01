@@ -15,8 +15,8 @@ echo '''
 
 echo "[+] Performing initial Cache Run ..."
 
-deno --quiet --allow-all /app/src/scripts/cache.ts
+bun run /app/src/scripts/cache.ts
 
 echo "[+] Starting Web Application ..."
 
-deno --quiet --allow-net --allow-read --allow-env /app/dist/server/entry.mjs
+bun run /app/dist/server/entry.mjs

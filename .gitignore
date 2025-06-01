@@ -5,7 +5,7 @@ dist/
 # dependencies
 node_modules/
 package-lock.json
-deno.lock
+bun.lock
 
 # logs
 npm-debug.log*

@@ -1,7 +1,7 @@
 import matter from "gray-matter";
-import { normalize } from "node:path";
-import { promises as fs } from "node:fs";
-import { extname, join } from "node:path";
+import { normalize } from "path";
+import { promises as fs } from "fs";
+import { extname, join } from "path";
 import markdownit from "markdown-it";
 import hljs from "highlight.js";
 import HighlightJS from "markdown-it-highlightjs";

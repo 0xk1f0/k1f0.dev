@@ -9,16 +9,16 @@
         "build": "astro build"
     },
     "dependencies": {
-        "@deno/astro-adapter": "~0.3.1",
-        "@tailwindcss/vite": "~4.1.7",
+        "@astrojs/node": "~9.2.2",
+        "@tailwindcss/vite": "~4.1.8",
         "arktype": "^2.1.20",
-        "astro": "~5.8.0",
+        "astro": "~5.8.1",
         "gray-matter": "~4.0.3",
         "highlight.js": "~11.11.1",
         "markdown-it": "~14.1.0",
         "markdown-it-highlightjs": "~4.2.0",
-        "svelte": "~5.33.2",
-        "tailwindcss": "~4.1.7",
+        "svelte": "~5.33.11",
+        "tailwindcss": "~4.1.8",
         "unstorage": "~1.16.0"
     },
     "devDependencies": {

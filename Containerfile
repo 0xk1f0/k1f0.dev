@@ -1,4 +1,4 @@
-FROM docker.io/denoland/deno:alpine
+FROM oven/bun:alpine
 
 # change workdir
 WORKDIR /app
@@ -10,13 +10,13 @@ COPY package.json \
     ./
 
 # Install dependencies
-RUN deno install
+RUN bun install
 
 # Copy all other files
 COPY src ./src
 
 # build
-RUN deno task build
+RUN bun run build
 
 # make posts dir
 RUN mkdir -p /posts && \
@@ -27,8 +27,8 @@ RUN mkdir -p /posts && \
 COPY misc/entrypoint.sh /
 COPY misc/config.json /config
 
-# expose 80
-EXPOSE 80
+# expose 8080
+EXPOSE 8080
 
 # start app
 CMD ["/entrypoint.sh"]
