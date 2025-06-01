@@ -2,7 +2,7 @@
 
 export NODE_ENV=production
 export HOST=0.0.0.0
-export PORT=80
+export PORT=8080
 
 echo '''
     __  ___________       __
