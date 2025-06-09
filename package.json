@@ -12,17 +12,17 @@
         "@astrojs/node": "~9.2.2",
         "@tailwindcss/vite": "~4.1.8",
         "arktype": "^2.1.20",
-        "astro": "~5.8.1",
+        "astro": "~5.9.1",
         "gray-matter": "~4.0.3",
         "highlight.js": "~11.11.1",
         "markdown-it": "~14.1.0",
         "markdown-it-highlightjs": "~4.2.0",
-        "svelte": "~5.33.13",
+        "svelte": "~5.33.18",
         "tailwindcss": "~4.1.8",
         "unstorage": "~1.16.0"
     },
     "devDependencies": {
         "@types/markdown-it": "~14.1.2",
-        "@types/node": "~22.15.29"
+        "@types/node": "~22.15.30"
     }
 }
