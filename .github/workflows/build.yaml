@@ -2,25 +2,25 @@ name: Build and Publish Latest Image
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
     paths:
-      - '.github/workflows/**'
-      - 'misc/**'
-      - 'src/**'
-      - 'astro.conf.mjs'
-      - 'tsconfig.json'
-      - 'package.json'
-      - 'Containerfile'
+      - ".github/workflows/**"
+      - "misc/**"
+      - "src/**"
+      - "astro.conf.mjs"
+      - "tsconfig.json"
+      - "package.json"
+      - "Containerfile"
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
     paths:
-      - '.github/workflows/**'
-      - 'misc/**'
-      - 'src/**'
-      - 'astro.conf.mjs'
-      - 'tsconfig.json'
-      - 'package.json'
-      - 'Containerfile'
+      - ".github/workflows/**"
+      - "misc/**"
+      - "src/**"
+      - "astro.conf.mjs"
+      - "tsconfig.json"
+      - "package.json"
+      - "Containerfile"
 
 jobs:
   build-publish:

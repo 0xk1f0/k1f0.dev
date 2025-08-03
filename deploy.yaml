@@ -5,41 +5,41 @@ metadata:
 spec:
   restartPolicy: Always
   containers:
-  - name: k1f0dev
-    image: k1f0.dev:latest
-    resources:
-      limits:
-        memory: "1G"
-    env:
-    - name: TZ
-      value: Europe/Vienna
-    - name: CONFIG
-      value: /config/config.json
-    - name: DB
-      value: /data
-    - name: POSTS
-      value: /posts
-    ports:
-    - containerPort: 8080
-      hostIP: 127.0.0.1
-      hostPort: 3080
-    volumeMounts:
-    - mountPath: /config:Z
-      name: config
-    - mountPath: /posts:Z
-      name: posts
-    - mountPath: /database:Z
-      name: database
+    - name: k1f0dev
+      image: k1f0.dev:latest
+      resources:
+        limits:
+          memory: "1G"
+      env:
+        - name: TZ
+          value: Europe/Vienna
+        - name: CONFIG
+          value: /config/config.json
+        - name: DB
+          value: /data
+        - name: POSTS
+          value: /posts
+      ports:
+        - containerPort: 8080
+          hostIP: 127.0.0.1
+          hostPort: 3080
+      volumeMounts:
+        - mountPath: /config:Z
+          name: config
+        - mountPath: /posts:Z
+          name: posts
+        - mountPath: /database:Z
+          name: database
   volumes:
-  - hostPath:
-      path: ./.data/k1f0.dev/config
-      type: DirectoryOrCreate
-    name: config
-  - hostPath:
-      path: ./.data/k1f0.dev/posts
-      type: DirectoryOrCreate
-    name: posts
-  - hostPath:
-      path: ./.data/k1f0.dev/database
-      type: DirectoryOrCreate
-    name: database
+    - hostPath:
+        path: ./.data/k1f0.dev/config
+        type: DirectoryOrCreate
+      name: config
+    - hostPath:
+        path: ./.data/k1f0.dev/posts
+        type: DirectoryOrCreate
+      name: posts
+    - hostPath:
+        path: ./.data/k1f0.dev/database
+        type: DirectoryOrCreate
+      name: database
