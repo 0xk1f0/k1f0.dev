@@ -17,12 +17,12 @@
         "highlight.js": "~11.11",
         "markdown-it": "~14.1",
         "markdown-it-highlightjs": "~4.2",
-        "svelte": "~5.38",
+        "svelte": "~5.39",
         "tailwindcss": "~4.1",
         "unstorage": "~1.17"
     },
     "devDependencies": {
         "@types/markdown-it": "~14.1",
-        "@types/node": "~24.4"
+        "@types/node": "~24.5"
     }
 }
