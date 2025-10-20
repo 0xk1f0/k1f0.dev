@@ -9,7 +9,7 @@
         "build": "astro build"
     },
     "dependencies": {
-        "@astrojs/node": "~9.4",
+        "@astrojs/node": "~9.5",
         "@tailwindcss/vite": "~4.1",
         "arktype": "~2.1",
         "astro": "~5.14",
@@ -17,12 +17,12 @@
         "highlight.js": "~11.11",
         "markdown-it": "~14.1",
         "markdown-it-highlightjs": "~4.2",
-        "svelte": "~5.39",
+        "svelte": "~5.41",
         "tailwindcss": "~4.1",
         "unstorage": "~1.17"
     },
     "devDependencies": {
         "@types/markdown-it": "~14.1",
-        "@types/node": "~24.7"
+        "@types/node": "~24.8"
     }
 }
