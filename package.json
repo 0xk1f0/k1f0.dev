@@ -16,8 +16,8 @@
         "gray-matter": "~4.0",
         "highlight.js": "~11.11",
         "markdown-it": "~14.1",
-        "markdown-it-highlightjs": "~4.2",
-        "svelte": "~5.49",
+        "markdown-it-highlightjs": "~4.3",
+        "svelte": "~5.50",
         "tailwindcss": "~4.1",
         "unstorage": "~1.17"
     },
