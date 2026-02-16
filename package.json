@@ -17,7 +17,7 @@
         "highlight.js": "~11.11",
         "markdown-it": "~14.1",
         "markdown-it-highlightjs": "~4.3",
-        "svelte": "~5.50",
+        "svelte": "~5.51",
         "tailwindcss": "~4.1",
         "unstorage": "~1.17"
     },
