@@ -4,7 +4,7 @@ slug: ctf-adventures
 description: About the Austrian Cyber Security Challenge...
 pubDatetime: 2023-10-05T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["life", "coding", "hacking", "opinion"]
 ---
 
 ## It's Hacking Time!

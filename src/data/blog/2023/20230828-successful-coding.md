@@ -4,7 +4,7 @@ slug: successful-coding
 description: Things that made my first big coding project awesome
 pubDatetime: 2023-08-28T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["life", "coding", "opinion"]
 ---
 
 ## Having a Reason

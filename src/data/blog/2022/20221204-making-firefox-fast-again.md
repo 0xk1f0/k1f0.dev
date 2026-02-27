@@ -4,7 +4,7 @@ slug: making-firefox-fast-again
 description: The once fastest browser...
 pubDatetime: 2022-12-04T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["browser", "coding", "opinion"]
 ---
 
 Depending on if and how long you have been using Firefox, you may have noticed visual and performance changes as updates came in. How you

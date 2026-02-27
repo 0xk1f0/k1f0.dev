@@ -4,7 +4,7 @@ slug: arch-linux-install
 description: One of many ways...
 pubDatetime: 2023-07-02T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["linux", "guide"]
 ---
 
 ## Yet another guide?

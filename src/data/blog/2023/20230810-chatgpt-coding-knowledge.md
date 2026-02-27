@@ -4,7 +4,7 @@ slug: chatgpt-coding-knowledge
 description: Does it really teach you how to code?
 pubDatetime: 2023-08-10T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["coding", "opinion"]
 ---
 
 ## The Promise

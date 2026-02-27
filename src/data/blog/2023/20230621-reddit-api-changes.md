@@ -4,7 +4,7 @@ slug: reddit-api-changes
 description: The death of third party apps
 pubDatetime: 2023-06-21T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["life", "reddit", "opinion"]
 ---
 
 After many what seems to be useless days and hours of protesting, Reddit still seems to not care about their userbase.

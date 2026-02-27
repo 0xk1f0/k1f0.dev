@@ -4,7 +4,7 @@ slug: back-at-last
 description: The yearly recap
 pubDatetime: 2024-12-30T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["life", "ems", "opinion"]
 ---
 
 Hello there, after about eleven months of silence.

@@ -4,7 +4,7 @@ slug: one-hundred-eighty
 description: How it feels getting back into IT...
 pubDatetime: 2025-08-24T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["life", "coding", "ems", "opinion"]
 ---
 
 A lot of time has passed again since the last time you heard from me here.

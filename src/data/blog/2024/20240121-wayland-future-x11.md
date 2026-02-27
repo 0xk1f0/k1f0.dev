@@ -4,7 +4,7 @@ slug: wayland-future-x11
 description: Please let X11 die...
 pubDatetime: 2024-01-21T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["linux", "opinion"]
 ---
 
 First of all Happy New Year, since this is the first post made in 2024, I hope you all had a smooth start and I wish you all the best.

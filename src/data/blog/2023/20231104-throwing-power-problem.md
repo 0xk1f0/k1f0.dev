@@ -4,7 +4,7 @@ slug: throwing-power-problem
 description: About Gaming Hardware, Upscaling and Efficiency
 pubDatetime: 2023-11-04T00:00:00.00Z
 draft: false
-tags: ["life"]
+tags: ["gaming", "opinion"]
 ---
 
 ## The Problem at hand
