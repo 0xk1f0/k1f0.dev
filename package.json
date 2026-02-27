@@ -1,28 +1,40 @@
 {
-    "name": "k1f0.dev",
-    "type": "module",
-    "version": "5.0",
-    "private": true,
-    "scripts": {
-        "astro": "astro",
-        "dev": "astro dev",
-        "build": "astro build"
-    },
-    "dependencies": {
-        "@astrojs/node": "~9.5",
-        "@tailwindcss/vite": "~4.2",
-        "arktype": "~2.1",
-        "astro": "~5.17",
-        "gray-matter": "~4.0",
-        "highlight.js": "~11.11",
-        "markdown-it": "~14.1",
-        "markdown-it-highlightjs": "~4.3",
-        "svelte": "~5.53",
-        "tailwindcss": "~4.2",
-        "unstorage": "~1.17"
-    },
-    "devDependencies": {
-        "@types/markdown-it": "~14.1",
-        "@types/node": "~25.3"
-    }
+  "name": "k1f0.dev",
+  "type": "module",
+  "version": "6.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
+    "sync": "astro sync",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/rss": "~4.0",
+    "@astrojs/sitemap": "~3.7",
+    "@resvg/resvg-js": "~2.6",
+    "@tailwindcss/vite": "~4.2",
+    "astro": "~5.18",
+    "dayjs": "~1.11",
+    "lodash.kebabcase": "~4.1",
+    "remark-collapse": "~0.1",
+    "remark-toc": "~9.0",
+    "satori": "~0.18",
+    "sharp": "~0.34",
+    "slugify": "~1.6",
+    "tailwindcss": "~4.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "~0.9",
+    "@pagefind/default-ui": "~1.4",
+    "@shikijs/transformers": "~4.0",
+    "@tailwindcss/typography": "~0.5",
+    "@types/lodash.kebabcase": "~4.1",
+    "globals": "~16.5",
+    "pagefind": "~1.4",
+    "prettier": "^3.7",
+    "prettier-plugin-astro": "~0.14",
+    "prettier-plugin-tailwindcss": "~0.7",
+    "typescript": "^5.9"
+  }
 }

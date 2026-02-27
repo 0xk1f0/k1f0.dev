@@ -5,21 +5,23 @@ on:
     branches: ["master"]
     paths:
       - ".github/workflows/**"
-      - "misc/**"
+      - "public/**"
       - "src/**"
       - "astro.conf.mjs"
       - "tsconfig.json"
       - "package.json"
+      - "bun.lock"
       - "Containerfile"
   pull_request:
     branches: ["master"]
     paths:
       - ".github/workflows/**"
-      - "misc/**"
+      - "public/**"
       - "src/**"
       - "astro.conf.mjs"
       - "tsconfig.json"
       - "package.json"
+      - "bun.lock"
       - "Containerfile"
 
 jobs:

@@ -1,34 +1,18 @@
-FROM oven/bun:alpine
+# Base stage for building the static files
+FROM oven/bun:distroless AS base
 
-# change workdir
 WORKDIR /app
 
-# Copy initial necessary files to container
-COPY package.json \
-    astro.config.mjs \
-    tsconfig.json \
-    ./
+COPY package.json bun.lock ./
 
-# Install dependencies
-RUN bun install
+RUN bun install --frozen-lockfile
 
-# Copy all other files
-COPY src ./src
+COPY . .
 
-# build
 RUN bun run build
 
-# make posts dir
-RUN mkdir -p /posts && \
-    mkdir -p /config && \
-    mkdir -p /database
+FROM nginx:mainline-alpine-slim AS runtime
 
-# copy misc files
-COPY misc/entrypoint.sh /
-COPY misc/config.json /config
+COPY --from=base /app/dist /usr/share/nginx/html
 
-# expose 8080
-EXPOSE 8080
-
-# start app
-CMD ["/entrypoint.sh"]
+EXPOSE 80

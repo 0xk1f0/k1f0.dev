@@ -1,16 +1,13 @@
 {
-    "extends": "astro/tsconfigs/base",
-    "include": [".astro/types.d.ts", "**/*"],
-    "exclude": ["dist", "node_modules"],
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@components/*": ["src/components/*"],
-            "@layouts/*": ["src/layouts/*"],
-            "@styles/*": ["src/styles/*"],
-            "@lib/*": ["src/lib/*"]
-        },
-        "strictNullChecks": true,
-        "verbatimModuleSyntax": true
-    }
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "public/pagefind"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }
