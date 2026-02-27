@@ -1,5 +1,5 @@
 # Base stage for building the static files
-FROM oven/bun:distroless AS base
+FROM oven/bun:alpine AS base
 
 WORKDIR /app
 
