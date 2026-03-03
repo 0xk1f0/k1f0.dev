@@ -19,7 +19,7 @@
     "lodash.kebabcase": "~4.1",
     "remark-collapse": "~0.1",
     "remark-toc": "~9.0",
-    "satori": "~0.18",
+    "satori": "~0.24",
     "sharp": "~0.34",
     "slugify": "~1.6",
     "tailwindcss": "~4.2"
@@ -30,9 +30,9 @@
     "@shikijs/transformers": "~4.0",
     "@tailwindcss/typography": "~0.5",
     "@types/lodash.kebabcase": "~4.1",
-    "globals": "~16.5",
+    "globals": "~17.4",
     "pagefind": "~1.4",
-    "prettier": "^3.7",
+    "prettier": "^3.8",
     "prettier-plugin-astro": "~0.14",
     "prettier-plugin-tailwindcss": "~0.7",
     "typescript": "^5.9"
