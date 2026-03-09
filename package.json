@@ -19,7 +19,7 @@
     "lodash.kebabcase": "~4.1",
     "remark-collapse": "~0.1",
     "remark-toc": "~9.0",
-    "satori": "~0.24",
+    "satori": "~0.25",
     "sharp": "~0.34",
     "slugify": "~1.6",
     "tailwindcss": "~4.2"
