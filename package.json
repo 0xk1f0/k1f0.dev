@@ -22,13 +22,14 @@
     "sharp": "0.34.x",
     "slugify": "1.6.x",
     "tailwindcss": "0.0.0-insiders.a4be983",
-    "lodash.kebabcase": "~4.1.x"
+    "lodash.kebabcase": "4.1.x"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.x",
     "@pagefind/default-ui": "1.4.x",
     "@shikijs/transformers": "4.0.x",
     "@tailwindcss/typography": "0.5.x",
+    "@types/lodash.kebabcase": "4.1.x",
     "globals": "17.4.x",
     "pagefind": "1.4.x",
     "typescript": "5.9.x"
