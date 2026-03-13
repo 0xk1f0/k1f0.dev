@@ -15,7 +15,7 @@ export default defineConfig({
   site: SITE.website,
   integrations: [
     sitemap({
-      filter: page => SITE.showArchives || !page.endsWith("/archives"),
+      filter: (page) => SITE.showArchives || !page.endsWith("/archives"),
     }),
   ],
   markdown: {
@@ -33,6 +33,7 @@ export default defineConfig({
     },
   },
   vite: {
+    // @ts-expect-error: Tailwind Vite Plugin Compat
     plugins: [tailwindcss()],
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
@@ -51,17 +52,14 @@ export default defineConfig({
       }),
     },
   },
-  experimental: {
-    preserveScriptOrder: true,
-    fonts: [
-      {
-        name: "Google Sans Flex",
-        cssVariable: "--font-google-sans-flex",
-        provider: fontProviders.google(),
-        fallbacks: ["system-ui"],
-        weights: [300, 400, 500, 600, 700],
-        styles: ["normal", "italic"],
-      },
-    ],
-  },
+  fonts: [
+    {
+      name: "Google Sans Flex",
+      cssVariable: "--font-google-sans-flex",
+      provider: fontProviders.google(),
+      fallbacks: ["system-ui"],
+      weights: [300, 400, 500, 600, 700],
+      styles: ["normal", "italic"],
+    },
+  ],
 });
