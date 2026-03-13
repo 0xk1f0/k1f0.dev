@@ -33,7 +33,6 @@ export default defineConfig({
     },
   },
   vite: {
-    // @ts-expect-error: Tailwind Vite Plugin Compat
     plugins: [tailwindcss()],
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
