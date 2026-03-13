@@ -3,7 +3,7 @@ export const SITE = {
   author: "k1f0",
   realName: "Fabian",
   profile: "",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
+  desc: "Programmer & Volunteering EMT-B",
   title: "k1f0.dev",
   ogImage: "",
   lightAndDarkMode: true,
