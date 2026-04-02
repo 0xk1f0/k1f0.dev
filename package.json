@@ -14,7 +14,7 @@
     "@astrojs/sitemap": "3.7.x",
     "@resvg/resvg-js": "2.6.x",
     "@tailwindcss/vite": "4.2.2",
-    "astro": "6.0.x",
+    "astro": "6.1.x",
     "dayjs": "1.11.x",
     "remark-collapse": "0.1.x",
     "remark-toc": "9.0.x",
@@ -32,6 +32,6 @@
     "@types/lodash.kebabcase": "4.1.x",
     "globals": "17.4.x",
     "pagefind": "1.4.x",
-    "typescript": "5.9.x"
+    "typescript": "6.0.x"
   }
 }
