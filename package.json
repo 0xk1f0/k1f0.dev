@@ -26,12 +26,12 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.x",
-    "@pagefind/default-ui": "1.4.x",
+    "@pagefind/default-ui": "1.5.x",
     "@shikijs/transformers": "4.0.x",
     "@tailwindcss/typography": "0.5.x",
     "@types/lodash.kebabcase": "4.1.x",
-    "globals": "17.4.x",
-    "pagefind": "1.4.x",
+    "globals": "17.5.x",
+    "pagefind": "1.5.x",
     "typescript": "6.0.x"
   }
 }
