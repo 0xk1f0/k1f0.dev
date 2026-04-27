@@ -13,7 +13,7 @@
     "@astrojs/rss": "4.0.x",
     "@astrojs/sitemap": "3.7.x",
     "@resvg/resvg-js": "2.6.x",
-    "@tailwindcss/vite": "4.2.2",
+    "@tailwindcss/vite": "4.2.4",
     "astro": "6.1.x",
     "dayjs": "1.11.x",
     "remark-collapse": "0.1.x",
@@ -21,7 +21,7 @@
     "satori": "0.26.x",
     "sharp": "0.34.x",
     "slugify": "1.6.x",
-    "tailwindcss": "4.2.2",
+    "tailwindcss": "4.2.4",
     "lodash.kebabcase": "4.1.x"
   },
   "devDependencies": {
