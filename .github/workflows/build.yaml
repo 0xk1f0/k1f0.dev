@@ -55,13 +55,13 @@ jobs:
           FLUX_WEBHOOK_URL: ${{ secrets.FLUX_WEBHOOK_URL }}
         run: |
           BODY='{"deployment":"k1f0-dev","namespace":"k1f0-dev"}'
-          SIGNATURE=$(printf '%s' "${BODY}" | openssl dgst -sha256 -hmac "${FLUX_WEBHOOK_TOKEN}" -hex | sed 's/^.* //')
+          SIGNATURE=$(printf '%s' "$BODY" | openssl dgst -sha256 -hmac "$FLUX_WEBHOOK_TOKEN" -hex | sed 's/^.* //')
 
           curl -fsSL -X POST \
             -H "Content-Type: application/json" \
-            -H "X-Hub-Signature-256: sha256=${SIGNATURE}" \
-            -d "${BODY}" \
-            "${FLUX_WEBHOOK_URL}"
+            -H "X-Hub-Signature-256: sha256=$SIGNATURE" \
+            -d "$BODY" \
+            "$FLUX_WEBHOOK_URL"
       - name: Cleanup registry
         if: ${{ github.event_name != 'pull_request' }}
         uses: actions/delete-package-versions@v5
