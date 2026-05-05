@@ -50,12 +50,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Trigger Flux Reconcile
+        env:
+          FLUX_WEBHOOK_TOKEN: ${{ secrets.FLUX_WEBHOOK_TOKEN }}
+          FLUX_WEBHOOK_URL: ${{ secrets.FLUX_WEBHOOK_URL }}
         run: |
+          BODY='{"deployment":"k1f0-dev","namespace":"k1f0-dev"}'
+          SIGNATURE=$(printf '%s' "${BODY}" | openssl dgst -sha256 -hmac "${FLUX_WEBHOOK_TOKEN}" -hex | sed 's/^.* //')
+
           curl -fsSL -X POST \
             -H "Content-Type: application/json" \
-            -H "X-Signature: sha256=$(echo -n '{}' | openssl dgst -sha256 -hmac "${{ secrets.FLUX_WEBHOOK_TOKEN }}" | cut -d' ' -f2)" \
-            -d '{}' \
-            "${{ secrets.FLUX_WEBHOOK_URL }}"
+            -H "X-Signature: sha256=${SIGNATURE}" \
+            -d "${BODY}" \
+            "${FLUX_WEBHOOK_URL}"
       - name: Cleanup registry
         if: ${{ github.event_name != 'pull_request' }}
         uses: actions/delete-package-versions@v5
