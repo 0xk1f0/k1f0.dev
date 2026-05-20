@@ -50,6 +50,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Trigger Flux Reconcile
+        if: ${{ github.event_name != 'pull_request' }}
         env:
           FLUX_WEBHOOK_TOKEN: ${{ secrets.FLUX_WEBHOOK_TOKEN }}
           FLUX_WEBHOOK_URL: ${{ secrets.FLUX_WEBHOOK_URL }}
