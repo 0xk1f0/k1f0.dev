@@ -27,7 +27,7 @@
   "devDependencies": {
     "@astrojs/check": "0.9.x",
     "@pagefind/default-ui": "1.5.x",
-    "@shikijs/transformers": "4.1.x",
+    "@shikijs/transformers": "4.2.x",
     "@tailwindcss/typography": "0.5.x",
     "@types/lodash.kebabcase": "4.1.x",
     "globals": "17.6.x",
