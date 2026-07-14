@@ -1,6 +1,6 @@
 ---
-layout: ../layouts/AboutLayout.astro
 title: "About"
+description: "A bit about me and this blog."
 ---
 
 Welcome to my corner of the internet! I'm Fabian.
