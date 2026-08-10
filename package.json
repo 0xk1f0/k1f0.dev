@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "3.7.x",
     "@resvg/resvg-js": "2.6.x",
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.1.x",
+    "astro": "7.2.x",
     "dayjs": "1.11.x",
     "lodash.kebabcase": "4.1.x",
     "rehype-callouts": "2.2.x",
@@ -30,10 +30,10 @@
   "devDependencies": {
     "@astrojs/check": "0.9.x",
     "@pagefind/default-ui": "1.5.x",
-    "@shikijs/transformers": "4.3.x",
+    "@shikijs/transformers": "4.4.x",
     "@tailwindcss/typography": "0.5.x",
     "@types/lodash.kebabcase": "4.1.x",
-    "globals": "17.8.x",
+    "globals": "17.9.x",
     "pagefind": "1.5.x",
     "typescript": "7.0.x"
   }
