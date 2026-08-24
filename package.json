@@ -22,7 +22,7 @@
     "rehype-callouts": "2.2.x",
     "remark-collapse": "0.1.x",
     "remark-toc": "9.0.x",
-    "satori": "0.29.x",
+    "satori": "0.33.x",
     "sharp": "0.35.x",
     "slugify": "1.6.x",
     "tailwindcss": "4.3.3"
